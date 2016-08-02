@@ -12,7 +12,6 @@
 		81081F631D37D866000F8DFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81081F611D37D866000F8DFE /* Main.storyboard */; };
 		81081F651D37D866000F8DFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81081F641D37D866000F8DFE /* Assets.xcassets */; };
 		81081F681D37D866000F8DFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81081F661D37D866000F8DFE /* LaunchScreen.storyboard */; };
-		81081F731D37D867000F8DFE /* SwiftHelpSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F721D37D867000F8DFE /* SwiftHelpSetTests.swift */; };
 		81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F7F1D37D8CA000F8DFE /* SwiftyTableView.swift */; };
 		81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */; };
 		81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F831D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift */; };
@@ -28,6 +27,7 @@
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
+		81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */; };
 		81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */; };
 		81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */; };
 		81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */; };
@@ -60,7 +60,6 @@
 		81081F671D37D866000F8DFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81081F691D37D867000F8DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81081F6E1D37D867000F8DFE /* SwiftHelpSetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHelpSetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		81081F721D37D867000F8DFE /* SwiftHelpSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHelpSetTests.swift; sourceTree = "<group>"; };
 		81081F741D37D867000F8DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81081F7F1D37D8CA000F8DFE /* SwiftyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTableView.swift; path = Sources/UIKIt/SwiftyTableView.swift; sourceTree = "<group>"; };
 		81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyScrollView.swift; path = Sources/UIKIt/SwiftyScrollView.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
+		81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTestCases.swift; sourceTree = "<group>"; };
 		81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = Sources/UIKIt/UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTextField.swift; path = Sources/UIKIt/SwiftyTextField.swift; sourceTree = "<group>"; };
 		81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIKIt/UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 		81081F711D37D867000F8DFE /* SwiftHelpSetTests */ = {
 			isa = PBXGroup;
 			children = (
-				81081F721D37D867000F8DFE /* SwiftHelpSetTests.swift */,
 				81081F741D37D867000F8DFE /* Info.plist */,
+				81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */,
 			);
 			path = SwiftHelpSetTests;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81081F731D37D867000F8DFE /* SwiftHelpSetTests.swift in Sources */,
+				81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,10 +519,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftHelpSetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftHelpSet.app/SwiftHelpSet";
 			};
 			name = Debug;
@@ -531,10 +534,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftHelpSetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftHelpSet.app/SwiftHelpSet";
 			};
 			name = Release;
