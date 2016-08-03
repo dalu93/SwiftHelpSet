@@ -11,7 +11,7 @@ import Foundation
 extension Array {
     
     /**
-     Get the element at the specific index
+     Gets the element at the specific index
      
      If the `index` is out of bounds, the method will return `nil`
      
@@ -22,6 +22,28 @@ extension Array {
      */
     public func get(at index: Int) -> Element? {
         if count > index { return self[index] }
+        return nil
+    }
+    
+    /**
+     Removes a specific `Equatable` object from the array
+     
+     - parameter object: Equatable conforming object to delete
+     
+     - returns: Returns the index of the object in the array if it found it,
+                otherwise `nil`
+     */
+    public mutating func remove<T: Equatable>(object: T) -> Int? {
+        
+        for (idx, stored) in enumerate() {
+            guard let stored = stored as? T else { break }
+            
+            if stored == object {
+                removeAtIndex(idx)
+                return idx
+            }
+        }
+        
         return nil
     }
 }
