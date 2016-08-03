@@ -23,6 +23,9 @@ extension String {
     
     /// It tells if the `String` instance is a valid email or not
     public var isEmail: Bool {
+        
+        let trimmed = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
         do {
             let regex = try NSRegularExpression(
                 pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
@@ -30,9 +33,9 @@ extension String {
             )
             
             return regex.firstMatchInString(
-                self,
+                trimmed,
                 options: NSMatchingOptions(rawValue: 0),
-                range: NSMakeRange(0, self.characters.count)) != nil
+                range: NSMakeRange(0, trimmed.characters.count)) != nil
         } catch {
             return false
         }
@@ -41,7 +44,7 @@ extension String {
     /// It tells if the `String` instance is completely empty (by trimming the spaces)
     public var isBlank: Bool {
         get {
-            let trimmed = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            let trimmed = stringByReplacingOccurrencesOfString(" ", withString: "")
             return trimmed.isEmpty
         }
     }
@@ -57,7 +60,9 @@ extension String {
         
         let filtered = inputString.componentsJoinedByString("")
         
-        return  self == filtered
+        let trimmed = stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        return  trimmed == filtered
         
     }
 }
