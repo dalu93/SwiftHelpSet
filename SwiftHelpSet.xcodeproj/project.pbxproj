@@ -16,7 +16,7 @@
 		81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */; };
 		81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F831D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift */; };
 		81081F861D37E1F0000F8DFE /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F851D37E1F0000F8DFE /* ReusableView.swift */; };
-		81081F8A1D37E3E2000F8DFE /* SwiftyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F891D37E3E2000F8DFE /* SwiftyConstraints.swift */; };
+		81081F8A1D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F891D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift */; };
 		81081F8E1D37E6C3000F8DFE /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81081F8D1D37E6C3000F8DFE /* ArrayExtensions.swift */; };
 		810C08AE1D3E204300A30595 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C08AD1D3E204300A30595 /* UITableViewExtensions.swift */; };
 		810DFB6F1D38C50A003F1604 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB6E1D38C50A003F1604 /* Form.swift */; };
@@ -67,7 +67,7 @@
 		81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyScrollView.swift; path = Sources/UIKIt/SwiftyScrollView.swift; sourceTree = "<group>"; };
 		81081F831D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyGenericTableViewController.swift; path = Sources/UIKIt/SwiftyGenericTableViewController.swift; sourceTree = "<group>"; };
 		81081F851D37E1F0000F8DFE /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableView.swift; path = Sources/UIKIt/ReusableView.swift; sourceTree = "<group>"; };
-		81081F891D37E3E2000F8DFE /* SwiftyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyConstraints.swift; path = Sources/UIKIt/SwiftyConstraints.swift; sourceTree = "<group>"; };
+		81081F891D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSLayoutConstraintExtensions.swift; path = Sources/UIKIt/NSLayoutConstraintExtensions.swift; sourceTree = "<group>"; };
 		81081F8D1D37E6C3000F8DFE /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = Sources/Foundation/ArrayExtensions.swift; sourceTree = "<group>"; };
 		810C08AD1D3E204300A30595 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensions.swift; path = Sources/UIKIt/UITableViewExtensions.swift; sourceTree = "<group>"; };
 		810DFB6E1D38C50A003F1604 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Sources/Utilities/Form.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				81081F7F1D37D8CA000F8DFE /* SwiftyTableView.swift */,
 				81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */,
 				81081F831D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift */,
-				81081F891D37E3E2000F8DFE /* SwiftyConstraints.swift */,
+				81081F891D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift */,
 				81F5059A1D391ED6008121F7 /* BasicAnimation.swift */,
 				810C08AD1D3E204300A30595 /* UITableViewExtensions.swift */,
 				81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */,
@@ -352,7 +352,7 @@
 				810DFB731D38C713003F1604 /* ConnectionStatus.swift in Sources */,
 				810DFB6F1D38C50A003F1604 /* Form.swift in Sources */,
 				81F505951D391AC4008121F7 /* Completion.swift in Sources */,
-				81081F8A1D37E3E2000F8DFE /* SwiftyConstraints.swift in Sources */,
+				81081F8A1D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift in Sources */,
 				810C08AE1D3E204300A30595 /* UITableViewExtensions.swift in Sources */,
 				817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */,
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
