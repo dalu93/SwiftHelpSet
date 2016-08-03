@@ -28,6 +28,7 @@
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
+		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
 		81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */; };
 		81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */; };
 		81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */; };
@@ -78,6 +79,7 @@
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
+		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
 		81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTestCases.swift; sourceTree = "<group>"; };
 		81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = Sources/UIKIt/UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTextField.swift; path = Sources/UIKIt/SwiftyTextField.swift; sourceTree = "<group>"; };
@@ -194,13 +196,14 @@
 		810DFB6C1D38C4F3003F1604 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				81E4037A1D3E4AD200FECD20 /* Permission.swift */,
 				810DFB761D38E48E003F1604 /* API */,
 				810DFB6D1D38C4FB003F1604 /* Form */,
 				810DFB721D38C713003F1604 /* ConnectionStatus.swift */,
 				810DFB741D38E45D003F1604 /* Resource.swift */,
 				81F505941D391AC4008121F7 /* Completion.swift */,
+				817FE1781D5236B900F4CAC2 /* Bindable.swift */,
 				81F3778F1D3FA90D00267B30 /* Purchase.swift */,
+				81E4037A1D3E4AD200FECD20 /* Permission.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				81081F8E1D37E6C3000F8DFE /* ArrayExtensions.swift in Sources */,
 				81E4037B1D3E4AD200FECD20 /* Permission.swift in Sources */,
 				81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */,
+				817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */,
 				81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */,
 				81F377901D3FA90D00267B30 /* Purchase.swift in Sources */,
 				81F86D3E1D381630007CFC76 /* Localizable.swift in Sources */,
