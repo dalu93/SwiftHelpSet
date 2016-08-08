@@ -31,7 +31,9 @@ extension Form {
         // Enumerats the properties
         for (_, property) in childrenEnumerate {
             // If there is a rule-closure associated ok, otherwise crash
-            guard let closure = rules[property.label!] else { fatalError("The rule for property \(property.label!) isn't defined") }
+            guard
+                let propertyLabel = property.label,
+                let closure = rules[propertyLabel] else { fatalError("The rule for property \(property.label!) isn't defined") }
             
             // Check if the property is valid
             let isValid = closure(property.value as! AnyObject)
@@ -39,7 +41,7 @@ extension Form {
             // If the property it's not valid
             if !isValid {
                 // Return the error
-                return .propertyNotRespectRule(property.label!)
+                return .propertyNotRespectRule(propertyLabel)
             }
         }
         

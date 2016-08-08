@@ -20,7 +20,6 @@ public protocol NibConvertible {
  *  Identifier for class
  */
 public protocol IdentifierConvertible {
-    
     static var identifier: String { get }
 }
 

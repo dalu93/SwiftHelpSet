@@ -34,11 +34,11 @@ public struct Endpoint {
     /// The path
     public let path : String
     
-    /// The parameters
-    public let parameters : [String : AnyObject]?
-    
     /// The HTTP method
     public let method : HTTPMethod
+    
+    /// The parameters
+    public let parameters : [String : AnyObject]?
     
     /// The headers
     public let headers : [String : String]?
