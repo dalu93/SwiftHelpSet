@@ -85,6 +85,10 @@ public class BasicAnimation: NSObject {
     }
 }
 
+public func ==(lhs: BasicAnimation, rhs: BasicAnimation) -> Bool {
+    return lhs.animation == rhs.animation && lhs.layer == rhs.layer
+}
+
 // MARK: - Static initializers
 extension BasicAnimation {
     

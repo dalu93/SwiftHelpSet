@@ -29,6 +29,14 @@ public protocol IdentifierConvertible {
  */
 public protocol ReusableView: NibConvertible, IdentifierConvertible {}
 
+extension NibConvertible {
+    static var nibName: String { return String(Self) }
+}
+
+extension IdentifierConvertible {
+    static var identifier: String { return String(Self) }
+}
+
 // MARK: - Nib instantiation
 extension NibConvertible {
     static var nib: UINib { return UINib.nibFrom(string: Self.nibName) }

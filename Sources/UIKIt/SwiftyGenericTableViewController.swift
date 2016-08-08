@@ -89,7 +89,7 @@ public class SwiftyGenericTableViewController<C, D where
         _setupUI()
     }
     
-    @objc func _refresh() {
+    func _refresh() {
         onRefresh?()
     }
 }

@@ -13,5 +13,5 @@ public protocol APIModule {
     associatedtype RequestType
     
     var baseAPIURL: String { get }
-    func load<Object,Error>(resource: Resource<Object>, completion: Completion<Object, Error> -> ()) -> RequestType
+    func load<Object>(resource: Resource<Object>, completion: Completion<Object, NSError> -> ()) -> RequestType
 }
