@@ -9,7 +9,9 @@
 import Foundation
 
 public protocol DictionaryConvertible {
-    func toDictionary() -> [String : AnyObject]?
+    
+    associatedtype ValueType
+    func toDictionary() -> [String : ValueType]?
 }
 
 // MARK: - NSData

@@ -21,7 +21,7 @@ extension Array {
                 the method will return `nil`
      */
     public func get(at index: Int) -> Element? {
-        if count > index { return self[index] }
+        if index.isInRange(0..<count) { return self[index] }
         return nil
     }
     

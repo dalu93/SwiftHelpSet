@@ -34,6 +34,7 @@
 		81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */; };
 		81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */; };
 		81E4037B1D3E4AD200FECD20 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4037A1D3E4AD200FECD20 /* Permission.swift */; };
+		81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6E8771D58ACCC00F09695 /* IntExtensions.swift */; };
 		81F3778E1D3F75FF00267B30 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F3778D1D3F75FF00267B30 /* TableCell.xib */; };
 		81F377901D3FA90D00267B30 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3778F1D3FA90D00267B30 /* Purchase.swift */; };
 		81F505951D391AC4008121F7 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F505941D391AC4008121F7 /* Completion.swift */; };
@@ -85,6 +86,7 @@
 		81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTextField.swift; path = Sources/UIKIt/SwiftyTextField.swift; sourceTree = "<group>"; };
 		81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIKIt/UIViewExtensions.swift; sourceTree = "<group>"; };
 		81E4037A1D3E4AD200FECD20 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Permission.swift; path = Sources/Utilities/Permission.swift; sourceTree = "<group>"; };
+		81E6E8771D58ACCC00F09695 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Sources/Foundation/IntExtensions.swift; sourceTree = "<group>"; };
 		81F3778D1D3F75FF00267B30 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		81F3778F1D3FA90D00267B30 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchase.swift; path = Sources/Utilities/Purchase.swift; sourceTree = "<group>"; };
 		81F505941D391AC4008121F7 /* Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Completion.swift; path = Sources/Utilities/Completion.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				81081F8D1D37E6C3000F8DFE /* ArrayExtensions.swift */,
 				81F86D3B1D3815B6007CFC76 /* StringExtensions.swift */,
 				8132BECF1D38198200DCB357 /* NotificationCenter.swift */,
+				81E6E8771D58ACCC00F09695 /* IntExtensions.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
 				81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */,
+				81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */,
 				810DFB751D38E45D003F1604 /* Resource.swift in Sources */,
 				810DFB711D38C5DE003F1604 /* ErrorConvertible.swift in Sources */,
 				81F5059B1D391ED6008121F7 /* BasicAnimation.swift in Sources */,

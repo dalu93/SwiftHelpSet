@@ -26,6 +26,28 @@ public enum HTTPMethod : String {
 }
 
 /**
+ *  The `HTTPHeader` struct contains the needed informations to describe
+ *  completely and HTTP header field
+ */
+public struct HTTPHeader {
+    
+    /// The name of the HTTP header field
+    public let name: String
+    
+    /// The value of the HTTP header field
+    public let value: String
+}
+
+// MARK: - DictionaryConvertible
+extension HTTPHeader: DictionaryConvertible {
+    public func toDictionary() -> [String : String]? {
+        return [
+            name : value
+        ]
+    }
+}
+
+/**
  *  The `Endpoint` struct contains all the info regarding
  *  the endpoint you are trying to reach
  */
@@ -41,7 +63,7 @@ public struct Endpoint {
     public let parameters : [String : AnyObject]?
     
     /// The headers
-    public let headers : [String : String]?
+    public let headers : [HTTPHeader]?
 }
 
 /**

@@ -65,4 +65,9 @@ extension String {
         return  trimmed == filtered
         
     }
+    
+    /// Length of the string
+    public var length: Int {
+        return self.characters.count
+    }
 }
