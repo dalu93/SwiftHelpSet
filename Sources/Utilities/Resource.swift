@@ -47,6 +47,20 @@ extension HTTPHeader: DictionaryConvertible {
     }
 }
 
+// MARK: - Prefilled HTTPHeaders
+extension HTTPHeader {
+    static func HeaderWith(contentType contentType: String) -> HTTPHeader {
+        return HTTPHeader(
+            name: "Content-Type",
+            value: contentType
+        )
+    }
+    
+    static var JSONContentType: HTTPHeader {
+        return HTTPHeader.HeaderWith(contentType: "application/json")
+    }
+}
+
 
 /**
  *  The `Parameter` struct contains the needed informations to descibe
@@ -83,10 +97,41 @@ public struct Endpoint {
     public let method : HTTPMethod
     
     /// The parameters
-    public let parameters : [String : AnyObject]?
+    public let parameters : [Parameter]?
     
     /// The headers
     public let headers : [HTTPHeader]?
+}
+
+// MARK: - Computed properties
+extension Endpoint {
+    
+    /// The encoded parameters, ready for the use
+    var encodedParameters: [String : AnyObject]? {
+        
+        guard let parameters = parameters else { return nil }
+        
+        var encParameters: [String : AnyObject] = [:]
+        parameters.forEach {
+            guard let paramDict = $0.toDictionary() else { return }
+            encParameters += paramDict
+        }
+        
+        return encParameters
+    }
+    
+    /// /// The encoded headers, ready for the use
+    var encodedHeaders: [String : String]? {
+        guard let headers = headers else { return nil }
+        
+        var encHeaders: [String : String] = [:]
+        headers.forEach {
+            guard let headerDict = $0.toDictionary() else { return }
+            encHeaders += headerDict
+        }
+        
+        return encHeaders
+    }
 }
 
 /**

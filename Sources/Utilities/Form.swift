@@ -26,10 +26,10 @@ extension Form {
     public func isValid() -> NSError? {
         
         // Creates the enumerator
-        let childrenEnumerate = Mirror(reflecting: self).children.enumerate()
+        let childrenEnumerator = Mirror(reflecting: self).children.enumerate()
         
         // Enumerats the properties
-        for (_, property) in childrenEnumerate {
+        for (_, property) in childrenEnumerator {
             // If there is a rule-closure associated ok, otherwise crash
             guard
                 let propertyLabel = property.label,

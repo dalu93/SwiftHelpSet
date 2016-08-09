@@ -26,6 +26,7 @@
 		810DFB781D38E49E003F1604 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB771D38E49E003F1604 /* API.swift */; };
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
+		816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
 		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
@@ -78,6 +79,7 @@
 		810DFB771D38E49E003F1604 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/Utilities/API.swift; sourceTree = "<group>"; };
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
+		816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/Foundation/DictionaryExtensions.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				81F86D3B1D3815B6007CFC76 /* StringExtensions.swift */,
 				8132BECF1D38198200DCB357 /* NotificationCenter.swift */,
 				81E6E8771D58ACCC00F09695 /* IntExtensions.swift */,
+				816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				810DFB781D38E49E003F1604 /* API.swift in Sources */,
 				810DFB731D38C713003F1604 /* ConnectionStatus.swift in Sources */,
 				810DFB6F1D38C50A003F1604 /* Form.swift in Sources */,
+				816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */,
 				81F505951D391AC4008121F7 /* Completion.swift in Sources */,
 				81081F8A1D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift in Sources */,
 				810C08AE1D3E204300A30595 /* UITableViewExtensions.swift in Sources */,
