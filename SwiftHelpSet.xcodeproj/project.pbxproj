@@ -27,6 +27,7 @@
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */; };
+		816C1B171D5A04E200D219BC /* SwiftyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B161D5A04E200D219BC /* SwiftyButton.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
 		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
@@ -80,6 +81,7 @@
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/Foundation/DictionaryExtensions.swift; sourceTree = "<group>"; };
+		816C1B161D5A04E200D219BC /* SwiftyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyButton.swift; path = Sources/UIKIt/SwiftyButton.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				810C08AD1D3E204300A30595 /* UITableViewExtensions.swift */,
 				81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */,
 				81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */,
+				816C1B161D5A04E200D219BC /* SwiftyButton.swift */,
 				817C105C1D37ED1900CE4A01 /* Protocols */,
 			);
 			name = UIKit;
@@ -365,6 +368,7 @@
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
 				81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */,
+				816C1B171D5A04E200D219BC /* SwiftyButton.swift in Sources */,
 				81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */,
 				810DFB751D38E45D003F1604 /* Resource.swift in Sources */,
 				810DFB711D38C5DE003F1604 /* ErrorConvertible.swift in Sources */,
