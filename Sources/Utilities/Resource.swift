@@ -47,6 +47,29 @@ extension HTTPHeader: DictionaryConvertible {
     }
 }
 
+
+/**
+ *  The `Parameter` struct contains the needed informations to descibe
+ *  a request parameter. It can be query parameter or body parameter
+ */
+public struct Parameter {
+    
+    /// The parameter name
+    public let field: String
+    
+    /// The parameter value
+    public let value: AnyObject
+}
+
+// MARK: - DictionaryConvertible
+extension Parameter: DictionaryConvertible {
+    public func toDictionary() -> [String : AnyObject]? {
+        return [
+            field : value
+        ]
+    }
+}
+
 /**
  *  The `Endpoint` struct contains all the info regarding
  *  the endpoint you are trying to reach
