@@ -102,6 +102,31 @@ extension UIView {
             )
         }
     }
+    
+    /**
+     Makes a `UIView` instance rounded with a specific `radius`
+     
+     - parameter radius: The radius
+     */
+    public func round(with radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+    }
+    
+    /**
+     Animates the `UIView` changes in the `animations` closure
+     
+     - parameter animations:    The closure with view changes
+     - parameter duration:      The duration
+     - parameter completion:    The completion closure
+     */
+    static func animate(with animations: () -> (), duration: NSTimeInterval, completion: (Bool) -> () = { _ in }) {
+        UIView.animateWithDuration(
+            duration,
+            animations: animations,
+            completion: completion
+        )
+    }
 }
 
 // MARK: - UIActivityIndicator shortcut

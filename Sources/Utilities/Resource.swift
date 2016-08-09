@@ -107,7 +107,7 @@ public struct Endpoint {
 extension Endpoint {
     
     /// The encoded parameters, ready for the use
-    var encodedParameters: [String : AnyObject]? {
+    public var encodedParameters: [String : AnyObject]? {
         
         guard let parameters = parameters else { return nil }
         
@@ -121,7 +121,7 @@ extension Endpoint {
     }
     
     /// /// The encoded headers, ready for the use
-    var encodedHeaders: [String : String]? {
+    public var encodedHeaders: [String : String]? {
         guard let headers = headers else { return nil }
         
         var encHeaders: [String : String] = [:]
