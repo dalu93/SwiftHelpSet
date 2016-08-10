@@ -30,6 +30,9 @@
 		816C1B191D5A18F200D219BC /* UIControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B181D5A18F200D219BC /* UIControlExtensions.swift */; };
 		816C1B1B1D5A1C5300D219BC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */; };
 		816C1B1D1D5A1D5200D219BC /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */; };
+		8178C53A1D5B464200DEE6D6 /* IntExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */; };
+		8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */; };
+		8178C53E1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
 		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
@@ -86,6 +89,9 @@
 		816C1B181D5A18F200D219BC /* UIControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIControlExtensions.swift; path = Sources/UIKIt/UIControlExtensions.swift; sourceTree = "<group>"; };
 		816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Sources/UIKIt/UIColorExtensions.swift; sourceTree = "<group>"; };
 		816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = Sources/Foundation/NSDateExtensions.swift; sourceTree = "<group>"; };
+		8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionsTestCases.swift; sourceTree = "<group>"; };
+		8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionsTestCases.swift; sourceTree = "<group>"; };
+		8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 		81081F711D37D867000F8DFE /* SwiftHelpSetTests */ = {
 			isa = PBXGroup;
 			children = (
+				8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */,
+				8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */,
+				8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */,
 				81081F741D37D867000F8DFE /* Info.plist */,
 				81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */,
 				817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */,
@@ -401,8 +410,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8178C53A1D5B464200DEE6D6 /* IntExtensionsTestCases.swift in Sources */,
 				817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */,
+				8178C53E1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift in Sources */,
 				81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */,
+				8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
