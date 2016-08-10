@@ -45,5 +45,6 @@ class NSDateExtensionsTestCases: XCTestCase {
         let secondDate = firstDate.dateByAddingTimeInterval(1)
         
         XCTAssert(secondDate > firstDate, "Second date is greater than the first date.")
+        
     }
 }
