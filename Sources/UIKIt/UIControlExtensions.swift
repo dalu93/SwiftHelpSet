@@ -46,7 +46,7 @@ extension UIControl {
      - parameter eventType: The event type
      - parameter closure:   The closure to execute
      */
-    func observe(eventType: UIControlEvents, closure: (AnyObject)->()) {
+    func bind(eventType: UIControlEvents, closure: (AnyObject)->()) {
         self.closureWrapper = ClosureWrapper(closure: closure)
         self.addTarget(self, action: .Triggered, forControlEvents: eventType)
     }

@@ -76,10 +76,10 @@ The help set allows you to create a more functional project by using the `Bindab
 Declare your public variable as
 
 ```swift
-var currentUser = Bindable<User>
+var currentUser = Bindable<User>(user)
 ```
 
-Then, from your class, you can listen to changes to the variable `currentUser` by doing
+Then, from your class, you can listen changes to the variable `currentUser` by doing
 
 ```swift
 objectReference.currentUser.bind = { user in
@@ -90,6 +90,7 @@ objectReference.currentUser.bind = { user in
 # Foundation wrappers
 
 Use `Permission` and `Purchase` to avoid the use of delegates for purchasing and for asking permissions. Use closures instead.
+
 Use `NotificationCenter` to get a more powerful and smart wrapper around `NSNotificationCenter`
 
 # Foundation extensions
@@ -156,7 +157,7 @@ animation.add(to: layer)
 
 ## Generic Table View Controller
 
-Create your own table view controller easily, but just passing a valid set of data
+Create your own table view controller easily, just passing a valid set of data
 
 ```swift
 let genericTable = SwiftyGenericTableViewController<MyTableViewCell, User>()
@@ -178,7 +179,7 @@ genericTable.dataSource = userArray
 Define your action on `UIControl` trigger without using the ugly syntax `addTarget(...)`.
 
 ```swift
-let button = UIButton(frame: .zero).observe(.TouchUpInside) { button in
+let button = UIButton(frame: .zero).bind(.TouchUpInside) { button in
     // Do something
 }
 ```
