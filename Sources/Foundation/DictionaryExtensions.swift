@@ -8,8 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
-}
+extension Dictionary {}
 
 /**
  Adds the element of the right dictionary to the left dictionary
@@ -19,8 +18,27 @@ extension Dictionary {
  - parameter left:  A dictionary
  - parameter right: An another dictionary
  */
-func +=<K,V>(inout left: [K:V], right: [K:V]) {
+public func +=<K,V>(inout left: [K:V], right: [K:V]) {
     for (key, value) in right {
         left[key] = value
     }
+}
+
+/**
+ Creates a new `Dictionary` instance that is the result of the 
+ `lhs += rhs` operation.
+ 
+ - Note:    the `rhs` values have the priority and they will override the `lhs` values
+            for the same key.
+ 
+ - parameter lhs: A `Dictionary`
+ - parameter rhs: The other `Dictionary`
+ 
+ - returns: A new `Dictionary` instance that is the sum of the two dictionaries
+ */
+public func +<K,V>(lhs: [K:V], rhs: [K:V]) -> [K:V] {
+    var sumDictionary = lhs
+    sumDictionary += rhs
+    
+    return sumDictionary
 }
