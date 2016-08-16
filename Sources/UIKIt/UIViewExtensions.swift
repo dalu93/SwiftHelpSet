@@ -108,7 +108,7 @@ extension UIView {
      
      - parameter radius: The radius
      */
-    public func round(with radius: CGFloat) {
+    public func roundWith(radius radius: CGFloat) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
     }

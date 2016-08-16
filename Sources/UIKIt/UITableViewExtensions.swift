@@ -88,7 +88,7 @@ extension UITableView {
      
      - parameter estimatedRowHeight: The estimated row height. Default is `100`
      */
-    public func setupAutomaticDimension(estimatedRowHeight: CGFloat = 100) {
+    public func setupAutomaticDimension(to estimatedRowHeight: CGFloat = 100) {
         self.estimatedRowHeight = estimatedRowHeight
         self.rowHeight = UITableViewAutomaticDimension
     }

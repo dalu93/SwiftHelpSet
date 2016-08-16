@@ -43,11 +43,10 @@ public class SwiftyGenericTableViewController<C, D where
     
     private lazy var _refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(
-            self,
-            action: #selector(SwiftyGenericTableViewController._refresh),
-            forControlEvents: .ValueChanged
-        )
+        
+        refreshControl.bind(.ValueChanged) { [weak self] _ in
+            self?._refresh()
+        }
         
         return refreshControl
     }()
@@ -87,10 +86,6 @@ public class SwiftyGenericTableViewController<C, D where
         
         _setupTable()
         _setupUI()
-    }
-    
-    func _refresh() {
-        onRefresh?()
     }
 }
 
@@ -136,5 +131,9 @@ private extension SwiftyGenericTableViewController {
             
             self.onSelection?(indexPath: indexPath, model: selectedModel)
         }
+    }
+    
+    func _refresh() {
+        onRefresh?()
     }
 }
