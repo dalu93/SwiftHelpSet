@@ -27,6 +27,7 @@
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		814EBF681D635C1B00049563 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */; };
+		816739AF1D66E9C1009C10AF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 816739AE1D66E9C1009C10AF /* README.md */; };
 		816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */; };
 		816C1B191D5A18F200D219BC /* UIControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B181D5A18F200D219BC /* UIControlExtensions.swift */; };
 		816C1B1B1D5A1C5300D219BC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */; };
@@ -87,6 +88,7 @@
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIKIt/UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
+		816739AE1D66E9C1009C10AF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/Foundation/DictionaryExtensions.swift; sourceTree = "<group>"; };
 		816C1B181D5A18F200D219BC /* UIControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIControlExtensions.swift; path = Sources/UIKIt/UIControlExtensions.swift; sourceTree = "<group>"; };
 		816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Sources/UIKIt/UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		81081F511D37D866000F8DFE = {
 			isa = PBXGroup;
 			children = (
+				816739AE1D66E9C1009C10AF /* README.md */,
 				81081F7D1D37D870000F8DFE /* Sources */,
 				81081F5C1D37D866000F8DFE /* SwiftHelpSet */,
 				81081F711D37D867000F8DFE /* SwiftHelpSetTests */,
@@ -390,6 +393,7 @@
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
 				81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */,
 				81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */,
+				816739AF1D66E9C1009C10AF /* README.md in Sources */,
 				810DFB751D38E45D003F1604 /* Resource.swift in Sources */,
 				810DFB711D38C5DE003F1604 /* ErrorConvertible.swift in Sources */,
 				81F5059B1D391ED6008121F7 /* BasicAnimation.swift in Sources */,
