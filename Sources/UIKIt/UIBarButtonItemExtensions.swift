@@ -27,7 +27,7 @@ extension UIBarButtonItem {
         }
     }
     
-    public static func itemWith(title title: String?, style: UIBarButtonItemStyle = .Plain, closure: (AnyObject) -> ()) -> UIBarButtonItem {
+    public static func itemWith(title title: String?, style: UIBarButtonItemStyle = .Plain, closure: () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             title: title,
             style: style,
@@ -40,7 +40,7 @@ extension UIBarButtonItem {
         return item
     }
     
-    public static func itemWith(image image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, closure: (AnyObject) -> ()) -> UIBarButtonItem {
+    public static func itemWith(image image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, closure: () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             image: image,
             landscapeImagePhone: landscapeImage,
@@ -54,7 +54,7 @@ extension UIBarButtonItem {
         return item
     }
     
-    public static func itemWith(barButtonSystemItem barButtonSystemItem: UIBarButtonSystemItem, closure: (AnyObject) -> ()) -> UIBarButtonItem {
+    public static func itemWith(barButtonSystemItem barButtonSystemItem: UIBarButtonSystemItem, closure: () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             barButtonSystemItem: barButtonSystemItem,
             target: self,
@@ -67,6 +67,6 @@ extension UIBarButtonItem {
     }
     
     @objc private func selector(sender: UIBarButtonItem) {
-        closureWrapper?.closure(sender)
+        closureWrapper?.closure()
     }
 }

@@ -104,9 +104,7 @@ extension UITableView {
     public func addRefreshControl(performing block: () -> ()) -> UIRefreshControl {
         let refreshControl = UIRefreshControl()
         
-        refreshControl.bind(.ValueChanged) { _ in
-            block()
-        }
+        refreshControl.bind(.ValueChanged) { block() }
         
         self.addSubview(refreshControl)
         

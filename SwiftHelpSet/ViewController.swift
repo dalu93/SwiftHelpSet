@@ -13,6 +13,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        let button: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//        
+//        button.bind(.TouchUpInside) {
+//            button.setTitle("aaaaa", forState: .Normal)
+//        }
+//        
+//        button.setTitle("bbbbb", forState: .Normal)
+//        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+//        
+//        self.view.addSubview(button)
+//        button.centerInSuperview()
+//        button.pin(.height(100))
+//        button.pin(.width(100))
     }
 
     override func didReceiveMemoryWarning() {

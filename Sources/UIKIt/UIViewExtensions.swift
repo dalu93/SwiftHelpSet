@@ -63,6 +63,12 @@ extension UIView {
         }
     }
     
+    public func centerInSuperview() {
+        let superview = _setup()
+        
+        superview.addConstraints(NSLayoutConstraint.Center(view: self, on: superview))
+    }
+    
     /**
      Pins a dimension or both
      

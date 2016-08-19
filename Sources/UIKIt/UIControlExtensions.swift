@@ -10,9 +10,9 @@ import UIKit
 
 // MARK: - Helper class for storing closures
 class ClosureWrapper {
-    let closure: (AnyObject) -> ()
+    let closure: () -> ()
     
-    init(closure: (AnyObject) -> ()) {
+    init(closure: () -> ()) {
         self.closure = closure
     }
 }
@@ -46,13 +46,13 @@ extension UIControl {
      - parameter eventType: The event type
      - parameter closure:   The closure to execute
      */
-    public func bind(eventType: UIControlEvents, closure: (AnyObject)->()) {
+    public func bind(eventType: UIControlEvents, closure: ()->()) {
         self.closureWrapper = ClosureWrapper(closure: closure)
         self.addTarget(self, action: .Triggered, forControlEvents: eventType)
     }
     
     @objc private func triggered(sender: AnyObject) {
-        self.closureWrapper?.closure(sender)
+        self.closureWrapper?.closure()
     }
 }
 
