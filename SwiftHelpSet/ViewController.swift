@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         
         let tableController = SwiftyGenericTableViewController<TableCell, String>()
         
+        tableController.enableRefreshControl = true
+        
         tableController.cellForModel = { cell, model in
             cell.set(title: model)
             return cell

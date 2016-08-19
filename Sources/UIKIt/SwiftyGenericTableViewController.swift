@@ -27,7 +27,7 @@ public class SwiftyGenericTableViewController<C, D where
     public var dataSource: [D]? {
         didSet {
             
-            if enableRefreshControl { _refreshControl.endRefreshing() }
+            if enableRefreshControl { _refreshControl?.endRefreshing() }
             
             guard let onDataSourceChange = self.onDataSourceChange else {
                 tableView.reloadData()
@@ -41,15 +41,7 @@ public class SwiftyGenericTableViewController<C, D where
     /// Enable refresh control or not
     public var enableRefreshControl: Bool = false
     
-    private lazy var _refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        
-        refreshControl.bind(.ValueChanged) { [weak self] _ in
-            self?._refresh()
-        }
-        
-        return refreshControl
-    }()
+    private var _refreshControl: UIRefreshControl? = nil
     
     /// It is called everytime the user refresh the UITableView using a UIRefreshControl.
     ///
@@ -96,8 +88,12 @@ private extension SwiftyGenericTableViewController {
         
         view.addSubview(tableView)
         tableView.pinToSuperView(edge: .all)
-        tableView.setupAutomaticDimension()
-        if enableRefreshControl { tableView.addSubview(_refreshControl) }
+        if enableRefreshControl {
+            
+            tableView.addRefreshControl() { [weak self] in
+                self?._refresh()
+            }
+        }
     }
     
     func _setupTable() {
@@ -106,6 +102,8 @@ private extension SwiftyGenericTableViewController {
             C.nib,
             forCellReuseIdentifier: C.identifier
         )
+        
+        tableView.setupAutomaticDimension()
         
         tableView.configureNumberOfSections = {
             return 1
