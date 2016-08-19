@@ -35,11 +35,11 @@ platform :ios do
     end
 
     %x(git add -A && git commit -a -m "Increment version to #{version_number}")
-    
+
     push_to_git_remote
 
     add_git_tag(
-      tag: version_number
+      tag: "#{version_number}"
     )
     push_git_tags
 
