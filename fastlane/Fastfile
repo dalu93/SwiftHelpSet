@@ -13,7 +13,7 @@ platform :ios do
   end
 
   def bump_pod_version(oldVersion, newVersion)
-    %x(perl -pi -e "s/${#{oldVersion}}/${#{newVersion}}/g" ../SwiftHelpSet.podspec)
+    %x(perl -pi -e "s/#{oldVersion}/#{newVersion}/g" ../SwiftHelpSet.podspec)
   end
 
   def setup_mailgun
