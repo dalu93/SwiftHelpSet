@@ -39,7 +39,7 @@ platform :ios do
     push_to_git_remote
 
     add_git_tag(
-      tag: "#{version_number}"
+      tag: "test"
     )
     push_git_tags
 
