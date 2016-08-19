@@ -67,8 +67,6 @@ UserModule().load(User.All) { result in
 }
 ```
 
-The idea is to build correctly a single controller for each resource type, in the way a RESTful API works
-
 Thanks to [@ChrisEidhof](https://twitter.com/chriseidhof) for the `Resource` idea.
 
 
@@ -112,7 +110,7 @@ Easily check if an `Int` value is in a range by using `isInRange(range: Range<In
 
 ## Dictionary
 
-Mix two dictionaries together by calling the `+=` or the `+` operator
+Mix two dictionaries together by calling the `+=` operator
 
 ## NSDate
 
@@ -181,14 +179,7 @@ genericTable.dataSource = userArray
 Define your action on `UIControl` trigger without using the ugly syntax `addTarget(...)`.
 
 ```swift
-let button = UIButton(frame: .zero)
-button.bind(.TouchUpInside) { button in
-    // Do something
-}
-
-To correctly use the generic return from the bind function, you need to explicitly declare what the return type is
-
-let button: UIButton = UIButton(frame: .zero).bind(.TouchUpInside) { button in
+let button = UIButton(frame: .zero).bind(.TouchUpInside) { button in
     // Do something
 }
 ```
