@@ -31,6 +31,7 @@ platform :ios do
     bump_version_number = !!options[:version_number]
 
     if bump_version_number
+      print "Bumping new version: #{version_number}"
       bump_pod_version(get_podspec_version, version_number)
     end
 
