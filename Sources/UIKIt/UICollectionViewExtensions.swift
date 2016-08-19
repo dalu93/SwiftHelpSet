@@ -73,4 +73,18 @@ extension UICollectionView {
     public func registerCell<T where T: UICollectionViewCell>(type: T.Type) {
         self.registerClass(T.self, forCellWithReuseIdentifier: String(T))
     }
+    
+    /**
+     Reload the `UICollectionView` instance and perform a block when the reload
+     is completed
+     
+     - parameter completion: Block to perform after the `UICollectionView` finishes
+                             to reload
+     */
+    public func reloadData(completion: () -> ()) {
+        self.reloadData()
+        self.performBatchUpdates(nil) { _ in
+            completion()
+        }
+    }
 }

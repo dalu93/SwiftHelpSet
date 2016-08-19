@@ -45,7 +45,7 @@ public final class Purchase: NSObject {
      - parameter identifiers: The products identifiers list
      - parameter completion:  Completion handler
      */
-    static public func productsFrom(identifiers identifiers: [String], completion: Completion<[SKProduct], NSError> -> ()) {
+    static public func products(from identifiers: [String], completion: Completion<[SKProduct], NSError> -> ()) {
         Purchase.shared.onFetchedProducts = completion
         
         Purchase.shared.productRequest?.cancel()
@@ -61,7 +61,7 @@ public final class Purchase: NSObject {
      - parameter product:    The product to buy
      - parameter completion: Completion handler
      */
-    static public func purchase(product product: SKProduct, completion: Completion<NSData, NSError> -> ()) {
+    static public func purchase(product: SKProduct, completion: Completion<NSData, NSError> -> ()) {
         
         guard Purchase.shared.purchasing else {
             completion(.failed(.purchaseInProgressError()))

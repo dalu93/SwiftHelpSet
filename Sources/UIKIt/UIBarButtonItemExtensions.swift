@@ -28,21 +28,39 @@ extension UIBarButtonItem {
     }
     
     public static func itemWith(title title: String?, style: UIBarButtonItemStyle = .Plain, closure: (AnyObject) -> ()) -> UIBarButtonItem {
-        let item = UIBarButtonItem(title: title, style: style, target: self, action: #selector(UIBarButtonItem.selector(_:)))
+        let item = UIBarButtonItem(
+            title: title,
+            style: style,
+            target: self,
+            action: #selector(UIBarButtonItem.selector(_:))
+        )
+        
         item.closureWrapper = ClosureWrapper(closure: closure)
         
         return item
     }
     
     public static func itemWith(image image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, closure: (AnyObject) -> ()) -> UIBarButtonItem {
-        let item = UIBarButtonItem(image: image, landscapeImagePhone: landscapeImage, style: style, target: self, action: #selector(UIBarButtonItem.selector(_:)))
+        let item = UIBarButtonItem(
+            image: image,
+            landscapeImagePhone: landscapeImage,
+            style: style,
+            target: self,
+            action: #selector(UIBarButtonItem.selector(_:))
+        )
+        
         item.closureWrapper = ClosureWrapper(closure: closure)
         
         return item
     }
     
     public static func itemWith(barButtonSystemItem barButtonSystemItem: UIBarButtonSystemItem, closure: (AnyObject) -> ()) -> UIBarButtonItem {
-        let item = UIBarButtonItem(barButtonSystemItem: barButtonSystemItem, target: self, action: #selector(UIBarButtonItem.selector(_:)))
+        let item = UIBarButtonItem(
+            barButtonSystemItem: barButtonSystemItem,
+            target: self,
+            action: #selector(UIBarButtonItem.selector(_:))
+        )
+        
         item.closureWrapper = ClosureWrapper(closure: closure)
         
         return item
