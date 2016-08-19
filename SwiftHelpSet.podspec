@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftHelpSet"
-  s.version      = "1.1"
+  s.version      = "1.fastlane"
   s.summary      = "A set of Swift utilities."
   s.description  = <<-DESC
                   SwiftHelpSet is a set of Swift utilities for you iOS project.
