@@ -6,11 +6,6 @@ sudo gem install fastlane
 ```
 # Available Actions
 ## iOS
-### ios prova
-```
-fastlane ios prova
-```
-
 ### ios release
 ```
 fastlane ios release
