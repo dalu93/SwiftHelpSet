@@ -23,32 +23,33 @@ platform :ios do
   end
 
   lane :release do |options|
-    # ensure_git_status_clean
+    bump_version_number = !!options[:version_number]
+    if bump_version_number
+      raise "Command still not available"
+    end
+
+    ensure_git_branch
+    ensure_git_status_clean
 
     test
 
     version_number = options[:version_number] || get_podspec_version
-    bump_version_number = !!options[:version_number]
 
     if bump_version_number
       print "Bumping new version: #{version_number}, replacing old version: #{get_podspec_version}\n\n"
-      bump_pod_version(get_podspec_version, version_number)
+      bump_pod_version("#{get_podspec_version}", "#{version_number}")
+      %x(git add -A && git commit -a -m "Increment version to #{version_number}")
+      push_to_git_remote
+
+      unless get_podspec_version == version_number
+        raise "Version hasn't been bumped correctly"
+      end
     end
 
-    %x(git add -A && git commit -a -m "Increment version to #{version_number}")
-
-    push_to_git_remote
-
-    add_git_tag(
-      tag: version_number
-    )
+    %x(git tag #{version_number})
     push_git_tags
 
-    # mailgun(
-    #   to: "dalberti.luca93@gmail.com",
-    #   success: true,
-    #   message: "Successfully released version #{version_number} for SwiftHelpSet"
-    # )
+    %x(cd .. && pod trunk push SwiftHelpSet.podspec)
   end
 
   desc "Runs all the tests"
