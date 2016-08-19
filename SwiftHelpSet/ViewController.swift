@@ -41,9 +41,14 @@ class ViewController: UIViewController {
         
         tableController.enableRefreshControl = true
         
-        tableController.cellForModel = { cell, model in
-            cell.set(title: model)
-            return cell
+        tableController.cellForModel {
+            $0.set(title: $1)
+            return $0
+        }.onSelection { indexPath, model in
+            let alert = UIAlertController(title: "Touched", message: "Selected row \(indexPath.row)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+            
+            tableController.presentViewController(alert, animated: true, completion: nil)
         }
         
         tableController.dataSource = [
@@ -51,13 +56,6 @@ class ViewController: UIViewController {
             "Second",
             "Third"
         ]
-        
-        tableController.onSelection = { [weak self] indexPath, model in
-            let alert = UIAlertController(title: "Touched", message: "Selected row \(indexPath.row)", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
-            
-            self?.presentViewController(alert, animated: true, completion: nil)
-        }
         
         self.presentViewController(tableController, animated: true, completion: nil)
     }
