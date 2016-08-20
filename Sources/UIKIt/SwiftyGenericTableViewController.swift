@@ -27,9 +27,9 @@ public class SwiftyGenericTableViewController<C, D where
     public var dataSource: [D]? {
         didSet {
             
-            if enableRefreshControl { _refreshControl.endRefreshing() }
+            if enableRefreshControl { _refreshControl?.endRefreshing() }
             
-            guard let onDataSourceChange = self.onDataSourceChange else {
+            guard let onDataSourceChange = self._onDataSourceChange else {
                 tableView.reloadData()
                 return
             }
@@ -41,34 +41,42 @@ public class SwiftyGenericTableViewController<C, D where
     /// Enable refresh control or not
     public var enableRefreshControl: Bool = false
     
-    private lazy var _refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        
-        refreshControl.bind(.ValueChanged) { [weak self] _ in
-            self?._refresh()
-        }
-        
-        return refreshControl
-    }()
+    private var _refreshControl: UIRefreshControl? = nil
     
+    private var _onRefresh: (() -> ())?
     /// It is called everytime the user refresh the UITableView using a UIRefreshControl.
     ///
     /// It is recommended to update the dataSource here
-    public var onRefresh: (() -> ())?
+    public func onRefresh(closure: () -> ()) -> Self {
+        _onRefresh = closure
+        return self
+    }
     
+    private var _cellForModel: ((C, D) -> UITableViewCell)?
     /// Closure responsible for the UITableViewCell creation
-    public var cellForModel: ((C, D) -> UITableViewCell)?
+    public func cellForModel(closure: (C, D) -> UITableViewCell) -> Self {
+        _cellForModel = closure
+        return self
+    }
     
+    private var _onDataSourceChange: (() -> ())?
     /// This closure is called every time the `dataSource` property is set.
     ///
     /// Override it to disable the default behavior: `tableView.reloadData()`
-    public var onDataSourceChange: (() -> ())?
+    public func onDataSourceChange(closure: () -> ()) -> Self {
+        _onDataSourceChange = closure
+        return self
+    }
     
     /// Selection closure definition
     public typealias TableViewCellSelectionClosure = (indexPath: NSIndexPath, model: D) -> ()
     
+    private var _onSelection: TableViewCellSelectionClosure?
     /// This closure is called whenever a cell is selected.
-    public var onSelection: TableViewCellSelectionClosure?
+    public func onSelection(closure: TableViewCellSelectionClosure) -> Self {
+        _onSelection = closure
+        return self
+    }
     
     /// `SwiftyTableView` instance
     public let tableView = SwiftyTableView(
@@ -96,8 +104,12 @@ private extension SwiftyGenericTableViewController {
         
         view.addSubview(tableView)
         tableView.pinToSuperView(edge: .all)
-        tableView.setupAutomaticDimension()
-        if enableRefreshControl { tableView.addSubview(_refreshControl) }
+        if enableRefreshControl {
+            
+            tableView.addRefreshControl() { [weak self] in
+                self?._refresh()
+            }
+        }
     }
     
     func _setupTable() {
@@ -107,33 +119,27 @@ private extension SwiftyGenericTableViewController {
             forCellReuseIdentifier: C.identifier
         )
         
-        tableView.configureNumberOfSections = {
-            return 1
-        }
+        tableView.setupAutomaticDimension()
         
-        tableView.numberOfRowsPerSection = { [weak self] _ in
-            return self?.dataSource?.count ?? 0
-        }
-        
-        tableView.cellForIndexPath = { [weak self] indexPath, tableView in
-            guard let cellBuilder = self?.cellForModel,
-                let model = self?.dataSource?.get(at: indexPath.row) else { return UITableViewCell() }
-            
-            let cell: C = tableView.dequeueReusableCell()
-            return cellBuilder(cell, model)
-        }
-        
-        tableView.onCellSelection = { [weak self] indexPath in
-            
-            guard
-                let `self` = self,
-                let selectedModel = self.dataSource?.get(at: indexPath.row) else { return }
-            
-            self.onSelection?(indexPath: indexPath, model: selectedModel)
+        tableView
+            .configureNumberOfSections {
+                return 1
+            }.numberOfRowsPerSection { _ in
+                return self.dataSource?.count ?? 0
+            }.cellForIndexPath {
+                guard let cellBuilder = self._cellForModel,
+                    let model = self.dataSource?.get(at: $0.row) else { return UITableViewCell() }
+                
+                let cell: C = self.tableView.dequeueReusableCell()
+                return cellBuilder(cell, model)
+            }.onCellSelection {
+                guard let selectedModel = self.dataSource?.get(at: $0.row) else { return }
+                
+                self._onSelection?(indexPath: $0, model: selectedModel)
         }
     }
     
     func _refresh() {
-        onRefresh?()
+        _onRefresh?()
     }
 }

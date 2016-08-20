@@ -10,17 +10,51 @@ import UIKit
 
 public class SwiftyScrollView: UIScrollView {
     
-    public typealias GenericScrollViewClosure = ((scrollView: UIScrollView) -> ())
-    
-    public var onScroll:                   GenericScrollViewClosure?
-    public var onZoom:                     GenericScrollViewClosure?
-    public var onScrollToTop:              GenericScrollViewClosure?
-    public var onBeginDragging:            GenericScrollViewClosure?
-    public var onEndDecelerating:          GenericScrollViewClosure?
-    public var onBeginDecelerating:        GenericScrollViewClosure?
-    public var onEndScrollingAnimation:    GenericScrollViewClosure?
-    public var onEndZooming: ((scrollView: UIScrollView, view: UIView?, scale: CGFloat) -> ())?
-    public var onEndDragging: ((scrollView: UIScrollView, decelerate: Bool) -> ())?
+    private var _onScroll:                   VoidClosure?
+    public func onScroll(closure: VoidClosure) -> Self {
+        _onScroll = closure
+        return self
+    }
+    private var _onZoom:                     VoidClosure?
+    public func onZoom(closure: VoidClosure) -> Self {
+        _onZoom = closure
+        return self
+    }
+    private var _onScrollToTop:              VoidClosure?
+    public func _onScrollToTop(closure: VoidClosure) -> Self {
+        _onScrollToTop = closure
+        return self
+    }
+    private var _onBeginDragging:            VoidClosure?
+    public func onBeginDragging(closure: VoidClosure) -> Self {
+        _onBeginDragging = closure
+        return self
+    }
+    private var _onEndDecelerating:          VoidClosure?
+    public func onEndDecelerating(closure: VoidClosure) -> Self {
+        _onEndDecelerating = closure
+        return self
+    }
+    private var _onBeginDecelerating:        VoidClosure?
+    public func onBeginDecelerating(closure: VoidClosure) -> Self {
+        _onBeginDecelerating = closure
+        return self
+    }
+    private var _onEndScrollingAnimation:    VoidClosure?
+    public func onEndScrollingAnimation(closure: VoidClosure) -> Self {
+        _onEndScrollingAnimation = closure
+        return self
+    }
+    private var _onEndZooming: ((view: UIView?, scale: CGFloat) -> ())?
+    public func onEndZooming(closure: (view: UIView?, scale: CGFloat) -> ()) -> Self {
+        _onEndZooming = closure
+        return self
+    }
+    private var _onEndDragging: ((decelerate: Bool) -> ())?
+    public func onEndDragging(closure: (decelerate: Bool) -> ()) -> Self {
+        _onEndDragging = closure
+        return self
+    }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,38 +76,38 @@ private extension SwiftyScrollView {
 // MARK: - UIScrollViewDelegate
 extension SwiftyScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
-        onScroll?(scrollView: scrollView)
+        _onScroll?()
     }
     
     public func scrollViewDidZoom(scrollView: UIScrollView) {
-        onZoom?(scrollView: scrollView)
+        _onZoom?()
     }
     
     public func scrollViewDidScrollToTop(scrollView: UIScrollView) {
-        onScrollToTop?(scrollView: scrollView)
+        _onScrollToTop?()
     }
     
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        onBeginDragging?(scrollView: scrollView)
+        _onBeginDragging?()
     }
     
     public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        onEndDecelerating?(scrollView: scrollView)
+        _onEndDecelerating?()
     }
     
     public func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        onBeginDecelerating?(scrollView: scrollView)
+        _onBeginDecelerating?()
     }
     
     public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        onEndScrollingAnimation?(scrollView: scrollView)
+        _onEndScrollingAnimation?()
     }
     
     public func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-        onEndZooming?(scrollView: scrollView, view: view, scale: scale)
+        _onEndZooming?(view: view, scale: scale)
     }
     
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        onEndDragging?(scrollView: scrollView, decelerate: decelerate)
+        _onEndDragging?(decelerate: decelerate)
     }
 }

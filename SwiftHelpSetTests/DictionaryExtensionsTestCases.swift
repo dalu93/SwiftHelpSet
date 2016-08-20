@@ -47,4 +47,33 @@ class DictionaryExtensionsTestCases: XCTestCase {
         
         XCTAssert(aDictionary["field1"] == 2, "The field field1 should have value equal to 2, not to 5, after sum.")
     }
+    
+    func testDictionarySumWithoutOverwrite() {
+        let aDictionary = [
+            "field1": 1
+        ]
+        
+        let bDictionary = [
+            "field2": 2
+        ]
+        
+        let sum = aDictionary + bDictionary
+        
+        XCTAssert(sum["field1"] != nil && sum["field2"] != nil, "The sum is wrong. It doesn't contain all the fields")
+    }
+    
+    func testDictionarySumWithOverwrite() {
+        let aDictionary = [
+            "field" : 1,
+            "field1" : 5
+        ]
+        
+        let bDictionary = [
+            "field1" : 2
+        ]
+        
+        let sum = aDictionary + bDictionary
+        
+        XCTAssert(sum["field1"] == 2, "It didn't overwrite the value")
+    }
 }

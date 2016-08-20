@@ -17,7 +17,7 @@ extension Int {
      
      - returns: Returns `true` if the number is contained in the range, otherwise `false`
      */
-    func isInRange(range: Range<Int>) -> Bool {
+    public func isInRange(range: Range<Int>) -> Bool {
         return range.contains(self)
     }
 }

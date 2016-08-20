@@ -1,0 +1,67 @@
+fastlane_version "1.101.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    setup_mailgun
+    git_pull(only_tags: true)
+  end
+
+  def get_podspec_version
+    return %x(sh version_extractor.sh)
+  end
+
+  def bump_pod_version(oldVersion, newVersion)
+    %x(perl -pi -e "s/#{oldVersion}/#{newVersion}/g" ../SwiftHelpSet.podspec)
+  end
+
+  def setup_mailgun
+    ENV['MAILGUN_SANDBOX_POSTMASTER'] ||= "sandboxdcd43ccc257443bd929193174db3f0b7.mailgun.org"
+    ENV['MAILGUN_APIKEY'] = "key-da2fb4d81808256057a325cec91392bc"
+    ENV['MAILGUN_APP_LINK'] = "https://github.com/dalu93/SwiftHelpSet"
+  end
+
+  lane :release do |options|
+    bump_version_number = !!options[:version_number]
+    if bump_version_number
+      raise "Command still not available"
+    end
+
+    ensure_git_branch
+    ensure_git_status_clean
+
+    test
+
+    version_number = options[:version_number] || get_podspec_version
+
+    if bump_version_number
+      print "Bumping new version: #{version_number}, replacing old version: #{get_podspec_version}\n\n"
+      bump_pod_version("#{get_podspec_version}", "#{version_number}")
+      %x(git add -A && git commit -a -m "Increment version to #{version_number}")
+      push_to_git_remote
+
+      unless get_podspec_version == version_number
+        raise "Version hasn't been bumped correctly"
+      end
+    end
+
+    %x(git tag #{version_number})
+    push_git_tags
+
+    %x(cd .. && pod trunk push SwiftHelpSet.podspec)
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  error do |lane, exception|
+    # mailgun(
+    #   to: "dalberti.luca93@gmail.com",
+    #   success: false,
+    #   message: exception.message
+    # )
+  end
+end

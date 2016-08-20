@@ -92,4 +92,22 @@ extension UITableView {
         self.estimatedRowHeight = estimatedRowHeight
         self.rowHeight = UITableViewAutomaticDimension
     }
+    
+    
+    /**
+     Adds a default `UIRefreshControl` instance to the `UITableView`
+     
+     - parameter block: Code to execute when the refresh control is triggered
+     
+     - returns: The newly created `UIRefreshControl` instance
+     */
+    public func addRefreshControl(performing block: () -> ()) -> UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.bind(.ValueChanged) { block() }
+        
+        self.addSubview(refreshControl)
+        
+        return refreshControl
+    }
 }
