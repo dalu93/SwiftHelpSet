@@ -25,11 +25,19 @@ public enum Axis: String {
 /// This wrapper allows you to handle easily the CABasicAnimation using closures
 public class BasicAnimation: NSObject {
     
+    private var _onStop: ((finished: Bool) -> ())?
     /// Called when the animation finishes
-    public var onStop: ((animation: BasicAnimation, finished: Bool) -> ())?
+    public func onStop(closure: (finished: Bool) -> ()) -> Self {
+        _onStop = closure
+        return self
+    }
     
+    private var _onStart: VoidClosure?
     /// Called when the animation starts
-    public var onStart: ((animation: BasicAnimation) -> ())?
+    public func onStart(closure: VoidClosure) -> Self {
+        _onStart = closure
+        return self
+    }
     
     private let animation: CABasicAnimation
     private weak var layer: CALayer?
@@ -119,14 +127,11 @@ extension BasicAnimation {
     
     override public func animationDidStart(anim: CAAnimation) {
         
-        onStart?(animation: self)
+        _onStart?()
     }
     
     override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         
-        onStop?(
-            animation: self,
-            finished: flag
-        )
+        _onStop?(finished: flag)
     }
 }

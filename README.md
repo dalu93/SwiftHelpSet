@@ -110,7 +110,7 @@ Easily check if an `Int` value is in a range by using `isInRange(range: Range<In
 
 ## Dictionary
 
-Mix two dictionaries together by calling the `+=` operator
+Mix two dictionaries together by calling the `+=`, `+` operators
 
 ## NSDate
 
@@ -122,15 +122,11 @@ No more `.OrderedAscending` or `.OrderedSame` to compare two `NSDate` instances.
 Use the `SwiftyTableView`, `SwiftyScrollView` and the `SwiftyTextField` to avoid the use of delegates as below
 
 ```swift
-let tableView = SwiftyTableView()
-
-tableView.configureNumberOfSections = { return 1 }
-
-tableView.numberOfRowsPerSection = { section in
+let tableView = SwiftyTableView().configureNumberOfSections {
+    return 1
+}.numberOfRowsPerSection { section in
     return 2
-}
-
-tableView.cellForIndexPath = { indexPath, tableView in
+}.cellForIndexPath { indexPath, tableView in
     return UITableViewCell()
 }
 ```
@@ -141,18 +137,12 @@ tableView.cellForIndexPath = { indexPath, tableView in
 Create your own animation easily. The wrapper allows you to create simple rotation animations only, but you can easily extend it.
 
 ```swift
-let animation = BasicAnimation.rotationAnimation(on: .z, duration: 1)
-
-animation.onStart = { animation in
+let animation = BasicAnimation.rotationAnimation(on: .z, duration: 1).onStart {
     // do something at the start of the animation
-}
-
-animation.onStop = { animation, finished in
+}.onStop { finished in
     // do something at the end
     animation.remove()
-}
-
-animation.add(to: layer)
+}.add(to: layer)
 ```
 
 ## Generic Table View Controller
@@ -162,16 +152,12 @@ Create your own table view controller easily, just passing a valid set of data
 ```swift
 let genericTable = SwiftyGenericTableViewController<MyTableViewCell, User>()
 
-genericTable.cellForModel = { cell, model in
+genericTable.cellForModel { cell, model in
     // setup the cell
     return cell
-}
-
-genericTable.onSelection = { indexPath, model in
+}.onSelection { indexPath, model in
     // push or do something
-}
-
-genericTable.dataSource = userArray
+}.dataSource = userArray
 ```
 
 ## UIControl Extension
@@ -179,7 +165,28 @@ genericTable.dataSource = userArray
 Define your action on `UIControl` trigger without using the ugly syntax `addTarget(...)`.
 
 ```swift
-let button = UIButton(frame: .zero).bind(.TouchUpInside) { button in
+let button = UIButton(frame: .zero)
+button..bind(.TouchUpInside) {
     // Do something
 }
+```
+
+## UIBarButtonItem Extension
+
+Define your `UIBarButtonItem` easily by providing a closure instead of a selector.
+
+```swift
+let item = UIBarButtonItem.itemWith(title: "BUTTON") {
+    // do something on tap
+}
+```
+
+## UIGestureRecognizer extension
+
+Easily define the `UIGestureRecognizer` by providing a closure instead of a selector
+
+```swift
+let tapRecognizer = UITapGestureRecognizer.recognizerPerforms {
+    // Do something on tap
+}.numberOfTapsRequired = 1
 ```
