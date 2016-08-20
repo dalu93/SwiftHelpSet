@@ -44,6 +44,7 @@
 		81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */; };
 		81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */; };
 		81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */; };
+		81DDA2B31D68998C009BACC4 /* SwiftySearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDA2B21D68998C009BACC4 /* SwiftySearchBar.swift */; };
 		81E4037B1D3E4AD200FECD20 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4037A1D3E4AD200FECD20 /* Permission.swift */; };
 		81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6E8771D58ACCC00F09695 /* IntExtensions.swift */; };
 		81F3778E1D3F75FF00267B30 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F3778D1D3F75FF00267B30 /* TableCell.xib */; };
@@ -107,6 +108,7 @@
 		81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = Sources/UIKIt/UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTextField.swift; path = Sources/UIKIt/SwiftyTextField.swift; sourceTree = "<group>"; };
 		81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIKIt/UIViewExtensions.swift; sourceTree = "<group>"; };
+		81DDA2B21D68998C009BACC4 /* SwiftySearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftySearchBar.swift; path = Sources/UIKIt/SwiftySearchBar.swift; sourceTree = "<group>"; };
 		81E4037A1D3E4AD200FECD20 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Permission.swift; path = Sources/Utilities/Permission.swift; sourceTree = "<group>"; };
 		81E6E8771D58ACCC00F09695 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Sources/Foundation/IntExtensions.swift; sourceTree = "<group>"; };
 		81F3778D1D3F75FF00267B30 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				81081F7F1D37D8CA000F8DFE /* SwiftyTableView.swift */,
 				81081F811D37DE5F000F8DFE /* SwiftyScrollView.swift */,
 				816739B01D6747C2009C10AF /* SwiftyWebView.swift */,
+				81DDA2B21D68998C009BACC4 /* SwiftySearchBar.swift */,
 				81081F831D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift */,
 				81081F891D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift */,
 				81F5059A1D391ED6008121F7 /* BasicAnimation.swift */,
@@ -208,8 +211,8 @@
 				816C1B181D5A18F200D219BC /* UIControlExtensions.swift */,
 				816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */,
 				814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */,
-				817C105C1D37ED1900CE4A01 /* Protocols */,
 				816739B41D675650009C10AF /* UIGestureRecognizerExtensions.swift */,
+				817C105C1D37ED1900CE4A01 /* Protocols */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				81F86D3C1D3815B6007CFC76 /* StringExtensions.swift in Sources */,
 				814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */,
 				810DFB781D38E49E003F1604 /* API.swift in Sources */,
+				81DDA2B31D68998C009BACC4 /* SwiftySearchBar.swift in Sources */,
 				816C1B191D5A18F200D219BC /* UIControlExtensions.swift in Sources */,
 				816739B31D674AF4009C10AF /* NSURLRequestExtensions.swift in Sources */,
 				814EBF681D635C1B00049563 /* UIBarButtonItemExtensions.swift in Sources */,

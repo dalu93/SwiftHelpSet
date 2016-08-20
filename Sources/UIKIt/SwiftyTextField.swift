@@ -10,51 +10,51 @@ import UIKit
 
 public class SwiftyTextField: UITextField {
     
-    private var _onEndEditing: (() -> ())?
+    private var _onEndEditing: VoidClosure?
     /// It is called on textFieldDidEndEditing(_: UITextField)
-    public func onEndEditing(closure: () -> ()) -> Self {
+    public func onEndEditing(closure: VoidClosure) -> Self {
         _onEndEditing = closure
         return self
     }
     
     /// It is called on textFieldDidBeginEditing(_: UITextField)
-    private var _onBeginEditing: (() -> ())?
-    public func onBeginEditing(closure: () -> ()) -> Self {
+    private var _onBeginEditing: VoidClosure?
+    public func onBeginEditing(closure: VoidClosure) -> Self {
         _onBeginEditing = closure
         return self
     }
     
-    private var _beforeCleaning: (() -> Bool)?
+    private var _beforeCleaning: VoidBoolClosure?
     /// It is called on textFieldShouldClear(_: UITextField)
-    public func beforeCleaning(closure: () -> Bool) -> Self {
+    public func beforeCleaning(closure: VoidBoolClosure) -> Self {
         _beforeCleaning = closure
         return self
     }
     
-    private var _beforeReturning: (() -> Bool)?
+    private var _beforeReturning: VoidBoolClosure?
     /// It is called on textFieldShouldReturn(_: UITextField)
-    public func beforeReturning(closure: () -> Bool) -> Self {
+    public func beforeReturning(closure: VoidBoolClosure) -> Self {
         _beforeReturning = closure
         return self
     }
     
-    private var _beforeEndingEditing: (() -> Bool)?
+    private var _beforeEndingEditing: VoidBoolClosure?
     /// It is called on textFieldShouldEndEditing(_: UITextField)
-    public func beforeEndingEditing(closure: () -> Bool) -> Self {
+    public func beforeEndingEditing(closure: VoidBoolClosure) -> Self {
         _beforeEndingEditing = closure
         return self
     }
     
-    private var _beforeBeginningEditing: (() -> Bool)?
+    private var _beforeBeginningEditing: VoidBoolClosure?
     /// It is called on textFieldShouldBeginEditing(_: UITextField)
-    public func beforeBeginningEditing(closure: () -> Bool) -> Self {
+    public func beforeBeginningEditing(closure: VoidBoolClosure) -> Self {
         _beforeBeginningEditing = closure
         return self
     }
     
-    private var _changingCharacters: ((NSRange, String) -> Bool)?
+    private var _changingCharacters: RangeTextBoolClosure?
     /// It is called on textField(_: UITextField, _: NSRange, _: String)
-    public func changingCharacters(closure: (NSRange, String) -> Bool) -> Self {
+    public func changingCharacters(closure: RangeTextBoolClosure) -> Self {
         _changingCharacters = closure
         return self
     }
@@ -98,6 +98,6 @@ extension SwiftyTextField: UITextFieldDelegate {
     }
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return self._changingCharacters?(range, string) ?? true
+        return self._changingCharacters?(range: range, text: string) ?? true
     }
 }

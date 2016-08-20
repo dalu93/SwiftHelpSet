@@ -26,9 +26,9 @@ import UIKit
 */
 public class SwiftyWebView: UIWebView {
     
-    private var _onStart: (() -> ())?
+    private var _onStart: VoidClosure?
     /// Called at the start of the request
-    public func onStart(closure: () -> ()) -> Self {
+    public func onStart(closure: VoidClosure) -> Self {
         _onStart = closure
         return self
     }
@@ -43,9 +43,9 @@ public class SwiftyWebView: UIWebView {
         return self
     }
     
-    private var _onFinish: (() -> ())?
+    private var _onFinish: VoidClosure?
     /// Called at the end of the request
-    public func onFinish(closure: () -> ()) -> Self {
+    public func onFinish(closure: VoidClosure) -> Self {
         _onFinish = closure
         return self
     }
