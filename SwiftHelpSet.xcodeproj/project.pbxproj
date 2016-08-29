@@ -25,6 +25,8 @@
 		810DFB751D38E45D003F1604 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB741D38E45D003F1604 /* Resource.swift */; };
 		810DFB781D38E49E003F1604 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB771D38E49E003F1604 /* API.swift */; };
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
+		813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */; };
+		813846AB1D6C78F700F25769 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846AA1D6C78F700F25769 /* KeyboardObserver.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		814EBF681D635C1B00049563 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */; };
 		816739B11D6747C2009C10AF /* SwiftyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816739B01D6747C2009C10AF /* SwiftyWebView.swift */; };
@@ -89,6 +91,8 @@
 		810DFB741D38E45D003F1604 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Utilities/Resource.swift; sourceTree = "<group>"; };
 		810DFB771D38E49E003F1604 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/Utilities/API.swift; sourceTree = "<group>"; };
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
+		813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIKIt/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		813846AA1D6C78F700F25769 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/UIKIt/KeyboardObserver.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIKIt/UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		816739B01D6747C2009C10AF /* SwiftyWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyWebView.swift; path = Sources/UIKIt/SwiftyWebView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */,
 				814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */,
 				816739B41D675650009C10AF /* UIGestureRecognizerExtensions.swift */,
+				813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */,
 				817C105C1D37ED1900CE4A01 /* Protocols */,
 			);
 			name = UIKit;
@@ -227,6 +232,7 @@
 				81E6E8771D58ACCC00F09695 /* IntExtensions.swift */,
 				816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */,
 				816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */,
+				816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				81081F851D37E1F0000F8DFE /* ReusableView.swift */,
+				813846AA1D6C78F700F25769 /* KeyboardObserver.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -278,7 +285,6 @@
 				81F86D3D1D381630007CFC76 /* Localizable.swift */,
 				810DFB701D38C5DE003F1604 /* ErrorConvertible.swift */,
 				81F505961D391CF9008121F7 /* DictionaryDecodable.swift */,
-				816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -395,12 +401,14 @@
 				810DFB731D38C713003F1604 /* ConnectionStatus.swift in Sources */,
 				810DFB6F1D38C50A003F1604 /* Form.swift in Sources */,
 				816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */,
+				813846AB1D6C78F700F25769 /* KeyboardObserver.swift in Sources */,
 				81F505951D391AC4008121F7 /* Completion.swift in Sources */,
 				81081F8A1D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift in Sources */,
 				810C08AE1D3E204300A30595 /* UITableViewExtensions.swift in Sources */,
 				817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */,
 				816C1B1D1D5A1D5200D219BC /* NSDateExtensions.swift in Sources */,
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
+				813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */,
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
 				816739B11D6747C2009C10AF /* SwiftyWebView.swift in Sources */,
 				81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */,
