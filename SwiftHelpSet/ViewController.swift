@@ -13,6 +13,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        let button: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//        
+//        button.bind(.TouchUpInside) {
+//            button.setTitle("aaaaa", forState: .Normal)
+//        }
+//        
+//        button.setTitle("bbbbb", forState: .Normal)
+//        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+//        
+//        self.view.addSubview(button)
+//        button.centerInSuperview()
+//        button.pin(.height(100))
+//        button.pin(.width(100))
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,11 +41,14 @@ class ViewController: UIViewController {
         
         tableController.enableRefreshControl = true
         
-        tableController.cellForModel { cell, model in
-            cell.set(title: model)
-            return cell
+        tableController.cellForModel {
+            $0.set(title: $1)
+            return $0
         }.onSelection { indexPath, model in
-            self.pushDetailWith(model, controller: tableController.navigationController)
+            let alert = UIAlertController(title: "Touched", message: "Selected row \(indexPath.row)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+            
+            tableController.presentViewController(alert, animated: true, completion: nil)
         }
         
         tableController.dataSource = [
@@ -42,17 +59,6 @@ class ViewController: UIViewController {
         
         self.presentViewController(tableController, animated: true, completion: nil)
     }
-    
-    func pushDetailWith(model: String, controller: UINavigationController?) {
-        let detailVC = DetailViewController()
-        detailVC.model = model
-        
-        controller?.pushViewController(detailVC, animated: true)
-    }
-}
-
-final class DetailViewController: UIViewController {
-    var model: String? = nil
 }
 
 final class TableCell: UITableViewCell {

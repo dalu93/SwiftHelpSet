@@ -41,11 +41,6 @@ public class NotificationCenterManager {
         )
     }
     
-    public func addObserverFor(names names: [String], object: AnyObject? = nil, queue: NSOperationQueue? = NSOperationQueue.mainQueue(), handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
-        
-        return names.map { NotificationCenter.addObserverFor(name: $0, handler: handler) }
-    }
-    
     /**
      Removes an `NSObjectProtocol` observer as observer
      

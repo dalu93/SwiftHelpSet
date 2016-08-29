@@ -40,8 +40,7 @@ public class Bindable<T> {
      
      - Note: Only one listener at time is supported
      
-     - parameter listener: A closure that takes the value `T` as argument. The closure
-                           is always called on the main thread
+     - parameter listener: A closure that takes the value `T` as argument
      */
     public func bind(listener: (T) -> ()) {
         self.listener = listener
@@ -53,8 +52,7 @@ public class Bindable<T> {
      
      - Note: Only one listener at time is supported
      
-     - parameter listener: A closure that takes the value `T` as argument. The closure
-                           is always called on the main thread
+     - parameter listener: A closure that takes the value `T` as argument
      */
     func bindAndFire(listener: (T) -> ()) {
         self.bind(listener)
