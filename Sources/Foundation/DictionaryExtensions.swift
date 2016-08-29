@@ -8,7 +8,24 @@
 
 import Foundation
 
-extension Dictionary {}
+extension Dictionary {
+    
+    /**
+     Creates a new dictionary instance by adding a set of dictionaries
+     
+     - parameter dictionaries: Set of dictionaries of the same type
+     
+     - returns: Sum of all the dictionaries
+     */
+    public static func byAdding<K,V>(dictionaries: [[K:V]]) -> [K:V] {
+        var dictionarySum: [K:V] = [:]
+        dictionaries.forEach {
+            dictionarySum += $0
+        }
+        
+        return dictionarySum
+    }
+}
 
 /**
  Adds the element of the right dictionary to the left dictionary
