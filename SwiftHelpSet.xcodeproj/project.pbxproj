@@ -29,6 +29,9 @@
 		813846AB1D6C78F700F25769 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846AA1D6C78F700F25769 /* KeyboardObserver.swift */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		814EBF681D635C1B00049563 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */; };
+		8164A97A1D74331000271848 /* ConnectionStatusTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */; };
+		8164A97C1D74356C00271848 /* CompletionTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A97B1D74356C00271848 /* CompletionTestCases.swift */; };
+		8164A97E1D74367400271848 /* NSURLRequestExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A97D1D74367400271848 /* NSURLRequestExtensionsTestCases.swift */; };
 		816739B11D6747C2009C10AF /* SwiftyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816739B01D6747C2009C10AF /* SwiftyWebView.swift */; };
 		816739B31D674AF4009C10AF /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */; };
 		816739B51D675650009C10AF /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816739B41D675650009C10AF /* UIGestureRecognizerExtensions.swift */; };
@@ -95,6 +98,9 @@
 		813846AA1D6C78F700F25769 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/UIKIt/KeyboardObserver.swift; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIKIt/UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
+		8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusTestCases.swift; sourceTree = "<group>"; };
+		8164A97B1D74356C00271848 /* CompletionTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionTestCases.swift; sourceTree = "<group>"; };
+		8164A97D1D74367400271848 /* NSURLRequestExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensionsTestCases.swift; sourceTree = "<group>"; };
 		816739B01D6747C2009C10AF /* SwiftyWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyWebView.swift; path = Sources/UIKIt/SwiftyWebView.swift; sourceTree = "<group>"; };
 		816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLRequestExtensions.swift; path = Sources/Foundation/NSURLRequestExtensions.swift; sourceTree = "<group>"; };
 		816739B41D675650009C10AF /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIGestureRecognizerExtensions.swift; path = Sources/UIKIt/UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
@@ -178,6 +184,9 @@
 		81081F711D37D867000F8DFE /* SwiftHelpSetTests */ = {
 			isa = PBXGroup;
 			children = (
+				8164A97D1D74367400271848 /* NSURLRequestExtensionsTestCases.swift */,
+				8164A97B1D74356C00271848 /* CompletionTestCases.swift */,
+				8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */,
 				8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */,
 				8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */,
 				8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */,
@@ -439,7 +448,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8178C53A1D5B464200DEE6D6 /* IntExtensionsTestCases.swift in Sources */,
+				8164A97C1D74356C00271848 /* CompletionTestCases.swift in Sources */,
+				8164A97A1D74331000271848 /* ConnectionStatusTestCases.swift in Sources */,
 				817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */,
+				8164A97E1D74367400271848 /* NSURLRequestExtensionsTestCases.swift in Sources */,
 				8178C53E1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift in Sources */,
 				81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */,
 				8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */,
