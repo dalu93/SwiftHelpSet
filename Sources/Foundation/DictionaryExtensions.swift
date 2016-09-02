@@ -25,6 +25,12 @@ extension Dictionary {
         
         return dictionarySum
     }
+    
+    public subscript(key: Key, or value: Value) -> Value {
+        get { return self[key] ?? value }
+        
+        set { self[key] = newValue }
+    }
 }
 
 /**
