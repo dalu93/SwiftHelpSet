@@ -31,17 +31,17 @@ public class NotificationCenterManager {
      
      - returns: `NSObjectProtocol` observer
      */
-    public func addObserverFor(name: String, object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> NSObjectProtocol {
+    public func addObserverFor(name: NSNotification.Name, object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> NSObjectProtocol {
         
         return NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: name),
+            forName: name,
             object: object,
             queue: queue,
             using: handler
         )
     }
     
-    public func addObserverFor(names: [String], object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
+    public func addObserverFor(names: [NSNotification.Name], object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
         
         return names.map { NotificationManager.addObserverFor(name: $0, handler: handler) }
     }
@@ -91,10 +91,10 @@ public class NotificationCenterManager {
      
      - returns: The same `NotificationCenter` instance
      */
-    public func postNotification(with name: String, object: AnyObject? = nil, userInfo: [NSObject:AnyObject]? = nil) -> Self {
+    public func postNotification(with name: NSNotification.Name, object: AnyObject? = nil, userInfo: [NSObject:AnyObject]? = nil) -> Self {
         _ = post(
             notification: Notification(
-                name: NSNotification.Name(rawValue: name),
+                name: name,
                 object: object,
                 userInfo: userInfo
             )
