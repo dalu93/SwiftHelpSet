@@ -12,7 +12,7 @@ import StoreKit
 /// The `Purchase` object represents an elegant and functional way to use the 
 /// `StoreKit` framework provided by Apple.
 public final class Purchase: NSObject {
-    private static let shared = Purchase()
+    private static let `default` = Purchase()
     private var productRequest: SKRequest? {
         didSet {
             productRequest?.delegate = self
@@ -46,10 +46,10 @@ public final class Purchase: NSObject {
      - parameter completion:  Completion handler
      */
     static public func products(from identifiers: [String], completion: ((Completion<[SKProduct]>) -> ())) {
-        Purchase.shared.onFetchedProducts = completion
+        Purchase.default.onFetchedProducts = completion
         
-        Purchase.shared.productRequest?.cancel()
-        Purchase.shared.productRequest = SKProductsRequest(productIdentifiers: Set(identifiers))
+        Purchase.default.productRequest?.cancel()
+        Purchase.default.productRequest = SKProductsRequest(productIdentifiers: Set(identifiers))
     }
     
     /**
@@ -63,13 +63,13 @@ public final class Purchase: NSObject {
      */
     static public func purchase(product: SKProduct, completion: ((Completion<Data>) -> ())) {
         
-        guard Purchase.shared.purchasing else {
+        guard Purchase.default.purchasing else {
             completion(.failed(.purchaseInProgressError()))
             return
         }
         
-        Purchase.shared.purchasing = true
-        Purchase.shared.onPurchaseCompleted = completion
+        Purchase.default.purchasing = true
+        Purchase.default.onPurchaseCompleted = completion
         
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
@@ -83,8 +83,8 @@ public final class Purchase: NSObject {
      - parameter completion: Completion handler
      */
     static public func restorePurchase(completion: ((Completion<Data>) -> ())) {
-        Purchase.shared.onPurchaseRestored = completion
-        Purchase.shared.restoreRequest = SKReceiptRefreshRequest()
+        Purchase.default.onPurchaseRestored = completion
+        Purchase.default.restoreRequest = SKReceiptRefreshRequest()
     }
     
     // MARK: - Object lifecycle
