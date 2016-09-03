@@ -10,51 +10,51 @@ import UIKit
 
 public class SwiftyTableView: UITableView {
     
-    private var _configureNumberOfSections: (() -> Int)?
+    fileprivate var _configureNumberOfSections: (() -> Int)?
     /// It is called everytime `numberOfSectionsInTableView(tableView: UITableView)` is called
-    public func configureNumberOfSections(closure: () -> Int) -> Self {
+    public func configureNumberOfSections(closure: (() -> Int)) -> Self {
         _configureNumberOfSections = closure
         return self
     }
     
-    private var _numberOfRowsPerSection: ((section: Int) -> Int)?
+    fileprivate var _numberOfRowsPerSection: ((_ section: Int) -> Int)?
     /// It is called everytime `tableView(tableView: UITableView, numberOfRowsInSection section: Int)` is called
-    public func numberOfRowsPerSection(closure: (section: Int) -> Int) -> Self {
+    public func numberOfRowsPerSection(closure: ((_ section: Int) -> Int)) -> Self {
         _numberOfRowsPerSection = closure
         return self
     }
     
-    private var _cellForIndexPath: ((indexPath: NSIndexPath) -> UITableViewCell)?
+    fileprivate var _cellForIndexPath: ((_ indexPath: IndexPath) -> UITableViewCell)?
     /// It is called everytime `tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)` is called
-    public func cellForIndexPath(closure: (indexPath: NSIndexPath) -> UITableViewCell) -> Self {
+    public func cellForIndexPath(closure: ((_ indexPath: IndexPath) -> UITableViewCell)) -> Self {
         _cellForIndexPath = closure
         return self
     }
     
-    private var _onCellSelection: ((indexPath: NSIndexPath) -> ())?
+    fileprivate var _onCellSelection: ((_ indexPath: IndexPath) -> ())?
     /// It is called everytime `tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)` is called
-    public func onCellSelection(closure: (indexPath: NSIndexPath) -> ()) -> Self {
+    public func onCellSelection(closure: ((_ indexPath: IndexPath) -> ())) -> Self {
         _onCellSelection = closure
         return self
     }
     
-    private var _onScroll: ((scrollView: UIScrollView) -> ())?
+    fileprivate var _onScroll: ((_ scrollView: UIScrollView) -> ())?
     /// It is called everytime `scrollViewDidScroll(scrollView: UIScrollView)` is called
-    public func onScroll(closure: (scrollView: UIScrollView) -> ()) -> Self {
+    public func onScroll(closure: ((_ scrollView: UIScrollView) -> ())) -> Self {
         _onScroll = closure
         return self
     }
     
-    private var _footerInSection: ((section: Int) -> UIView?)?
+    fileprivate var _footerInSection: ((_ section: Int) -> UIView?)?
     /// It is called everytime `tableView(tableView: UITableView, viewForFooterInSection section: Int)` is called
-    public func footerInSection(closure: (section: Int) -> UIView?) -> Self {
+    public func footerInSection(closure: ((_ section: Int) -> UIView?)) -> Self {
         _footerInSection = closure
         return self
     }
     
-    private var _headerInSection: ((section: Int) -> UIView?)?
+    fileprivate var _headerInSection: ((_ section: Int) -> UIView?)?
     /// It is called everytime `tableView(tableView: UITableView, viewForHeaderInSection section: Int)` is called
-    public func headerInSection(closure: (section: Int) -> UIView?) -> Self {
+    public func headerInSection(closure: ((_ section: Int) -> UIView?)) -> Self {
         _headerInSection = closure
         return self
     }
@@ -88,35 +88,35 @@ private extension SwiftyTableView {
 // MARK: - UITableViewDataSource
 extension SwiftyTableView: UITableViewDataSource {
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    @nonobjc public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return _configureNumberOfSections?() ?? 0
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _numberOfRowsPerSection?(section: section) ?? 0
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _numberOfRowsPerSection?(section) ?? 0
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return _cellForIndexPath?(indexPath: indexPath) ?? UITableViewCell()
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return _cellForIndexPath?(indexPath) ?? UITableViewCell()
     }
 }
 
 // MARK: - UITableViewDelegate
 extension SwiftyTableView: UITableViewDelegate {
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        _onCellSelection?(indexPath: indexPath)
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        _onCellSelection?(indexPath)
     }
     
-    public func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return _footerInSection?(section: section)
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return _footerInSection?(section)
     }
     
-    public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return _headerInSection?(section: section)
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return _headerInSection?(section)
     }
     
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
-        _onScroll?(scrollView: scrollView)
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        _onScroll?(scrollView)
     }
 }

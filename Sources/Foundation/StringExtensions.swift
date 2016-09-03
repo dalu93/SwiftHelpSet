@@ -24,17 +24,17 @@ extension String {
     /// It tells if the `String` instance is a valid email or not
     public var isEmail: Bool {
         
-        let trimmed = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let trimmed = trimmingCharacters(in: NSCharacterSet.whitespaces)
         
         do {
             let regex = try NSRegularExpression(
                 pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
-                options: .CaseInsensitive
+                options: .caseInsensitive
             )
             
-            return regex.firstMatchInString(
-                trimmed,
-                options: NSMatchingOptions(rawValue: 0),
+            return regex.firstMatch(
+                in: trimmed,
+                options: NSRegularExpression.MatchingOptions(rawValue: 0),
                 range: NSMakeRange(0, trimmed.characters.count)) != nil
         } catch {
             return false
@@ -44,7 +44,7 @@ extension String {
     /// It tells if the `String` instance is completely empty (by trimming the spaces)
     public var isBlank: Bool {
         get {
-            let trimmed = stringByReplacingOccurrencesOfString(" ", withString: "")
+            let trimmed = replacingOccurrences(of: " ", with: "")
             return trimmed.isEmpty
         }
     }
@@ -53,14 +53,14 @@ extension String {
     public var isPhoneNumber: Bool {
         
         let character = NSCharacterSet(
-            charactersInString: "+0123456789"
-        ).invertedSet
+            charactersIn: "+0123456789"
+        ).inverted
         
-        let inputString: NSArray = self.componentsSeparatedByCharactersInSet(character)
+        let inputString: [String] = self.components(separatedBy: character)
         
-        let filtered = inputString.componentsJoinedByString("")
+        let filtered = inputString.joined()
         
-        let trimmed = stringByReplacingOccurrencesOfString(" ", withString: "")
+        let trimmed = replacingOccurrences(of: " ", with: "")
         
         return  trimmed == filtered
         

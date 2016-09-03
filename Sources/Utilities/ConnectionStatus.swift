@@ -8,11 +8,11 @@
 
 import Foundation
 
-public enum ConnectionStatus<Request, Value, Error: ErrorType> {
+public enum ConnectionStatus<Request, Value> {
     
     case notStarted
     case inProgress(Request)
-    case completed(Completion<Value,Error>)
+    case completed(Completion<Value>)
     
     public var request: Request? {
         switch self {
@@ -33,7 +33,7 @@ public enum ConnectionStatus<Request, Value, Error: ErrorType> {
         }
     }
     
-    public var error: Error? {
+    public var error: NSError? {
         switch self {
         case .completed(let completion):
             switch completion {

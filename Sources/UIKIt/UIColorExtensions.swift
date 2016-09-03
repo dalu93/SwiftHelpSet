@@ -25,11 +25,11 @@ extension UIColor {
     }
     
     public convenience init(_ hexString: String, alpha: CGFloat = 1.0) {
-        let hex = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
-        let scanner = NSScanner(string: hex)
+        let hex = hexString.replacingOccurrences(of: "#", with: "")
+        let scanner = Scanner(string: hex)
         var color: UInt32 = 0
         
-        scanner.scanHexInt(&color)
+        scanner.scanHexInt32(&color)
         
         let mask = 0x000000FF
         let r = CGFloat(Float(Int(color >> 16) & mask) / 255.0)

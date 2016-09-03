@@ -49,7 +49,7 @@ extension HTTPHeader: DictionaryConvertible {
 
 // MARK: - Prefilled HTTPHeaders
 extension HTTPHeader {
-    static func HeaderWith(contentType contentType: String) -> HTTPHeader {
+    static func HeaderWith(contentType: String) -> HTTPHeader {
         return HTTPHeader(
             name: "Content-Type",
             value: contentType
@@ -144,5 +144,5 @@ public struct Resource<A> {
     public let endpoint : Endpoint
     
     /// A closure that indicates how to convert the response in a generic object
-    public let parseJSON : AnyObject -> A?
+    public let parseJSON : (AnyObject) -> A?
 }

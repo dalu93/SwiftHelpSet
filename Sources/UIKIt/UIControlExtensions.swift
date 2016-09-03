@@ -12,7 +12,7 @@ import UIKit
 class ClosureWrapper {
     let closure: () -> ()
     
-    init(closure: () -> ()) {
+    init(closure: @escaping () -> ()) {
         self.closure = closure
     }
 }
@@ -46,17 +46,17 @@ extension UIControl {
      - parameter eventType: The event type
      - parameter closure:   The closure to execute
      */
-    public func bind(eventType: UIControlEvents, closure: ()->()) {
+    public func bind(_ eventType: UIControlEvents, closure: @escaping ()->()) {
         self.closureWrapper = ClosureWrapper(closure: closure)
-        self.addTarget(self, action: .Triggered, forControlEvents: eventType)
+        self.addTarget(self, action: .Triggered, for: eventType)
     }
     
-    @objc private func triggered(sender: AnyObject) {
+    @objc fileprivate func triggered(sender: AnyObject) {
         self.closureWrapper?.closure()
     }
 }
 
 // MARK: - Selector helper
 private extension Selector {
-    static let Triggered = #selector(UIControl.triggered(_:))
+    static let Triggered = #selector(UIControl.triggered(sender:))
 }

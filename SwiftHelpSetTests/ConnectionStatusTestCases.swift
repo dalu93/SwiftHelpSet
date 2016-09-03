@@ -11,7 +11,7 @@ import XCTest
 
 class ConnectionStatusTestCases: XCTestCase {
     
-    var status: ConnectionStatus<AnyObject, Int, NSError> = .notStarted
+    var status: ConnectionStatus<Array<Int>, Int> = .notStarted
     
     override func setUp() {
         super.setUp()

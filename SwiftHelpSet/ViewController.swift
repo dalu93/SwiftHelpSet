@@ -20,18 +20,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let tableController = SwiftyGenericTableViewController<TableCell, String>()
         
         tableController.enableRefreshControl = true
         
-        tableController.cellForModel { cell, model in
+        _ = tableController.cellForModel { cell, model in
             cell.set(title: model)
             return cell
         }.onSelection { indexPath, model in
-            self.pushDetailWith(model, controller: tableController.navigationController)
+            self.pushDetailWith(model: model, controller: tableController.navigationController)
         }
         
         tableController.dataSource = [
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             "Third"
         ]
         
-        self.presentViewController(tableController, animated: true, completion: nil)
+        self.present(tableController, animated: true, completion: nil)
     }
     
     func pushDetailWith(model: String, controller: UINavigationController?) {
@@ -59,8 +59,8 @@ final class TableCell: UITableViewCell {
     
     @IBOutlet private weak var button: UIButton!
     
-    func set(title title: String) {
-        button.setTitle(title, forState: .Normal)
+    func set(title: String) {
+        button.setTitle(title, for: .normal)
     }
 }
 

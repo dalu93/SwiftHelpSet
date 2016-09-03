@@ -10,7 +10,7 @@ import UIKit
 
 public class SwiftyTextField: UITextField {
     
-    private var _onEndEditing: VoidClosure?
+    fileprivate var _onEndEditing: VoidClosure?
     /// It is called on textFieldDidEndEditing(_: UITextField)
     public func onEndEditing(closure: VoidClosure) -> Self {
         _onEndEditing = closure
@@ -18,41 +18,41 @@ public class SwiftyTextField: UITextField {
     }
     
     /// It is called on textFieldDidBeginEditing(_: UITextField)
-    private var _onBeginEditing: VoidClosure?
+    fileprivate var _onBeginEditing: VoidClosure?
     public func onBeginEditing(closure: VoidClosure) -> Self {
         _onBeginEditing = closure
         return self
     }
     
-    private var _beforeCleaning: VoidBoolClosure?
+    fileprivate var _beforeCleaning: VoidBoolClosure?
     /// It is called on textFieldShouldClear(_: UITextField)
     public func beforeCleaning(closure: VoidBoolClosure) -> Self {
         _beforeCleaning = closure
         return self
     }
     
-    private var _beforeReturning: VoidBoolClosure?
+    fileprivate var _beforeReturning: VoidBoolClosure?
     /// It is called on textFieldShouldReturn(_: UITextField)
     public func beforeReturning(closure: VoidBoolClosure) -> Self {
         _beforeReturning = closure
         return self
     }
     
-    private var _beforeEndingEditing: VoidBoolClosure?
+    fileprivate var _beforeEndingEditing: VoidBoolClosure?
     /// It is called on textFieldShouldEndEditing(_: UITextField)
     public func beforeEndingEditing(closure: VoidBoolClosure) -> Self {
         _beforeEndingEditing = closure
         return self
     }
     
-    private var _beforeBeginningEditing: VoidBoolClosure?
+    fileprivate var _beforeBeginningEditing: VoidBoolClosure?
     /// It is called on textFieldShouldBeginEditing(_: UITextField)
     public func beforeBeginningEditing(closure: VoidBoolClosure) -> Self {
         _beforeBeginningEditing = closure
         return self
     }
     
-    private var _changingCharacters: RangeTextBoolClosure?
+    fileprivate var _changingCharacters: RangeTextBoolClosure?
     /// It is called on textField(_: UITextField, _: NSRange, _: String)
     public func changingCharacters(closure: RangeTextBoolClosure) -> Self {
         _changingCharacters = closure
@@ -73,31 +73,31 @@ public class SwiftyTextField: UITextField {
 // MARK: - UITextFieldDelegate
 extension SwiftyTextField: UITextFieldDelegate {
     
-    public func textFieldDidEndEditing(textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         self._onEndEditing?()
     }
     
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         self._onBeginEditing?()
     }
     
-    public func textFieldShouldClear(textField: UITextField) -> Bool {
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return self._beforeCleaning?() ?? true
     }
     
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return self._beforeReturning?() ?? true
     }
     
-    public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return self._beforeEndingEditing?() ?? true
     }
     
-    public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return self._beforeBeginningEditing?() ?? true
     }
     
-    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return self._changingCharacters?(range: range, text: string) ?? true
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return self._changingCharacters?(range, string) ?? true
     }
 }

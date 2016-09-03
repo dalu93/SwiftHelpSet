@@ -38,10 +38,8 @@
 		816C1B0E1D59FAF900D219BC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */; };
 		816C1B191D5A18F200D219BC /* UIControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B181D5A18F200D219BC /* UIControlExtensions.swift */; };
 		816C1B1B1D5A1C5300D219BC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */; };
-		816C1B1D1D5A1D5200D219BC /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */; };
 		8178C53A1D5B464200DEE6D6 /* IntExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */; };
 		8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */; };
-		8178C53E1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */; };
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
 		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
@@ -107,10 +105,8 @@
 		816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/Foundation/DictionaryExtensions.swift; sourceTree = "<group>"; };
 		816C1B181D5A18F200D219BC /* UIControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIControlExtensions.swift; path = Sources/UIKIt/UIControlExtensions.swift; sourceTree = "<group>"; };
 		816C1B1A1D5A1C5300D219BC /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Sources/UIKIt/UIColorExtensions.swift; sourceTree = "<group>"; };
-		816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = Sources/Foundation/NSDateExtensions.swift; sourceTree = "<group>"; };
 		8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionsTestCases.swift; sourceTree = "<group>"; };
 		8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionsTestCases.swift; sourceTree = "<group>"; };
-		8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
@@ -187,7 +183,6 @@
 				8164A97D1D74367400271848 /* NSURLRequestExtensionsTestCases.swift */,
 				8164A97B1D74356C00271848 /* CompletionTestCases.swift */,
 				8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */,
-				8178C53D1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift */,
 				8178C53B1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift */,
 				8178C5391D5B464200DEE6D6 /* IntExtensionsTestCases.swift */,
 				81081F741D37D867000F8DFE /* Info.plist */,
@@ -240,7 +235,6 @@
 				8132BECF1D38198200DCB357 /* NotificationCenter.swift */,
 				81E6E8771D58ACCC00F09695 /* IntExtensions.swift */,
 				816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */,
-				816C1B1C1D5A1D5200D219BC /* NSDateExtensions.swift */,
 				816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */,
 			);
 			name = Foundation;
@@ -343,14 +337,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = dalu93;
 				TargetAttributes = {
 					81081F591D37D866000F8DFE = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Y3KLCU6WB7;
+						LastSwiftMigration = 0800;
 					};
 					81081F6D1D37D867000F8DFE = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Y3KLCU6WB7;
+						LastSwiftMigration = 0800;
 						TestTargetID = 81081F591D37D866000F8DFE;
 					};
 				};
@@ -415,7 +413,6 @@
 				81081F8A1D37E3E2000F8DFE /* NSLayoutConstraintExtensions.swift in Sources */,
 				810C08AE1D3E204300A30595 /* UITableViewExtensions.swift in Sources */,
 				817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */,
-				816C1B1D1D5A1D5200D219BC /* NSDateExtensions.swift in Sources */,
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
 				813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */,
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
@@ -452,7 +449,6 @@
 				8164A97A1D74331000271848 /* ConnectionStatusTestCases.swift in Sources */,
 				817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */,
 				8164A97E1D74367400271848 /* NSURLRequestExtensionsTestCases.swift in Sources */,
-				8178C53E1D5B492200DEE6D6 /* NSDateExtensionsTestCases.swift in Sources */,
 				81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */,
 				8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */,
 			);
@@ -502,8 +498,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -548,8 +546,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -568,6 +568,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -577,10 +578,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y3KLCU6WB7;
 				INFOPLIST_FILE = SwiftHelpSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -588,10 +591,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y3KLCU6WB7;
 				INFOPLIST_FILE = SwiftHelpSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -600,12 +605,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Y3KLCU6WB7;
 				INFOPLIST_FILE = SwiftHelpSetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftHelpSet.app/SwiftHelpSet";
 			};
 			name = Debug;
@@ -615,11 +622,13 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Y3KLCU6WB7;
 				INFOPLIST_FILE = SwiftHelpSetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalu93.SwiftHelpSetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftHelpSet.app/SwiftHelpSet";
 			};
 			name = Release;

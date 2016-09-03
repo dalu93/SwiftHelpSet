@@ -15,10 +15,10 @@ public protocol DictionaryConvertible {
 }
 
 // MARK: - NSData
-extension NSData: DictionaryConvertible {
+extension Data: DictionaryConvertible {
     public func toDictionary() -> [String: AnyObject]? {
         
-        let serialized = try? NSJSONSerialization.JSONObjectWithData(self, options: .AllowFragments)
+        let serialized = try? JSONSerialization.jsonObject(with: self, options: .allowFragments)
         return serialized as? [String : AnyObject]
     }
 }

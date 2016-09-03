@@ -25,8 +25,8 @@ extension UICollectionView {
      
      - returns: Dequeue `UICollectionViewCell` instance
      */
-    public func dequeueReusableCell<T where T: UICollectionViewCell, T: ReusableView>(at indexPath: NSIndexPath) -> T {
-        guard let cell = self.dequeueReusableCellWithReuseIdentifier(T.identifier, forIndexPath: indexPath) as? T else { fatalError("A cell with \(T.identifier) identifier cannot be dequeued") }
+    public func dequeueReusableCell<T>(at indexPath: IndexPath) -> T where T: UICollectionViewCell, T: ReusableView {
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else { fatalError("A cell with \(T.identifier) identifier cannot be dequeued") }
         
         return cell
     }
@@ -44,10 +44,10 @@ extension UICollectionView {
      
      - returns: Dequeue `UICollectionViewCell` instance
      */
-    public func dequeueReusableCell<T where T: UICollectionViewCell>(at indexPath: NSIndexPath) -> T {
-        let identifier = String(T)
+    public func dequeueReusableCell<T>(at indexPath: IndexPath) -> T where T: UICollectionViewCell {
+        let identifier = String(describing: T.self)
         
-        guard let cell = self.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as? T else { fatalError("A cell with \(identifier) identifier cannot be dequeued") }
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else { fatalError("A cell with \(identifier) identifier cannot be dequeued") }
         
         return cell
     }
@@ -61,8 +61,8 @@ extension UICollectionView {
      
      - parameter type: The cell type
      */
-    public func registerCell<T where T: UICollectionViewCell, T: ReusableView>(type: T.Type) {
-        self.registerNib(T.nib, forCellWithReuseIdentifier: T.identifier)
+    public func registerCell<T>(type: T.Type) where T: UICollectionViewCell, T: ReusableView {
+        self.register(T.nib, forCellWithReuseIdentifier: T.identifier)
     }
     
     /**
@@ -70,8 +70,8 @@ extension UICollectionView {
      
      - parameter type: The cell type
      */
-    public func registerCell<T where T: UICollectionViewCell>(type: T.Type) {
-        self.registerClass(T.self, forCellWithReuseIdentifier: String(T))
+    public func registerCell<T>(type: T.Type) where T: UICollectionViewCell {
+        self.register(T.self, forCellWithReuseIdentifier: String(describing: T.self))
     }
     
     /**
@@ -81,7 +81,7 @@ extension UICollectionView {
      - parameter completion: Block to perform after the `UICollectionView` finishes
                              to reload
      */
-    public func reloadData(completion: () -> ()) {
+    public func reloadData(completion: @escaping () -> ()) {
         self.reloadData()
         self.performBatchUpdates(nil) { _ in
             completion()

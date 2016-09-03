@@ -18,7 +18,7 @@ extension UIView {
      
      - parameter edge: The edge to constraint
      */
-    public func pinToSuperView(edge edge: ViewEdgeType) {
+    public func pinToSuperView(edge: ViewEdgeType) {
         
         let superview = _setup()
         
@@ -114,7 +114,7 @@ extension UIView {
      
      - parameter radius: The radius
      */
-    public func roundWith(radius radius: CGFloat) {
+    public func roundWith(radius: CGFloat) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
     }
@@ -126,9 +126,9 @@ extension UIView {
      - parameter duration:      The duration
      - parameter completion:    The completion closure
      */
-    static func animate(with animations: () -> (), duration: NSTimeInterval, completion: (Bool) -> () = { _ in }) {
-        UIView.animateWithDuration(
-            duration,
+    static func animate(with animations: @escaping () -> (), duration: TimeInterval, completion: ((Bool) -> ()) = { _ in }) {
+        UIView.animate(
+            withDuration: duration,
             animations: animations,
             completion: completion
         )

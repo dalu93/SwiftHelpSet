@@ -8,9 +8,9 @@
 
 import Foundation
 
-public enum Completion<Value, Error: ErrorType> {
+public enum Completion<Value> {
     case success(Value)
-    case failed(Error)
+    case failed(NSError)
     
     var isSuccess: Bool {
         if case .success(_) = self { return true } else { return false }
@@ -25,7 +25,7 @@ public enum Completion<Value, Error: ErrorType> {
         }
     }
     
-    var error: Error? {
+    var error: NSError? {
         switch self {
         case .success(_):           return nil
         case .failed(let error):    return error

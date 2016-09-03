@@ -26,7 +26,7 @@ extension Form {
     public func isValid() -> NSError? {
         
         // Creates the enumerator
-        let childrenEnumerator = Mirror(reflecting: self).children.enumerate()
+        let childrenEnumerator = Mirror(reflecting: self).children.enumerated()
         
         // Enumerats the properties
         for (_, property) in childrenEnumerator {
@@ -36,12 +36,12 @@ extension Form {
                 let closure = rules[propertyLabel] else { fatalError("The rule for property \(property.label!) isn't defined") }
             
             // Check if the property is valid
-            let isValid = closure(property.value as! AnyObject)
+            let isValid = closure(property.value as AnyObject)
             
             // If the property it's not valid
             if !isValid {
                 // Return the error
-                return .propertyNotRespectRule(propertyLabel)
+                return .propertyNotRespectRule(property: propertyLabel)
             }
         }
         

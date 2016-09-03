@@ -18,7 +18,7 @@ public enum Permission {
     case library
     case camera
     
-    public typealias PermissionCompletionHandler = Completion<Bool, NSError> -> ()
+    public typealias PermissionCompletionHandler = (Completion<Bool>) -> ()
     
     /**
      Asks for the specific permission
@@ -27,12 +27,12 @@ public enum Permission {
      */
     public func ask(completion: PermissionCompletionHandler) {
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             switch self {
             case .library:
-                self._askLibraryPermission(completion)
+                self._askLibraryPermission(completion: completion)
             case .camera:
-                self._askCameraPermission(completion)
+                self._askCameraPermission(completion: completion)
             }
         }
     }
@@ -43,11 +43,11 @@ private extension Permission {
     
     func _askCameraPermission(completion: PermissionCompletionHandler) {
         
-        switch AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) {
-        case .Authorized: completion(.success(true))
-        case .NotDetermined:
-            AVCaptureDevice.requestAccessForMediaType(
-                AVMediaTypeVideo,
+        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        case .authorized: completion(.success(true))
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(
+                forMediaType: AVMediaTypeVideo,
                 completionHandler: { granted in
                     
                     if granted {
@@ -66,11 +66,11 @@ private extension Permission {
         let status = PHPhotoLibrary.authorizationStatus()
         
         switch status {
-        case .Authorized: completion(.success(true))
-        case .NotDetermined:
+        case .authorized: completion(.success(true))
+        case .notDetermined:
             PHPhotoLibrary.requestAuthorization { authStatus in
                 
-                if authStatus == .Authorized {
+                if authStatus == .authorized {
                     completion(.success(true))
                 } else {
                     completion(.failed(.noAuthorizedError))

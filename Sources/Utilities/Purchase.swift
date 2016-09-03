@@ -20,18 +20,18 @@ public final class Purchase: NSObject {
         }
     }
     
-    private var restoreRequest: SKRequest? {
+    fileprivate var restoreRequest: SKRequest? {
         didSet {
             restoreRequest?.delegate = self
             restoreRequest?.start()
         }
     }
     
-    private var purchasing = false
+    fileprivate var purchasing = false
     
-    private var onFetchedProducts: (Completion<[SKProduct], NSError> -> ())?
-    private var onPurchaseCompleted: (Completion<NSData, NSError> -> ())?
-    private var onPurchaseRestored: (Completion<NSData, NSError> -> ())?
+    fileprivate var onFetchedProducts: ((Completion<[SKProduct]>) -> ())?
+    fileprivate var onPurchaseCompleted: ((Completion<Data>) -> ())?
+    fileprivate var onPurchaseRestored: ((Completion<Data>) -> ())?
     
     // MARK: - Static methods
     
@@ -45,7 +45,7 @@ public final class Purchase: NSObject {
      - parameter identifiers: The products identifiers list
      - parameter completion:  Completion handler
      */
-    static public func products(from identifiers: [String], completion: Completion<[SKProduct], NSError> -> ()) {
+    static public func products(from identifiers: [String], completion: ((Completion<[SKProduct]>) -> ())) {
         Purchase.shared.onFetchedProducts = completion
         
         Purchase.shared.productRequest?.cancel()
@@ -61,7 +61,7 @@ public final class Purchase: NSObject {
      - parameter product:    The product to buy
      - parameter completion: Completion handler
      */
-    static public func purchase(product: SKProduct, completion: Completion<NSData, NSError> -> ()) {
+    static public func purchase(product: SKProduct, completion: ((Completion<Data>) -> ())) {
         
         guard Purchase.shared.purchasing else {
             completion(.failed(.purchaseInProgressError()))
@@ -72,7 +72,7 @@ public final class Purchase: NSObject {
         Purchase.shared.onPurchaseCompleted = completion
         
         let payment = SKPayment(product: product)
-        SKPaymentQueue.defaultQueue().addPayment(payment)
+        SKPaymentQueue.default().add(payment)
     }
     
     /**
@@ -82,7 +82,7 @@ public final class Purchase: NSObject {
      
      - parameter completion: Completion handler
      */
-    static public func restorePurchase(completion: Completion<NSData, NSError> -> ()) {
+    static public func restorePurchase(completion: ((Completion<Data>) -> ())) {
         Purchase.shared.onPurchaseRestored = completion
         Purchase.shared.restoreRequest = SKReceiptRefreshRequest()
     }
@@ -90,17 +90,17 @@ public final class Purchase: NSObject {
     // MARK: - Object lifecycle
     override public init() {
         super.init()
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.default().add(self)
     }
     
     deinit {
-        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+        SKPaymentQueue.default().remove(self)
     }
 }
 
 // MARK: - SKProductsRequestDelegate
 extension Purchase: SKProductsRequestDelegate {
-    public func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let products = response.products
         let invalidProductsIdentifier = response.invalidProductIdentifiers
         
@@ -116,7 +116,7 @@ extension Purchase: SKProductsRequestDelegate {
 // MARK: - SKRequestDelegate
 extension Purchase: SKRequestDelegate {
     
-    public func requestDidFinish(request: SKRequest) {
+    public func requestDidFinish(_ request: SKRequest) {
         
         if request == restoreRequest {
             
@@ -132,12 +132,12 @@ extension Purchase: SKRequestDelegate {
 
 // MARK: - SKPaymentTransactionObserver
 extension Purchase: SKPaymentTransactionObserver {
-    public func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
         transactions.forEach {
             switch $0.transactionState {
-            case .Purchasing, .Deferred: break
-            case .Purchased:
+            case .purchasing, .deferred: break
+            case .purchased:
                 purchasing = false
                 guard let receipt = self._getReceipt() else {
                     onPurchaseCompleted?(.failed(.purchaseGenericError()))
@@ -146,14 +146,14 @@ extension Purchase: SKPaymentTransactionObserver {
                 
                 onPurchaseCompleted?(.success(receipt))
                 
-            case .Failed:
+            case .failed:
                 purchasing = false
-                onPurchaseCompleted?(.failed($0.error ?? .purchaseGenericError()))
-                SKPaymentQueue.defaultQueue().finishTransaction($0)
+                onPurchaseCompleted?(.failed($0.error as? NSError ?? NSError.purchaseGenericError()))
+                SKPaymentQueue.default().finishTransaction($0)
 
             default:
                 purchasing = false
-                SKPaymentQueue.defaultQueue().finishTransaction($0)
+                SKPaymentQueue.default().finishTransaction($0)
             }
         }
     }
@@ -161,9 +161,9 @@ extension Purchase: SKPaymentTransactionObserver {
 
 // MARK: - Receipt utility
 private extension Purchase {
-    func _getReceipt() -> NSData? {
-        if let url = NSBundle.mainBundle().appStoreReceiptURL {
-            return NSData(contentsOfURL: url)
+    func _getReceipt() -> Data? {
+        if let url = Bundle.main.appStoreReceiptURL {
+            return try? Data(contentsOf: url)
         }
         return nil
     }
@@ -171,7 +171,7 @@ private extension Purchase {
 
 // MARK: - Error utilities
 private extension NSError {
-    static func errorWith(invalidIdentifiers invalidIdentifiers: [String]) -> NSError {
+    static func errorWith(invalidIdentifiers: [String]) -> NSError {
         return NSError(
             domain: "Purchase",
             code: -1,

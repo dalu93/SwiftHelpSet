@@ -12,7 +12,7 @@ private var _UIGestureRecognizerClosure: StaticString = "UIGestureRecognizerClos
 
 extension UIGestureRecognizer {
     
-    private var closureWrapper: ClosureWrapper? {
+    fileprivate var closureWrapper: ClosureWrapper? {
         get {
             return objc_getAssociatedObject(self, &_UIGestureRecognizerClosure) as? ClosureWrapper
         }
@@ -33,7 +33,7 @@ extension UIGestureRecognizer {
 }
 
 extension UITapGestureRecognizer {
-    public static func recognizerPerforms(closure: () -> ()) -> UITapGestureRecognizer {
+    public static func recognizerPerforms(closure: @escaping () -> ()) -> UITapGestureRecognizer {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
         recognizer.closureWrapper = ClosureWrapper(closure: closure)
         return recognizer
@@ -41,7 +41,7 @@ extension UITapGestureRecognizer {
 }
 
 extension UIPinchGestureRecognizer {
-    public static func recognizerPerforms(closure: () -> ()) -> UIPinchGestureRecognizer {
+    public static func recognizerPerforms(closure: @escaping () -> ()) -> UIPinchGestureRecognizer {
         let recognizer = UIPinchGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
         recognizer.closureWrapper = ClosureWrapper(closure: closure)
         return recognizer
@@ -49,7 +49,7 @@ extension UIPinchGestureRecognizer {
 }
 
 extension UIRotationGestureRecognizer {
-    public static func recognizerPerforms(closure: () -> ()) -> UIRotationGestureRecognizer {
+    public static func recognizerPerforms(closure: @escaping () -> ()) -> UIRotationGestureRecognizer {
         let recognizer = UIRotationGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
         recognizer.closureWrapper = ClosureWrapper(closure: closure)
         return recognizer
@@ -57,7 +57,7 @@ extension UIRotationGestureRecognizer {
 }
 
 extension UISwipeGestureRecognizer {
-    public static func recognizerPerforms(closure: () -> ()) -> UISwipeGestureRecognizer {
+    public static func recognizerPerforms(closure: @escaping () -> ()) -> UISwipeGestureRecognizer {
         let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
         recognizer.closureWrapper = ClosureWrapper(closure: closure)
         return recognizer
@@ -65,7 +65,7 @@ extension UISwipeGestureRecognizer {
 }
 
 extension UIPanGestureRecognizer {
-    public static func recognizerPerforms<T>(closure: () -> ()) -> T {
+    public static func recognizerPerforms<T>(closure: @escaping () -> ()) -> T {
         if let _ = T.self as? UIPanGestureRecognizer.Type {
             let recognizer = UIPanGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
             recognizer.closureWrapper = ClosureWrapper(closure: closure)
@@ -81,7 +81,7 @@ extension UIPanGestureRecognizer {
 }
 
 extension UILongPressGestureRecognizer {
-    public static func recognizerPerforms(closure: () -> ()) -> UILongPressGestureRecognizer {
+    public static func recognizerPerforms(closure: @escaping () -> ()) -> UILongPressGestureRecognizer {
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(UIGestureRecognizer.trigger))
         recognizer.closureWrapper = ClosureWrapper(closure: closure)
         return recognizer

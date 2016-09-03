@@ -29,11 +29,11 @@ public protocol IdentifierConvertible {
 public protocol ReusableView: NibConvertible, IdentifierConvertible {}
 
 extension NibConvertible {
-    static var nibName: String { return String(Self) }
+    static var nibName: String { return String(describing: Self.self) }
 }
 
 extension IdentifierConvertible {
-    static var identifier: String { return String(Self) }
+    static var identifier: String { return String(describing: Self.self) }
 }
 
 // MARK: - Nib instantiation
@@ -45,7 +45,7 @@ extension NibConvertible {
 import UIKit
 extension UINib {
     
-    static func nibFrom(string string: String, bundle: NSBundle? = nil) -> UINib {
+    static func nibFrom(string: String, bundle: Bundle? = nil) -> UINib {
         return UINib(
             nibName: string,
             bundle: bundle

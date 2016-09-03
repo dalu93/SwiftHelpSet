@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension NSURLRequest {
-    public static func request(with URLString: String) -> NSURLRequest? {
-        guard let url = NSURL(string: URLString) else { return nil }
+extension URLRequest {
+    public static func request(with URLString: String) -> URLRequest? {
+        guard let url = URL(string: URLString) else { return nil }
         
-        return NSURLRequest(URL: url)
+        return URLRequest(url: url)
     }
 }
