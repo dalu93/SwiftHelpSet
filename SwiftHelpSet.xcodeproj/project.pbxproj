@@ -43,6 +43,7 @@
 		817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */; };
 		817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */; };
 		817FE1791D5236B900F4CAC2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE1781D5236B900F4CAC2 /* Bindable.swift */; };
+		819BF5491D7D8BB900BE9EDD /* Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BF5481D7D8BB900BE9EDD /* Each.swift */; };
 		81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */; };
 		81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */; };
 		81CE130F1D4B45A700007BB6 /* SwiftyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */; };
@@ -110,6 +111,7 @@
 		817C10641D37EDF900CE4A01 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryConvertible.swift; path = Sources/Foundation/DictionaryConvertible.swift; sourceTree = "<group>"; };
 		817FE1761D52322500F4CAC2 /* StringExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTestCases.swift; sourceTree = "<group>"; };
 		817FE1781D5236B900F4CAC2 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bindable.swift; path = Sources/Utilities/Bindable.swift; sourceTree = "<group>"; };
+		819BF5481D7D8BB900BE9EDD /* Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Each.swift; path = Sources/Utilities/Each.swift; sourceTree = "<group>"; };
 		81AFF4CB1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTestCases.swift; sourceTree = "<group>"; };
 		81CE130A1D4B41C600007BB6 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = Sources/UIKIt/UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		81CE130E1D4B45A700007BB6 /* SwiftyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTextField.swift; path = Sources/UIKIt/SwiftyTextField.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				817FE1781D5236B900F4CAC2 /* Bindable.swift */,
 				81F3778F1D3FA90D00267B30 /* Purchase.swift */,
 				81E4037A1D3E4AD200FECD20 /* Permission.swift */,
+				819BF5481D7D8BB900BE9EDD /* Each.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */,
 				81081F601D37D866000F8DFE /* ViewController.swift in Sources */,
 				8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */,
+				819BF5491D7D8BB900BE9EDD /* Each.swift in Sources */,
 				81081F8E1D37E6C3000F8DFE /* ArrayExtensions.swift in Sources */,
 				81E4037B1D3E4AD200FECD20 /* Permission.swift in Sources */,
 				81CE130B1D4B41C600007BB6 /* UICollectionViewExtensions.swift in Sources */,

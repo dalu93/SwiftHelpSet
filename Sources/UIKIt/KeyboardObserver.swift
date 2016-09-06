@@ -15,6 +15,7 @@ public protocol KeyboardObserver {
 }
 
 extension KeyboardObserver where Self: UIViewController {
+
     public func bindKeyboardSize(closure: @escaping (_ size: CGSize) -> ()) -> [NSObjectProtocol] {
         
         return NotificationManager.addObserverFor(names: [.UIKeyboardWillChangeFrame, .UIKeyboardWillHide]) { n in
