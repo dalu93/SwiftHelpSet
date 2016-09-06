@@ -93,6 +93,19 @@ Use `Permission` and `Purchase` to avoid the use of delegates for purchasing and
 
 Use `NotificationCenter` to get a more powerful and smart wrapper around `NSNotificationCenter`
 
+Use `Each` for a nice and easy implementation of `NSTimer`
+
+```swift
+Each(2).seconds.perform {
+    // Do something
+    return false    // true for stopping the timer, false for continuing
+}
+
+Each(1).minutes.perfor {
+    // Do Something
+}
+```
+
 # Foundation extensions
 
 ## Array
@@ -166,7 +179,7 @@ Define your action on `UIControl` trigger without using the ugly syntax `addTarg
 
 ```swift
 let button = UIButton(frame: .zero)
-button..bind(.TouchUpInside) {
+button.bind(.TouchUpInside) {
     // Do something
 }
 ```
