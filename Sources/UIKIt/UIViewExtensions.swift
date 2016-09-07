@@ -22,38 +22,39 @@ extension UIView {
         
         let superview = _setup()
         
-        if edge == .top || edge == .all {
+        switch edge {
             
+        case .all:
+            pinToSuperView(edge: .top)
+            pinToSuperView(edge: .bottom)
+            pinToSuperView(edge: .leading)
+            pinToSuperView(edge: .trailing)
+            
+        case .top:
             superview.addConstraint(
                 .PinTop(
                     view: self,
                     superview: superview
                 )
             )
-        }
-        
-        if edge == .bottom || edge == .all {
             
+        case .bottom:
             superview.addConstraint(
                 .PinBottom(
                     view: self,
                     superview: superview
                 )
             )
-        }
-        
-        if edge == .leading || edge == .all {
             
+        case .leading:
             superview.addConstraint(
                 .PinLeading(
                     view: self,
                     superview: superview
                 )
             )
-        }
-        
-        if edge == .trailing || edge == .all {
             
+        case .trailing:
             superview.addConstraint(
                 .PinTrailing(
                     view: self,
@@ -80,16 +81,8 @@ extension UIView {
         
         switch dimension {
         case .all(let width, let height):
-            superview.addConstraints([
-                NSLayoutConstraint.PinWidth(
-                    view: self,
-                    value: width
-                ),
-                NSLayoutConstraint.PinHeight(
-                    view: self,
-                    value: height
-                )
-                ])
+            pin(.height(height))
+            pin(.width(width))
             
         case .height(let height):
             superview.addConstraint(
