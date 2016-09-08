@@ -8,12 +8,24 @@
 
 import Foundation
 
+/**
+ The enum describes the connection status with backend.
+ 
+ - notStarted: The connection is not started yet
+ - inProgress: The connection is in progress. The associated value is a generic
+ `Request`
+ - completed:  The connection is completed. See `Completion` to know what the associated value
+ 
+ - SeeAlso: `Completion` enum
+ */
+
 public enum ConnectionStatus<Request, Value> {
     
     case notStarted
     case inProgress(Request)
     case completed(Completion<Value>)
     
+    /// The associated request, if the status is `inProgress`, otherwise `nil`
     public var request: Request? {
         switch self {
         case .inProgress(let request):  return request
@@ -21,6 +33,7 @@ public enum ConnectionStatus<Request, Value> {
         }
     }
     
+    /// The associated value if the connection was completed with success, otherwise `nil`
     public var value: Value? {
         
         switch self {
@@ -33,6 +46,7 @@ public enum ConnectionStatus<Request, Value> {
         }
     }
     
+    /// The associated error if the connection was completed with error, otherwise `nil`
     public var error: NSError? {
         switch self {
         case .completed(let completion):

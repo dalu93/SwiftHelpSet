@@ -62,6 +62,9 @@ public class Each {
     /// Instance that runs the specific interval in hours
     lazy var hours:         Each = self._makeEachWith(value: self._value, multiplierType: .toHours)
     
+    /// Timer is stopped or not
+    public var isStopped = true
+    
     
     // MARK: - Lifecycle
     /**
@@ -93,10 +96,11 @@ public class Each {
      The closure should return a boolean that indicates to stop or not the timer after
      the trigger. Return `false` to continue, return `true` to stop it
      */
-    public func perform(closure: VoidBoolClosure) {
-        guard _timer == nil else { return }
+    public func perform(closure: VoidBoolClosure) -> Each {
+        guard _timer == nil else { return self }
         guard let interval = _timeInterval else { fatalError("Please, speficy the time unit by using `milliseconds`, `seconds`, `minutes` abd `hours` properties") }
         
+        isStopped = false
         _performClosure = closure
         _timer = Timer.scheduledTimer(
             timeInterval: interval,
@@ -105,6 +109,28 @@ public class Each {
             userInfo: nil,
             repeats: true
         )
+        
+        return self
+    }
+    
+    
+    /**
+     Stops the timer
+     */
+    public func stop() {
+        _timer?.invalidate()
+        _timer = nil
+        
+        isStopped = true
+    }
+    
+    /**
+     Restarts the timer
+     */
+    public func restart() {
+        guard let _performClosure = _performClosure else { fatalError("Don't call the method `start()` in this case. The first time the timer is started automatically") }
+        
+        _ = perform(closure: _performClosure)
     }
 }
 
@@ -115,7 +141,7 @@ fileprivate extension Each {
         let stopTimer = _performClosure?() ?? false
         
         guard stopTimer else { return }
-        timer.invalidate()
+        stop()
     }
 }
 

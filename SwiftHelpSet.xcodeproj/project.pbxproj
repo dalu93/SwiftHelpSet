@@ -50,6 +50,8 @@
 		81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */; };
 		81DDA2B31D68998C009BACC4 /* SwiftySearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDA2B21D68998C009BACC4 /* SwiftySearchBar.swift */; };
 		81E4037B1D3E4AD200FECD20 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4037A1D3E4AD200FECD20 /* Permission.swift */; };
+		81E638841D814349004B1CFD /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E638831D814349004B1CFD /* UIAlertControllerExtensions.swift */; };
+		81E638861D81460C004B1CFD /* EachTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E638851D81460C004B1CFD /* EachTestCases.swift */; };
 		81E6E8781D58ACCC00F09695 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6E8771D58ACCC00F09695 /* IntExtensions.swift */; };
 		81F3778E1D3F75FF00267B30 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F3778D1D3F75FF00267B30 /* TableCell.xib */; };
 		81F377901D3FA90D00267B30 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3778F1D3FA90D00267B30 /* Purchase.swift */; };
@@ -118,6 +120,8 @@
 		81CE13101D4B48E300007BB6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIKIt/UIViewExtensions.swift; sourceTree = "<group>"; };
 		81DDA2B21D68998C009BACC4 /* SwiftySearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftySearchBar.swift; path = Sources/UIKIt/SwiftySearchBar.swift; sourceTree = "<group>"; };
 		81E4037A1D3E4AD200FECD20 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Permission.swift; path = Sources/Utilities/Permission.swift; sourceTree = "<group>"; };
+		81E638831D814349004B1CFD /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIKIt/UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		81E638851D81460C004B1CFD /* EachTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EachTestCases.swift; sourceTree = "<group>"; };
 		81E6E8771D58ACCC00F09695 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Sources/Foundation/IntExtensions.swift; sourceTree = "<group>"; };
 		81F3778D1D3F75FF00267B30 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		81F3778F1D3FA90D00267B30 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Purchase.swift; path = Sources/Utilities/Purchase.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		81081F711D37D867000F8DFE /* SwiftHelpSetTests */ = {
 			isa = PBXGroup;
 			children = (
+				81E638851D81460C004B1CFD /* EachTestCases.swift */,
 				8164A97D1D74367400271848 /* NSURLRequestExtensionsTestCases.swift */,
 				8164A97B1D74356C00271848 /* CompletionTestCases.swift */,
 				8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */,
@@ -223,6 +228,7 @@
 				814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */,
 				816739B41D675650009C10AF /* UIGestureRecognizerExtensions.swift */,
 				813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */,
+				81E638831D814349004B1CFD /* UIAlertControllerExtensions.swift */,
 				817C105C1D37ED1900CE4A01 /* Protocols */,
 			);
 			name = UIKit;
@@ -418,6 +424,7 @@
 				817C10651D37EDF900CE4A01 /* DictionaryConvertible.swift in Sources */,
 				81081F841D37E1A6000F8DFE /* SwiftyGenericTableViewController.swift in Sources */,
 				813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */,
+				81E638841D814349004B1CFD /* UIAlertControllerExtensions.swift in Sources */,
 				81081F801D37D8CA000F8DFE /* SwiftyTableView.swift in Sources */,
 				816739B11D6747C2009C10AF /* SwiftyWebView.swift in Sources */,
 				81081F821D37DE5F000F8DFE /* SwiftyScrollView.swift in Sources */,
@@ -454,6 +461,7 @@
 				817FE1771D52322500F4CAC2 /* StringExtensionsTestCases.swift in Sources */,
 				8164A97E1D74367400271848 /* NSURLRequestExtensionsTestCases.swift in Sources */,
 				81AFF4CC1D50F2A9008A56D2 /* ArrayExtensionsTestCases.swift in Sources */,
+				81E638861D81460C004B1CFD /* EachTestCases.swift in Sources */,
 				8178C53C1D5B47F600DEE6D6 /* DictionaryExtensionsTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

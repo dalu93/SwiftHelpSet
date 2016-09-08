@@ -27,6 +27,15 @@ extension UIBarButtonItem {
         }
     }
     
+    /**
+     Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
+     
+     - parameter title:   The title
+     - parameter style:   The style
+     - parameter closure: The closure to execute
+     
+     - returns: The newly created `UIBarButtonItem`
+     */
     public static func itemWith(title: String?, style: UIBarButtonItemStyle = .plain, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             title: title,
@@ -40,6 +49,16 @@ extension UIBarButtonItem {
         return item
     }
     
+    /**
+     Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
+     
+     - parameter image:          The image
+     - parameter landscapeImage: The landscape image
+     - parameter style:          The style
+     - parameter closure:        The closure to execute
+     
+     - returns: The newly created `UIBarButtonItem`
+     */
     public static func itemWith(image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .plain, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             image: image,
@@ -54,6 +73,14 @@ extension UIBarButtonItem {
         return item
     }
     
+    /**
+     Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
+     
+     - parameter barButtonSystemItem: The system item
+     - parameter closure:             The closure to execute
+     
+     - returns: The newly created `UIBarButtonItem`
+     */
     public static func itemWith(barButtonSystemItem: UIBarButtonSystemItem, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             barButtonSystemItem: barButtonSystemItem,

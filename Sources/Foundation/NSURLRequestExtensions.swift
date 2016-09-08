@@ -8,10 +8,16 @@
 
 import Foundation
 
+/**
+ Creates a new `NSURLRequest` from a URL string
+ 
+ - parameter URLString: The URL string
+ 
+ - returns: The `NSURLRequest` if everything went good, otherwise `nil`
+ */
 extension URLRequest {
     public static func request(with URLString: String) -> URLRequest? {
         guard let url = URL(string: URLString) else { return nil }
-        
         return URLRequest(url: url)
     }
 }

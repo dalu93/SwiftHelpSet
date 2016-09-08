@@ -10,7 +10,19 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
+    /**
+     Shows on the `UIViewController` instance a newly created `UIAlertController` instance.
+     
+     The title will be "Error", the cancel button title will be "Ok" (can be overwritten)
+     and the message will be the `localizedDescription` of the `NSError` instance
+     
+     - Note: Provide an `NSError` instance with a valid `localizedDescription`.
+     
+     - returns: Returns the `UIAlertController` instance
+     */
     public func showAlertFor(error: NSError, cancelTitle: String = "Ok", animated: Bool = true, completion: (() -> ()) = {}) -> UIAlertController {
+        
         let alertController = UIAlertController(
             title: "Error",
             message: error.localizedDescription,

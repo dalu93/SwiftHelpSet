@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- Enum containing all the possible HTTP methods
+ Enum containing all the supported HTTP methods
  */
 public enum HTTPMethod : String {
     
@@ -27,7 +27,7 @@ public enum HTTPMethod : String {
 
 /**
  *  The `HTTPHeader` struct contains the needed informations to describe
- *  completely and HTTP header field
+ *  completely an HTTP header field
  */
 public struct HTTPHeader {
     
@@ -120,7 +120,7 @@ extension Endpoint {
         return encParameters
     }
     
-    /// /// The encoded headers, ready for the use
+    /// The encoded headers, ready for the use
     public var encodedHeaders: [String : String]? {
         guard let headers = headers else { return nil }
         
