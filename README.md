@@ -67,6 +67,8 @@ UserModule().load(User.All) { result in
 }
 ```
 
+That increase the testability of your code by helping you injecting fake `APIModule` instances.
+
 Thanks to [@ChrisEidhof](https://twitter.com/chriseidhof) for the `Resource` idea.
 
 
@@ -110,12 +112,12 @@ Each(1).minutes.perfor {
 
 ## Array
 
-Use the method `get(at index: Int) -> Element?` on the array to secure get the element at index.
+Use the method `get(at index: Int) -> Element?` on the array to get the element at index.
 Added also the method `remove<T: Equatable>(object: T) -> Int?` that removes an equatable object from the array and returns the position if it was found
 
 ## String
 
-New properties to get simply more info about the string: `isEmail`, `isPhoneNumber`, `isBlank`, `lenght` and even `localized` that returns the localized string for the key
+New properties to simply get more info about the string: `isEmail`, `isPhoneNumber`, `isBlank`, `lenght` and even `localized` that returns the localized string for the key
 
 ## Int
 
@@ -202,4 +204,26 @@ Easily define the `UIGestureRecognizer` by providing a closure instead of a sele
 let tapRecognizer = UITapGestureRecognizer.recognizerPerforms {
     // Do something on tap
 }.numberOfTapsRequired = 1
+```
+
+## UIAlertController and UIAlertAction extension
+
+Create easily your new `UIAlertController` as an alert by calling the method `alertWith`.
+
+Add new actions all in once by calling `add(_ actions: [UIAlertAction])` on your `UIAlertController` instance
+
+Create new pre-defined `UIAlertAction` by using the static instance `.Cancel`
+
+```swift
+let alertController = UIAlertController.alertWith(message: "An error occured")
+
+let cancelAction = UIAlertAction.Cancel()
+let doneAction = UIAlertAction.Done()
+
+alertController.addActions([
+    doneAction,
+    cancelAction
+])
+
+// present the controller
 ```
