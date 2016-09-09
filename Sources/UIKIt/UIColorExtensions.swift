@@ -9,6 +9,15 @@
 import UIKit
 
 extension UIColor {
+    
+    /**
+     Initialize a `UIColor` instance by processing the hexadecimal value
+     
+     - parameter hex:   The hexadecimal value without the `#` char.
+     - parameter alpha: The alpha value
+     
+     - returns: `UIColor` instance
+     */
     public convenience init(_ hex: Int, withAlpha alpha: CGFloat = 1.0) {
         let components = (
             red: CGFloat((hex >> 16) & 0xff) / 255,
@@ -24,6 +33,14 @@ extension UIColor {
         )
     }
     
+    /**
+     Initialize a `UIColor` instance by processing the hexadecimal string
+    
+     - parameter hexString: The hexadecimal string
+     - parameter alpha:     The alpha value
+     
+     - returns: `UIColor` instance
+     */
     public convenience init(_ hexString: String, alpha: CGFloat = 1.0) {
         let hex = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
         let scanner = NSScanner(string: hex)
@@ -44,6 +61,16 @@ extension UIColor {
         )
     }
     
+    /**
+     Initialize a `UIColor` instance by processing the original RGB values (not divided by 255)
+
+     - parameter red:   The red value
+     - parameter green: The green value
+     - parameter blue:  The blue value
+     - parameter alpha: The alpha value
+     
+     - returns: `UIColor` instance
+     */
     public convenience init(realRed red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1)
     {
         self.init(

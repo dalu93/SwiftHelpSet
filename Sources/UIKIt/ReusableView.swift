@@ -29,15 +29,21 @@ public protocol IdentifierConvertible {
 public protocol ReusableView: NibConvertible, IdentifierConvertible {}
 
 extension NibConvertible {
+    
+    /// The nib name. It is the self class name stringified
     static var nibName: String { return String(Self) }
 }
 
 extension IdentifierConvertible {
+    
+    /// The identifier. It is the self class name stringified
     static var identifier: String { return String(Self) }
 }
 
 // MARK: - Nib instantiation
 extension NibConvertible {
+    
+    /// The `UINib` instance initialized by using the property `nibName`
     static var nib: UINib { return UINib.nibFrom(string: Self.nibName) }
 }
 

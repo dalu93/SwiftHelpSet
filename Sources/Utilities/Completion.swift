@@ -8,7 +8,38 @@
 
 import Foundation
 
-public enum Completion<Value, Error> {
+/**
+ The enum describes a completion status.
+
+ - success: The operation was completed with success
+ - failed:  The operation was completed with error
+ */
+public enum Completion<Value, Error: ErrorType> {
     case success(Value)
     case failed(Error)
+    
+    /// Succeeded or not
+    var isSuccess: Bool {
+        if case .success(_) = self { return true } else { return false }
+    }
+    
+    
+    /// Failed or not
+    var isFailed: Bool { return !isSuccess }
+    
+    /// The associated value if the operation was completed with success
+    var value: Value? {
+        switch self {
+        case .success(let value):   return value
+        case .failed(_):            return nil
+        }
+    }
+    
+    /// The associated error if the operation was completed with error
+    var error: Error? {
+        switch self {
+        case .success(_):           return nil
+        case .failed(let error):    return error
+        }
+    }
 }

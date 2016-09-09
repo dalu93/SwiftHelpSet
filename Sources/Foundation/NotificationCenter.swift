@@ -42,6 +42,24 @@ public class NotificationCenterManager {
     }
     
     /**
+     Adds new observers for the specific notification names
+     
+     The queue is the `NSOperationQueue.mainQueue()` by default.
+     It returns a new `[NSObjectProtocol]` that represents the observers
+     
+     - parameter name:    Notification's names
+     - parameter object:  The object. Default is `nil`
+     - parameter queue:   The specific queue. Default is `NSOperationQueue.mainQueue()`
+     - parameter handler: The handler called when the notifications are triggered
+     
+     - returns: `NSObjectProtocol` observers
+     */
+    public func addObserverFor(names names: [String], object: AnyObject? = nil, queue: NSOperationQueue? = NSOperationQueue.mainQueue(), handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
+        
+        return names.map { NotificationCenter.addObserverFor(name: $0, object: object, queue: queue, handler: handler) }
+    }
+    
+    /**
      Removes an `NSObjectProtocol` observer as observer
      
      - parameter observer: The observer to remove

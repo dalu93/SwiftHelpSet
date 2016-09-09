@@ -13,20 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-//        let button: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-//        
-//        button.bind(.TouchUpInside) {
-//            button.setTitle("aaaaa", forState: .Normal)
-//        }
-//        
-//        button.setTitle("bbbbb", forState: .Normal)
-//        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-//        
-//        self.view.addSubview(button)
-//        button.centerInSuperview()
-//        button.pin(.height(100))
-//        button.pin(.width(100))
+        var i = 0
+        Each(1).seconds.perform {
+            i += 1
+            
+            print("# \(i)")
+            
+            return i == 10
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,14 +35,11 @@ class ViewController: UIViewController {
         
         tableController.enableRefreshControl = true
         
-        tableController.cellForModel {
-            $0.set(title: $1)
-            return $0
+        tableController.cellForModel { cell, model in
+            cell.set(title: model)
+            return cell
         }.onSelection { indexPath, model in
-            let alert = UIAlertController(title: "Touched", message: "Selected row \(indexPath.row)", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
-            
-            tableController.presentViewController(alert, animated: true, completion: nil)
+            self.pushDetailWith(model, controller: tableController.navigationController)
         }
         
         tableController.dataSource = [
@@ -59,6 +50,17 @@ class ViewController: UIViewController {
         
         self.presentViewController(tableController, animated: true, completion: nil)
     }
+    
+    func pushDetailWith(model: String, controller: UINavigationController?) {
+        let detailVC = DetailViewController()
+        detailVC.model = model
+        
+        controller?.pushViewController(detailVC, animated: true)
+    }
+}
+
+final class DetailViewController: UIViewController {
+    var model: String? = nil
 }
 
 final class TableCell: UITableViewCell {
