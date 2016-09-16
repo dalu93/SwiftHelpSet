@@ -1,3 +1,7 @@
+## 1.4
+
+* Compatibility with **Swift 3**
+
 ## 1.3
 
 * Add observer for multiple names in once (NotificationManager)
