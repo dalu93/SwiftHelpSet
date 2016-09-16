@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - UIView support
-extension UIView {
+public extension UIView {
     
     /**
      Pins the view to the superview edges (Top, Bottom, Trailing and Leading).
@@ -18,7 +18,7 @@ extension UIView {
      
      - parameter edge: The edge to constraint
      */
-    public func pinToSuperView(edge edge: ViewEdgeType) {
+    public func pinToSuperView(edge: ViewEdgeType) {
         
         let superview = _setup()
         
@@ -81,8 +81,8 @@ extension UIView {
         
         switch dimension {
         case .all(let width, let height):
-            pin(.height(height))
-            pin(.width(width))
+            pin(dimension: .height(height))
+            pin(dimension: .width(width))
             
         case .height(let height):
             superview.addConstraint(
@@ -107,7 +107,7 @@ extension UIView {
      
      - parameter radius: The radius
      */
-    public func roundWith(radius radius: CGFloat) {
+    public func roundWith(radius: CGFloat) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
     }
@@ -119,9 +119,9 @@ extension UIView {
      - parameter duration:      The duration
      - parameter completion:    The completion closure
      */
-    static func animate(with animations: () -> (), duration: NSTimeInterval, completion: (Bool) -> () = { _ in }) {
-        UIView.animateWithDuration(
-            duration,
+    static func animate(with animations: @escaping () -> (), duration: TimeInterval, completion: @escaping ((Bool) -> ()) = { _ in }) {
+        UIView.animate(
+            withDuration: duration,
             animations: animations,
             completion: completion
         )
@@ -129,7 +129,7 @@ extension UIView {
 }
 
 // MARK: - UIActivityIndicator shortcut
-extension UIView {
+public extension UIView {
     
     /**
      Creates and return a centered UIActivityIndicatorView with a specific style.

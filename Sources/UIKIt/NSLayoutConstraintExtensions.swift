@@ -42,7 +42,7 @@ public enum ViewDimensionType {
 }
 
 // MARK: - NSLayoutConstraint support
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
     
     /**
      Pins the top edge of the `view` to the top edge of the `superview`.
@@ -53,19 +53,18 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinTop(view view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
+    static public func PinTop(view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Top,
-            relatedBy: .Equal,
+            attribute: .top,
+            relatedBy: .equal,
             toItem: superview,
-            attribute: .Top,
+            attribute: .top,
             multiplier: 1,
             constant: distance
         )
     }
-    
     
     /**
      Pins the bottom edge of the `view` to the bottom edge of the `superview`.
@@ -76,14 +75,14 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinBottom(view view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
+    static public func PinBottom(view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Bottom,
-            relatedBy: .Equal,
+            attribute: .bottom,
+            relatedBy: .equal,
             toItem: superview,
-            attribute: .Bottom,
+            attribute: .bottom,
             multiplier: 1,
             constant: distance
         )
@@ -98,19 +97,18 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinTrailing(view view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
+    static public func PinTrailing(view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Trailing,
-            relatedBy: .Equal,
+            attribute: .trailing,
+            relatedBy: .equal,
             toItem: superview,
-            attribute: .Trailing,
+            attribute: .trailing,
             multiplier: 1,
             constant: distance
         )
     }
-    
     
     /**
      Pins the leading edge of the `view` to the leading edge of the `superview`.
@@ -121,19 +119,18 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinLeading(view view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
+    static public func PinLeading(view: UIView, superview: UIView, distance: CGFloat = 0) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Leading,
-            relatedBy: .Equal,
+            attribute: .leading,
+            relatedBy: .equal,
             toItem: superview,
-            attribute: .Leading,
+            attribute: .leading,
             multiplier: 1,
             constant: distance
         )
     }
-    
     
     /**
      Pins the height to a specific value
@@ -143,14 +140,14 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinHeight(view view: UIView, value: CGFloat) -> NSLayoutConstraint {
+    static public func PinHeight(view: UIView, value: CGFloat) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 1,
             constant: value
         )
@@ -164,14 +161,14 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` instance
      */
-    static public func PinWidth(view view: UIView, value: CGFloat) -> NSLayoutConstraint {
+    static public func PinWidth(view: UIView, value: CGFloat) -> NSLayoutConstraint {
         
         return NSLayoutConstraint(
             item: view,
-            attribute: .Width,
-            relatedBy: .Equal,
+            attribute: .width,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 1,
             constant: value
         )
@@ -186,30 +183,29 @@ extension NSLayoutConstraint {
      
      - returns: The `NSLayoutConstraint` array
      */
-    static public func Center(view view: UIView, on superview: UIView, with offset: (x: CGFloat, y: CGFloat) = (0,0)) -> [NSLayoutConstraint] {
+    static public func Center(view: UIView, on superview: UIView, with offset: (x: CGFloat, y: CGFloat) = (0,0)) -> [NSLayoutConstraint] {
         
         return [
             NSLayoutConstraint(
                 item: view,
-                attribute: .CenterX,
-                relatedBy: .Equal,
+                attribute: .centerX,
+                relatedBy: .equal,
                 toItem: superview,
-                attribute: .CenterX,
+                attribute: .centerX,
                 multiplier: 1,
                 constant: offset.x
             ),
             NSLayoutConstraint(
                 item: view,
-                attribute: .CenterY,
-                relatedBy: .Equal,
+                attribute: .centerY,
+                relatedBy: .equal,
                 toItem: superview,
-                attribute: .CenterY,
+                attribute: .centerY,
                 multiplier: 1,
                 constant: offset.y
             )
         ]
     }
-    
     
     /**
      It animates a change of `NSLayoutConstraint` constant.
@@ -218,14 +214,14 @@ extension NSLayoutConstraint {
      - parameter duration:    The animation duration
      - parameter completion:  The completion closure
      */
-    public func animate(newConstant: CGFloat, duration: NSTimeInterval = 0.3, completion: (() -> ())?) {
+    public func animate(newConstant: CGFloat, duration: TimeInterval = 0.3, completion: (() -> ())?) {
         
         guard let superview = secondItem as? UIView else { return }
         
         constant = newConstant
         
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration,
             animations: { 
                 superview.layoutIfNeeded()
             }) { _ in

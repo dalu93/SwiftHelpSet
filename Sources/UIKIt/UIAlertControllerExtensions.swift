@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Utility methods
-extension UIAlertController {
+public extension UIAlertController {
     
     /**
      Creates and returns a `UIAlertController` instance with `.Alert` style
@@ -20,19 +20,19 @@ extension UIAlertController {
      
      - returns: Returns a `UIAlertController` instance with `.Alert` style
      */
-    static func alertWith(title title: String? = "", message: String? = "", actions: [UIAlertAction] = []) -> UIAlertController {
+    static func alertWith(title: String? = "", message: String? = "", actions: [UIAlertAction] = []) -> UIAlertController {
         let controller = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
         
-        controller.addActions(actions)
+        controller.add(actions)
         
         return controller
     }
     
-    func addActions(actions: [UIAlertAction]) {
+    func add(_ actions: [UIAlertAction]) {
         actions.forEach { self.addAction($0) }
     }
     
@@ -42,7 +42,7 @@ extension UIAlertController {
         let cancelAction = UIAlertAction.Cancel()
         let doneAction = UIAlertAction.Done()
         
-        alertController.addActions([
+        alertController.add([
             doneAction,
             cancelAction
         ])
@@ -52,7 +52,7 @@ extension UIAlertController {
 }
 
 // MARK: - Utility methods
-extension UIAlertAction {
+public extension UIAlertAction {
     
     /**
      Quickly creates and returns a new `UIAlertAction` with `.Cancel` style.
@@ -65,9 +65,10 @@ extension UIAlertAction {
      
      - returns: Returns a new `UIAlertAction` with `.Cancel` style.
      */
-    static func Cancel(title title: String? = "Cancel", handler: ((UIAlertAction) -> ())? = nil) -> UIAlertAction {
-        return UIAlertAction(title: title, style: .Cancel, handler: handler)
+    static func Cancel(title: String? = "Cancel", handler: ((UIAlertAction) -> ())? = nil) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .cancel, handler: handler)
     }
+
     
     /**
      Quickly creates and returns a new `UIAlertAction` with `.Default` style.
@@ -80,7 +81,7 @@ extension UIAlertAction {
      
      - returns: Returns a new `UIAlertAction` with `.Default` style.
      */
-    static func Done(title title: String? = "Done", handler: ((UIAlertAction) -> ())? = nil) -> UIAlertAction {
-        return UIAlertAction(title: title, style: .Default, handler: handler)
+    static func Done(title: String? = "Done", handler: ((UIAlertAction) -> ())? = nil) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .default, handler: handler)
     }
 }

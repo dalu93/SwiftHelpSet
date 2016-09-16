@@ -10,7 +10,7 @@ import UIKit
 
 private var _UIBarButtonItemClosure: StaticString = "UIBarButtonItemClosure"
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     
     private var closureWrapper: ClosureWrapper? {
         get {
@@ -27,7 +27,6 @@ extension UIBarButtonItem {
         }
     }
     
-    
     /**
      Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
      
@@ -37,19 +36,18 @@ extension UIBarButtonItem {
      
      - returns: The newly created `UIBarButtonItem`
      */
-    public static func itemWith(title title: String?, style: UIBarButtonItemStyle = .Plain, closure: () -> ()) -> UIBarButtonItem {
+    public static func itemWith(title: String?, style: UIBarButtonItemStyle = .plain, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             title: title,
             style: style,
             target: self,
-            action: #selector(UIBarButtonItem.selector(_:))
+            action: #selector(UIBarButtonItem.selector(sender:))
         )
         
         item.closureWrapper = ClosureWrapper(closure: closure)
         
         return item
     }
-    
     
     /**
      Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
@@ -61,20 +59,19 @@ extension UIBarButtonItem {
      
      - returns: The newly created `UIBarButtonItem`
      */
-    public static func itemWith(image image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, closure: () -> ()) -> UIBarButtonItem {
+    public static func itemWith(image: UIImage?, landscapeImage: UIImage? = nil, style: UIBarButtonItemStyle = .plain, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             image: image,
             landscapeImagePhone: landscapeImage,
             style: style,
             target: self,
-            action: #selector(UIBarButtonItem.selector(_:))
+            action: #selector(UIBarButtonItem.selector(sender:))
         )
         
         item.closureWrapper = ClosureWrapper(closure: closure)
         
         return item
     }
-    
     
     /**
      Creates a new `UIBarButtonItem` with a specific closure instead of providing the selector
@@ -84,11 +81,11 @@ extension UIBarButtonItem {
      
      - returns: The newly created `UIBarButtonItem`
      */
-    public static func itemWith(barButtonSystemItem barButtonSystemItem: UIBarButtonSystemItem, closure: () -> ()) -> UIBarButtonItem {
+    public static func itemWith(barButtonSystemItem: UIBarButtonSystemItem, closure: @escaping () -> ()) -> UIBarButtonItem {
         let item = UIBarButtonItem(
             barButtonSystemItem: barButtonSystemItem,
             target: self,
-            action: #selector(UIBarButtonItem.selector(_:))
+            action: #selector(UIBarButtonItem.selector(sender:))
         )
         
         item.closureWrapper = ClosureWrapper(closure: closure)
@@ -96,7 +93,7 @@ extension UIBarButtonItem {
         return item
     }
     
-    @objc private func selector(sender: UIBarButtonItem) {
+    @objc fileprivate func selector(sender: UIBarButtonItem) {
         closureWrapper?.closure()
     }
 }

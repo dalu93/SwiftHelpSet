@@ -20,9 +20,9 @@ public protocol Localizable {
 }
 
 // MARK: - NSDateFormatter
-extension NSDateFormatter: Localizable {
-    public var localized: NSDateFormatter {
-        self.locale = NSLocale.currentLocale()
+extension DateFormatter: Localizable {
+    public var localized: DateFormatter {
+        self.locale = Locale.current
         return self
     }
 }

@@ -48,8 +48,8 @@ extension HTTPHeader: DictionaryConvertible {
 }
 
 // MARK: - Prefilled HTTPHeaders
-extension HTTPHeader {
-    static func HeaderWith(contentType contentType: String) -> HTTPHeader {
+public extension HTTPHeader {
+    static func HeaderWith(contentType: String) -> HTTPHeader {
         return HTTPHeader(
             name: "Content-Type",
             value: contentType
@@ -97,19 +97,19 @@ public struct Endpoint {
     public let method : HTTPMethod
     
     /// The parameters
-    public let parameters : [Parameter]?
+    fileprivate let _parameters : [Parameter]?
     
     /// The headers
-    public let headers : [HTTPHeader]?
+    fileprivate let _headers : [HTTPHeader]?
 }
 
 // MARK: - Computed properties
-extension Endpoint {
+public extension Endpoint {
     
     /// The encoded parameters, ready for the use
-    public var encodedParameters: [String : AnyObject]? {
+    public var parameters: [String : AnyObject]? {
         
-        guard let parameters = parameters else { return nil }
+        guard let parameters = _parameters else { return nil }
         
         var encParameters: [String : AnyObject] = [:]
         parameters.forEach {
@@ -121,8 +121,8 @@ extension Endpoint {
     }
     
     /// The encoded headers, ready for the use
-    public var encodedHeaders: [String : String]? {
-        guard let headers = headers else { return nil }
+    public var headers: [String : String]? {
+        guard let headers = _headers else { return nil }
         
         var encHeaders: [String : String] = [:]
         headers.forEach {
@@ -144,5 +144,5 @@ public struct Resource<A> {
     public let endpoint : Endpoint
     
     /// A closure that indicates how to convert the response in a generic object
-    public let parseJSON : AnyObject -> A?
+    public let parseJSON : (AnyObject) -> A?
 }

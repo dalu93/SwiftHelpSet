@@ -18,21 +18,21 @@ public enum Permission {
     case library
     case camera
     
-    public typealias PermissionCompletionHandler = Completion<Bool, NSError> -> ()
+    public typealias PermissionCompletionHandler = (Completion<Bool>) -> ()
     
     /**
      Asks for the specific permission
      
      - parameter completion: The completion handler
      */
-    public func ask(completion: PermissionCompletionHandler) {
+    public func ask(completion: @escaping PermissionCompletionHandler) {
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             switch self {
             case .library:
-                self._askLibraryPermission(completion)
+                self._askLibraryPermission(completion: completion)
             case .camera:
-                self._askCameraPermission(completion)
+                self._askCameraPermission(completion: completion)
             }
         }
     }
@@ -41,13 +41,13 @@ public enum Permission {
 // MARK: - Helpers
 private extension Permission {
     
-    func _askCameraPermission(completion: PermissionCompletionHandler) {
+    func _askCameraPermission(completion: @escaping PermissionCompletionHandler) {
         
-        switch AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) {
-        case .Authorized: completion(.success(true))
-        case .NotDetermined:
-            AVCaptureDevice.requestAccessForMediaType(
-                AVMediaTypeVideo,
+        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        case .authorized: completion(.success(true))
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(
+                forMediaType: AVMediaTypeVideo,
                 completionHandler: { granted in
                     
                     if granted {
@@ -61,16 +61,16 @@ private extension Permission {
         }
     }
     
-    func _askLibraryPermission(completion: PermissionCompletionHandler) {
+    func _askLibraryPermission(completion: @escaping PermissionCompletionHandler) {
         
         let status = PHPhotoLibrary.authorizationStatus()
         
         switch status {
-        case .Authorized: completion(.success(true))
-        case .NotDetermined:
+        case .authorized: completion(.success(true))
+        case .notDetermined:
             PHPhotoLibrary.requestAuthorization { authStatus in
                 
-                if authStatus == .Authorized {
+                if authStatus == .authorized {
                     completion(.success(true))
                 } else {
                     completion(.failed(.noAuthorizedError))

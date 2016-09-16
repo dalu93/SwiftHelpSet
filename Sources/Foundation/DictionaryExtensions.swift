@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     /**
      Creates a new dictionary instance by adding a set of dictionaries
@@ -35,7 +35,7 @@ extension Dictionary {
  - parameter left:  A dictionary
  - parameter right: An another dictionary
  */
-public func +=<K,V>(inout left: [K:V], right: [K:V]) {
+public func +=<K,V>(left: inout [K:V], right: [K:V]) {
     for (key, value) in right {
         left[key] = value
     }

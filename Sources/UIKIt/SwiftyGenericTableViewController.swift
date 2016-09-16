@@ -17,8 +17,7 @@ import UIKit
 /// You can even handle the tableViewCell selection by assigning a 
 /// `TableViewCellSelectionClosure` to `onSelection` variable
 /// - SeeAlso: `ReusableView`
-public class SwiftyGenericTableViewController<C, D where
-    C: ReusableView, C: UITableViewCell>: UIViewController {
+public class SwiftyGenericTableViewController<C, D>: UIViewController where C: ReusableView, C: UITableViewCell {
     
     // MARK: - Properties
     /// The tableView dataSource.
@@ -43,37 +42,37 @@ public class SwiftyGenericTableViewController<C, D where
     
     private var _refreshControl: UIRefreshControl? = nil
     
-    private var _onRefresh: (() -> ())?
+    fileprivate var _onRefresh: (() -> ())?
     /// It is called everytime the user refresh the UITableView using a UIRefreshControl.
     ///
     /// It is recommended to update the dataSource here
-    public func onRefresh(closure: () -> ()) -> Self {
+    public func onRefresh(closure: @escaping (() -> ())) -> Self {
         _onRefresh = closure
         return self
     }
     
-    private var _cellForModel: ((C, D) -> UITableViewCell)?
+    fileprivate var _cellForModel: ((C, D) -> UITableViewCell)?
     /// Closure responsible for the UITableViewCell creation
-    public func cellForModel(closure: (C, D) -> UITableViewCell) -> Self {
+    public func cellForModel(closure: @escaping ((C, D) -> UITableViewCell)) -> Self {
         _cellForModel = closure
         return self
     }
     
-    private var _onDataSourceChange: (() -> ())?
+    fileprivate var _onDataSourceChange: VoidClosure?
     /// This closure is called every time the `dataSource` property is set.
     ///
     /// Override it to disable the default behavior: `tableView.reloadData()`
-    public func onDataSourceChange(closure: () -> ()) -> Self {
+    public func onDataSourceChange(closure: @escaping VoidClosure) -> Self {
         _onDataSourceChange = closure
         return self
     }
     
     /// Selection closure definition
-    public typealias TableViewCellSelectionClosure = (indexPath: NSIndexPath, model: D) -> ()
+    public typealias TableViewCellSelectionClosure = (_ indexPath: IndexPath, _ model: D) -> ()
     
-    private var _onSelection: TableViewCellSelectionClosure?
+    fileprivate var _onSelection: TableViewCellSelectionClosure?
     /// This closure is called whenever a cell is selected.
-    public func onSelection(closure: TableViewCellSelectionClosure) -> Self {
+    public func onSelection(closure: @escaping TableViewCellSelectionClosure) -> Self {
         _onSelection = closure
         return self
     }
@@ -81,12 +80,16 @@ public class SwiftyGenericTableViewController<C, D where
     /// `SwiftyTableView` instance
     public let tableView = SwiftyTableView(
         frame: .zero,
-        style: .Plain
+        style: .plain
     )
     
     // MARK: - Lifecycle
     public init() {
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override public func viewDidLoad() {
@@ -106,7 +109,7 @@ private extension SwiftyGenericTableViewController {
         tableView.pinToSuperView(edge: .all)
         if enableRefreshControl {
             
-            tableView.addRefreshControl() { [weak self] in
+            _ = tableView.addRefreshControl() { [weak self] in
                 self?._refresh()
             }
         }
@@ -114,14 +117,14 @@ private extension SwiftyGenericTableViewController {
     
     func _setupTable() {
         
-        tableView.registerNib(
+        tableView.register(
             C.nib,
             forCellReuseIdentifier: C.identifier
         )
         
         tableView.setupAutomaticDimension()
         
-        tableView
+        _ = tableView
             .configureNumberOfSections {
                 return 1
             }.numberOfRowsPerSection { _ in
@@ -135,7 +138,7 @@ private extension SwiftyGenericTableViewController {
             }.onCellSelection {
                 guard let selectedModel = self.dataSource?.get(at: $0.row) else { return }
                 
-                self._onSelection?(indexPath: $0, model: selectedModel)
+                self._onSelection?($0, selectedModel)
         }
     }
     

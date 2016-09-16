@@ -25,22 +25,22 @@ public enum Axis: String {
 /// This wrapper allows you to handle easily the CABasicAnimation using closures
 public class BasicAnimation: NSObject {
     
-    private var _onStop: ((finished: Bool) -> ())?
+    fileprivate var _onStop: ((_ finished: Bool) -> ())?
     /// Called when the animation finishes
-    public func onStop(closure: (finished: Bool) -> ()) -> Self {
+    public func onStop(closure: @escaping ((_ finished: Bool) -> ())) -> Self {
         _onStop = closure
         return self
     }
     
-    private var _onStart: VoidClosure?
+    fileprivate var _onStart: VoidClosure?
     /// Called when the animation starts
-    public func onStart(closure: VoidClosure) -> Self {
+    public func onStart(closure: @escaping VoidClosure) -> Self {
         _onStart = closure
         return self
     }
     
-    private let animation: CABasicAnimation
-    private weak var layer: CALayer?
+    fileprivate let animation: CABasicAnimation
+    fileprivate weak var layer: CALayer?
     
     /**
      Creates a new instance of `BasicAnimation` starting from a `CABasicAnimation` instance.
@@ -69,7 +69,7 @@ public class BasicAnimation: NSObject {
      */
     public func add(to layer: CALayer) -> Self {
         self.layer = layer
-        layer.addAnimation(animation, forKey: animation.keyPath)
+        layer.add(animation, forKey: animation.keyPath)
         return self
     }
     
@@ -83,13 +83,13 @@ public class BasicAnimation: NSObject {
             let layer = layer,
             let keyPath = animation.keyPath else { return self }
         
-        layer.removeAnimationForKey(keyPath)
+        layer.removeAnimation(forKey: keyPath)
         
         return self
     }
     
     deinit {
-        remove()
+        _ = remove()
     }
 }
 
@@ -98,7 +98,7 @@ public func ==(lhs: BasicAnimation, rhs: BasicAnimation) -> Bool {
 }
 
 // MARK: - Static initializers
-extension BasicAnimation {
+public extension BasicAnimation {
     
     /**
      Creates a new instance of `BasicAnimation` that allows you to create a 
@@ -114,7 +114,7 @@ extension BasicAnimation {
         
         let animation = CABasicAnimation(keyPath: "transform.rotation.\(axis.rawValue)")
         
-        animation.toValue = NSNumber(double: M_PI * 2)
+        animation.toValue = NSNumber(value: M_PI * 2)
         animation.duration = duration
         animation.repeatCount = repeatCount
         
@@ -122,16 +122,13 @@ extension BasicAnimation {
     }
 }
 
-// MARK: - Delegates
-extension BasicAnimation {
-    
-    override public func animationDidStart(anim: CAAnimation) {
-        
+// MARK: - CAAnimationDelegate
+extension BasicAnimation: CAAnimationDelegate {
+    public func animationDidStart(_ anim: CAAnimation) {
         _onStart?()
     }
     
-    override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        
-        _onStop?(finished: flag)
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        _onStop?(flag)
     }
 }

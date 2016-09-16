@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     /**
      Gets the element at the specific index
@@ -33,13 +33,13 @@ extension Array {
      - returns: Returns the index of the object in the array if it found it,
                 otherwise `nil`
      */
-    public mutating func remove<T: Equatable>(object: T) -> Int? {
+    public mutating func remove<T: Equatable>(_ object: T) -> Int? {
         
-        for (idx, stored) in enumerate() {
+        for (idx, stored) in enumerated() {
             guard let stored = stored as? T else { break }
             
             if stored == object {
-                removeAtIndex(idx)
+                remove(at: idx)
                 return idx
             }
         }

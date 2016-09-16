@@ -30,23 +30,23 @@ public class Each {
     
     // MARK: - Private properties
     /// The timer interval in seconds
-    private let _value: NSTimeInterval
+    private let _value: TimeInterval
     
     /// The multiplier. If nil when using it, the configuration didn't go well,
     /// the app will crash
-    private var _multiplier: Double? = nil
+    fileprivate var _multiplier: Double? = nil
     
     /// The definitive time interval to use for the timer. If nil, the app will crash
-    private var _timeInterval: NSTimeInterval? {
+    private var _timeInterval: TimeInterval? {
         guard let _multiplier = _multiplier else { return nil }
         return _multiplier * _value
     }
     
     /// The action to perform when the timer is triggered
-    private var _performClosure: VoidBoolClosure?
+    fileprivate var _performClosure: VoidBoolClosure?
     
     /// The timer instance
-    private weak var _timer: NSTimer?
+    private weak var _timer: Timer?
     
     
     // MARK: - Public properties
@@ -62,6 +62,7 @@ public class Each {
     /// Instance that runs the specific interval in hours
     lazy var hours:         Each = self._makeEachWith(value: self._value, multiplierType: .toHours)
     
+    /// Timer is stopped or not
     public var isStopped = true
     
     
@@ -76,7 +77,7 @@ public class Each {
      
      - returns: A new `Each` uncompleted instance
      */
-    public init(_ value: NSTimeInterval) {
+    public init(_ value: TimeInterval) {
         self._value = value
     }
     
@@ -95,14 +96,14 @@ public class Each {
      The closure should return a boolean that indicates to stop or not the timer after
      the trigger. Return `false` to continue, return `true` to stop it
      */
-    public func perform(closure: VoidBoolClosure) -> Each {
+    public func perform(closure: @escaping VoidBoolClosure) -> Each {
         guard _timer == nil else { return self }
         guard let interval = _timeInterval else { fatalError("Please, speficy the time unit by using `milliseconds`, `seconds`, `minutes` abd `hours` properties") }
         
         isStopped = false
         _performClosure = closure
-        _timer = NSTimer.scheduledTimerWithTimeInterval(
-            interval,
+        _timer = Timer.scheduledTimer(
+            timeInterval: interval,
             target: self,
             selector: .Triggered,
             userInfo: nil,
@@ -129,14 +130,14 @@ public class Each {
     public func restart() {
         guard let _performClosure = _performClosure else { fatalError("Don't call the method `start()` in this case. The first time the timer is started automatically") }
         
-        perform(_performClosure)
+        _ = perform(closure: _performClosure)
     }
 }
 
 
 // MARK: - Actions
-private extension Each {
-    @objc func _trigger(timer: NSTimer) {
+fileprivate extension Each {
+    @objc func _trigger(timer: Timer) {
         let stopTimer = _performClosure?() ?? false
         
         guard stopTimer else { return }
@@ -146,7 +147,7 @@ private extension Each {
 
 // MARK: - Builders
 private extension Each {
-    func _makeEachWith(value value: NSTimeInterval, multiplierType: SecondsMultiplierType) -> Each {
+    func _makeEachWith(value: TimeInterval, multiplierType: SecondsMultiplierType) -> Each {
         let each = Each(value)
         each._multiplier = multiplierType.value
         
@@ -157,5 +158,5 @@ private extension Each {
 
 // MARK: - Selectors
 private extension Selector {
-    static let Triggered = #selector(Each._trigger(_:))
+    static let Triggered = #selector(Each._trigger(timer:))
 }

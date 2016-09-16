@@ -50,7 +50,7 @@ class ArrayExtensionsTestCases: XCTestCase {
         let objectToRemove = "hello"
         var array = [objectToRemove, "world"]
         
-        array.remove(objectToRemove)
+        _ = array.remove(objectToRemove)
         
         XCTAssert(array.contains(objectToRemove) == false, "The array cannot contain the just removed element")
     }

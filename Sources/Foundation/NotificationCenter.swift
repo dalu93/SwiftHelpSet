@@ -9,14 +9,14 @@
 import Foundation
 
 /// Shared `NotificationCenter` instance
-public let NotificationCenter = NotificationCenterManager.sharedManager
+public let NotificationManager = NotificationCenterManager.default
 
 /// Functional and easy wrap around `NSNotificationCenter` `Foundation` API
 public class NotificationCenterManager {
-    private static let sharedManager = NotificationCenterManager()
+    fileprivate static let `default` = NotificationCenterManager()
     
     /// The common handler called when the notification is triggered
-    public typealias GeneralNotificationHandler = (notification: NSNotification) -> ()
+    public typealias GeneralNotificationHandler = (_ notification: Notification) -> ()
     
     /**
      Adds a new observer for the specific notification name
@@ -31,19 +31,19 @@ public class NotificationCenterManager {
      
      - returns: `NSObjectProtocol` observer
      */
-    public func addObserverFor(name name: String, object: AnyObject? = nil, queue: NSOperationQueue? = NSOperationQueue.mainQueue(), handler: GeneralNotificationHandler) -> NSObjectProtocol {
+    public func addObserverFor(name: NSNotification.Name, object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: @escaping GeneralNotificationHandler) -> NSObjectProtocol {
         
-        return NSNotificationCenter.defaultCenter().addObserverForName(
-            name,
+        return NotificationCenter.default.addObserver(
+            forName: name,
             object: object,
             queue: queue,
-            usingBlock: handler
+            using: handler
         )
     }
     
-    public func addObserverFor(names names: [String], object: AnyObject? = nil, queue: NSOperationQueue? = NSOperationQueue.mainQueue(), handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
+    public func addObserverFor(names: [NSNotification.Name], object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: @escaping GeneralNotificationHandler) -> [NSObjectProtocol] {
         
-        return names.map { NotificationCenter.addObserverFor(name: $0, handler: handler) }
+        return names.map { NotificationManager.addObserverFor(name: $0, handler: handler) }
     }
     
     /**
@@ -53,8 +53,8 @@ public class NotificationCenterManager {
      
      - returns: The same `NotificationCenter` instance
      */
-    public func remove(observer observer: NSObjectProtocol) -> Self {
-        NSNotificationCenter.defaultCenter().removeObserver(observer)
+    public func remove(observer: NSObjectProtocol) -> Self {
+        NotificationCenter.default.removeObserver(observer)
         return self
     }
     
@@ -65,8 +65,8 @@ public class NotificationCenterManager {
      
      - returns: The same `NotificationCenter` instance
      */
-    public func remove(observers observers: [NSObjectProtocol]) -> Self {
-        observers.forEach { NotificationCenter.remove(observer: $0) }
+    public func remove(observers: [NSObjectProtocol]) -> Self {
+        observers.forEach { _ = NotificationManager.remove(observer: $0) }
         return self
     }
     
@@ -77,8 +77,8 @@ public class NotificationCenterManager {
      
      - returns: The same `NotificationCenter` instance
      */
-    public func post(notification notification: NSNotification) -> Self {
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+    public func post(notification: Notification) -> Self {
+        NotificationCenter.default.post(notification)
         return self
     }
     
@@ -91,9 +91,9 @@ public class NotificationCenterManager {
      
      - returns: The same `NotificationCenter` instance
      */
-    public func postNotification(with name: String, object: AnyObject? = nil, userInfo: [NSObject:AnyObject]? = nil) -> Self {
-        post(
-            notification: NSNotification(
+    public func postNotification(with name: NSNotification.Name, object: AnyObject? = nil, userInfo: [NSObject:AnyObject]? = nil) -> Self {
+        _ = post(
+            notification: Notification(
                 name: name,
                 object: object,
                 userInfo: userInfo
