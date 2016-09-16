@@ -10,74 +10,74 @@ import UIKit
 
 public typealias VoidClosure = () -> ()
 public typealias VoidBoolClosure = () -> Bool
-public typealias TextVoidClosure = (text: String) -> ()
-public typealias IndexVoidClosure = (index: Int) -> ()
-public typealias RangeTextBoolClosure = (range: NSRange, text: String) -> Bool
+public typealias TextVoidClosure = (_ text: String) -> ()
+public typealias IndexVoidClosure = (_ index: Int) -> ()
+public typealias RangeTextBoolClosure = (_ range: NSRange, _ text: String) -> Bool
 
 public class SwiftySearchBar: UISearchBar {
     
-    private var _onEndEditing: VoidClosure?
-    public func onEndEditing(closure: VoidClosure) -> Self {
+    fileprivate var _onEndEditing: VoidClosure?
+    public func onEndEditing(closure: @escaping VoidClosure) -> Self {
         _onEndEditing = closure
         return self
     }
     
-    private var _onCancelTap: VoidClosure?
-    public func onCancelTap(closure: VoidClosure) -> Self {
+    fileprivate var _onCancelTap: VoidClosure?
+    public func onCancelTap(closure: @escaping VoidClosure) -> Self {
         _onCancelTap = closure
         return self
     }
     
-    private var _onSearchTap: VoidClosure?
-    public func onSearchTap(closure: VoidClosure) -> Self {
+    fileprivate var _onSearchTap: VoidClosure?
+    public func onSearchTap(closure: @escaping VoidClosure) -> Self {
         _onSearchTap = closure
         return self
     }
     
-    private var _onBeginEditing: VoidClosure?
-    public func onBeginEditing(closure: VoidClosure) -> Self {
+    fileprivate var _onBeginEditing: VoidClosure?
+    public func onBeginEditing(closure: @escaping VoidClosure) -> Self {
         _onBeginEditing = closure
         return self
     }
     
-    private var _onBookmarkTap: VoidClosure?
-    public func onBookmarkTap(closure: VoidClosure) -> Self {
+    fileprivate var _onBookmarkTap: VoidClosure?
+    public func onBookmarkTap(closure: @escaping VoidClosure) -> Self {
         _onBookmarkTap = closure
         return self
     }
     
-    private var _onResultListTap: VoidClosure?
-    public func onResultListTap(closure: VoidClosure) -> Self {
+    fileprivate var _onResultListTap: VoidClosure?
+    public func onResultListTap(closure: @escaping VoidClosure) -> Self {
         _onResultListTap = closure
         return self
     }
     
-    private var _shouldEndEditing: VoidBoolClosure?
-    public func shouldEndEditing(closure: VoidBoolClosure) -> Self {
+    fileprivate var _shouldEndEditing: VoidBoolClosure?
+    public func shouldEndEditing(closure: @escaping VoidBoolClosure) -> Self {
         _shouldEndEditing = closure
         return self
     }
     
-    private var _shouldBeginEditing: VoidBoolClosure?
-    public func shouldBeginEditing(closure: VoidBoolClosure) -> Self {
+    fileprivate var _shouldBeginEditing: VoidBoolClosure?
+    public func shouldBeginEditing(closure: @escaping VoidBoolClosure) -> Self {
         _shouldBeginEditing = closure
         return self
     }
     
-    private var _onTextChange: TextVoidClosure?
-    public func onTextChange(closure: TextVoidClosure) -> Self {
+    fileprivate var _onTextChange: TextVoidClosure?
+    public func onTextChange(closure: @escaping TextVoidClosure) -> Self {
         _onTextChange = closure
         return self
     }
     
-    private var _onSelectedScopeChange: IndexVoidClosure?
-    public func onSelectedScopeChange(closure: IndexVoidClosure) -> Self {
+    fileprivate var _onSelectedScopeChange: IndexVoidClosure?
+    public func onSelectedScopeChange(closure: @escaping IndexVoidClosure) -> Self {
         _onSelectedScopeChange = closure
         return self
     }
     
-    private var _shouldChangeCharacters: RangeTextBoolClosure?
-    public func shouldChangeCharacters(closure: RangeTextBoolClosure) -> Self {
+    fileprivate var _shouldChangeCharacters: RangeTextBoolClosure?
+    public func shouldChangeCharacters(closure: @escaping RangeTextBoolClosure) -> Self {
         _shouldChangeCharacters = closure
         return self
     }
@@ -95,47 +95,47 @@ public class SwiftySearchBar: UISearchBar {
 
 // MARK: - UISearchBarDelegate
 extension SwiftySearchBar: UISearchBarDelegate {
-    public func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         _onEndEditing?()
     }
     
-    public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         _onCancelTap?()
     }
     
-    public func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         _onSearchTap?()
     }
     
-    public func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         _onBeginEditing?()
     }
     
-    public func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
+    public func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         _onBookmarkTap?()
     }
     
-    public func searchBarResultsListButtonClicked(searchBar: UISearchBar) {
+    public func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         _onResultListTap?()
     }
     
-    public func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    public func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         return _shouldEndEditing?() ?? true
     }
     
-    public func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return _shouldBeginEditing?() ?? true
     }
     
-    public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        _onTextChange?(text: searchText)
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        _onTextChange?(searchText)
     }
     
-    public func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        _onSelectedScopeChange?(index: selectedScope)
+    public func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        _onSelectedScopeChange?(selectedScope)
     }
     
-    public func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        return _shouldChangeCharacters?(range: range, text: text) ?? true
+    public func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return _shouldChangeCharacters?(range, text) ?? true
     }
 }

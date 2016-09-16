@@ -15,8 +15,8 @@ public class Bindable<T> {
     
     // MARK: - Private
     // MARK: Properties
-    
-    private var listener: ((T) -> ())?
+    public typealias ListenerClosure = (T) -> ()
+    fileprivate var listener: ListenerClosure?
     
     // MARK: - Public interface
     // MARK: Properties
@@ -42,7 +42,7 @@ public class Bindable<T> {
      
      - parameter listener: A closure that takes the value `T` as argument
      */
-    public func bind(listener: (T) -> ()) {
+    public func bind(_ listener: @escaping ListenerClosure) {
         self.listener = listener
     }
     
@@ -54,7 +54,7 @@ public class Bindable<T> {
      
      - parameter listener: A closure that takes the value `T` as argument
      */
-    func bindAndFire(listener: (T) -> ()) {
+    func bindAndFire(listener: @escaping ListenerClosure) {
         self.bind(listener)
         self.fire()
     }
@@ -64,7 +64,7 @@ public class Bindable<T> {
 private extension Bindable {
     
     func fire() {
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.listener?(self.value)
         }
     }

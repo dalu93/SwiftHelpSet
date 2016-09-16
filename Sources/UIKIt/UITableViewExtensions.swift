@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     
     /**
      Asks a `ReusableView` instance dequeued from the `UITableView`.
@@ -26,8 +26,8 @@ extension UITableView {
      
      - returns: Dequeue `UITableViewCell` instance
      */
-    public func dequeueReusableCell<T where T: UITableViewCell, T: ReusableView>() -> T {
-        guard let cell = self.dequeueReusableCellWithIdentifier(T.identifier) as? T else {
+    public func dequeueReusableCell<T>() -> T where T: UITableViewCell, T: ReusableView {
+        guard let cell = self.dequeueReusableCell(withIdentifier: T.identifier) as? T else {
             fatalError("A cell with \(T.identifier) identifier cannot be dequeued")
         }
         
@@ -50,8 +50,9 @@ extension UITableView {
      - returns: Dequeue `UITableViewCell` instance
      */
     public func dequeueReusableCell<T: UITableViewCell>() -> T {
-        guard let cell = self.dequeueReusableCellWithIdentifier(String(T)) as? T else {
-            fatalError("A cell with \(String(T)) identifier cannot be dequeued")
+        let identifier = String(describing: T.self)
+        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? T else {
+            fatalError("A cell with \(identifier) identifier cannot be dequeued")
         }
         
         return cell
@@ -67,8 +68,8 @@ extension UITableView {
      
      - parameter type: The cell type
      */
-    public func registerCell<T where T: UITableViewCell, T: ReusableView>(type: T.Type) {
-        registerNib(
+    public func registerCell<T>(type: T.Type) where T: UITableViewCell, T: ReusableView {
+        register(
             T.nib,
             forCellReuseIdentifier: T.identifier
         )
@@ -80,7 +81,7 @@ extension UITableView {
      - parameter type: The cell type
      */
     public func registerCell<T: UITableViewCell>(type: T.Type) {
-        registerClass(T.self, forCellReuseIdentifier: String(T))
+        register(T.self, forCellReuseIdentifier: String(describing: T.self))
     }
     
     /**
@@ -101,10 +102,10 @@ extension UITableView {
      
      - returns: The newly created `UIRefreshControl` instance
      */
-    public func addRefreshControl(performing block: () -> ()) -> UIRefreshControl {
+    public func addRefreshControl(performing block: @escaping () -> ()) -> UIRefreshControl {
         let refreshControl = UIRefreshControl()
         
-        refreshControl.bind(.ValueChanged) { block() }
+        refreshControl.bind(.valueChanged) { block() }
         
         self.addSubview(refreshControl)
         

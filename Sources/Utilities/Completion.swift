@@ -10,13 +10,14 @@ import Foundation
 
 /**
  The enum describes a completion status.
-
+ 
  - success: The operation was completed with success
  - failed:  The operation was completed with error
  */
-public enum Completion<Value, Error: ErrorType> {
+
+public enum Completion<Value> {
     case success(Value)
-    case failed(Error)
+    case failed(NSError)
     
     /// Succeeded or not
     var isSuccess: Bool {
@@ -36,7 +37,7 @@ public enum Completion<Value, Error: ErrorType> {
     }
     
     /// The associated error if the operation was completed with error
-    var error: Error? {
+    var error: NSError? {
         switch self {
         case .success(_):           return nil
         case .failed(let error):    return error

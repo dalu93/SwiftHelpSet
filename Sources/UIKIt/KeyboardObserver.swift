@@ -11,11 +11,10 @@ import UIKit
 
 
 public protocol KeyboardObserver {
-    func bindKeyboardSize(closure: (size: CGSize) -> ()) -> NSObjectProtocol
+    func bindKeyboardSize(closure: (_ size: CGSize) -> ()) -> NSObjectProtocol
 }
 
-extension KeyboardObserver where Self: UIViewController {
-    
+public extension KeyboardObserver where Self: UIViewController {
     /**
      Listens for every keyboard's frame changes.
      
@@ -23,15 +22,15 @@ extension KeyboardObserver where Self: UIViewController {
      
      - returns: An array of `NSObjectProtocol` observers
      */
-    public func bindKeyboardSize(closure: (size: CGSize) -> ()) -> [NSObjectProtocol] {
-        
-        return NotificationCenter.addObserverFor(names: [UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { n in
+    public func bindKeyboardSize(closure: @escaping (_ size: CGSize) -> ()) -> [NSObjectProtocol] {
+            
+        return NotificationManager.addObserverFor(names: [.UIKeyboardWillChangeFrame, .UIKeyboardWillHide]) { n in
             
             guard
                 let userInfo = n.userInfo,
-                let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size else { return }
+                let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else { return }
             
-            closure(size: keyboardSize)
+            closure(keyboardSize)
         }
     }
 }

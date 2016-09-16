@@ -11,7 +11,7 @@ import XCTest
 
 class CompletionTestCases: XCTestCase {
     
-    var status: Completion<Int, NSError> = .success(0)
+    var status: Completion<Int> = .success(0)
     
     override func setUp() {
         super.setUp()

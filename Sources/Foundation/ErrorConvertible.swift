@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol ErrorConvertible {
-    func toError() -> NSError
+    func toError() -> Error
 }

@@ -13,16 +13,17 @@ import Foundation
  
  - notStarted: The connection is not started yet
  - inProgress: The connection is in progress. The associated value is a generic
-                `Request`
+ `Request`
  - completed:  The connection is completed. See `Completion` to know what the associated value
  
  - SeeAlso: `Completion` enum
  */
-public enum ConnectionStatus<Request, Value, Error: ErrorType> {
+
+public enum ConnectionStatus<Request, Value> {
     
     case notStarted
     case inProgress(Request)
-    case completed(Completion<Value,Error>)
+    case completed(Completion<Value>)
     
     /// The associated request, if the status is `inProgress`, otherwise `nil`
     public var request: Request? {
@@ -46,7 +47,7 @@ public enum ConnectionStatus<Request, Value, Error: ErrorType> {
     }
     
     /// The associated error if the connection was completed with error, otherwise `nil`
-    public var error: Error? {
+    public var error: NSError? {
         switch self {
         case .completed(let completion):
             switch completion {

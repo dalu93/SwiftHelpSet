@@ -20,14 +20,14 @@ class EachTestCases: XCTestCase {
     }
     
     func testEachSimple() {
-        let expectation = expectationWithDescription("Timer waiting")
+        let exp = expectation(description: "Timer waiting")
         
-        Each(1).seconds.perform {
-            expectation.fulfill()
-            return true
+        _ = Each(1).seconds.perform {
+            exp.fulfill()
+            return false
         }
         
-        waitForExpectationsWithTimeout(1.1) { error in
+        waitForExpectations(timeout: 1.1) { error in
             
             guard let error = error else { return }
             print(error)
@@ -35,14 +35,14 @@ class EachTestCases: XCTestCase {
     }
     
     func testEachStopInClosure() {
-        let expectation = expectationWithDescription("Timer waiting")
+        let exp = expectation(description: "Timer waiting")
         
         let timer = Each(1).seconds.perform() {
-            expectation.fulfill()
+            exp.fulfill()
             return true
         }
         
-        waitForExpectationsWithTimeout(1.1) { error in
+        waitForExpectations(timeout: 1.1) { error in
             guard timer.isStopped else {
                 XCTFail("The timer is not stopped even if the closure returns true")
                 return
@@ -54,17 +54,17 @@ class EachTestCases: XCTestCase {
     }
     
     func testEachStopAndStartAgain() {
-        let expectation = expectationWithDescription("Timer waiting")
+        let exp = expectation(description: "Timer waiting")
         
         let timer = Each(1).seconds.perform() {
-            expectation.fulfill()
+            exp.fulfill()
             return true
         }
         
         timer.stop()
         timer.restart()
         
-        waitForExpectationsWithTimeout(1.2) { error in
+        waitForExpectations(timeout: 1.2) { error in
             guard let error = error else { return }
             print(error)
         }

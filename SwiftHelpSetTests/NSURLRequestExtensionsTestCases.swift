@@ -22,7 +22,7 @@ class NSURLRequestExtensionsTestCases: XCTestCase {
     func testCreateNSURLRequestFromCorrectString() {
         let urlString = "http://www.google.com"
         
-        let request = NSURLRequest.request(with: urlString)
+        let request = URLRequest.request(with: urlString)
         
         XCTAssert(request != nil, "The request should be valid since the urlString is a valid URL")
     }
@@ -30,7 +30,7 @@ class NSURLRequestExtensionsTestCases: XCTestCase {
     func testCreateNSURLRequestFromIncorrectString() {
         let incorrectUrlString = "hel lo"
         
-        let request = NSURLRequest.request(with: incorrectUrlString)
+        let request = URLRequest.request(with: incorrectUrlString)
         
         XCTAssert(request == nil, "The request cannot be a valid one. The urlString is invalid")
     }
