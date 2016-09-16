@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     
     /**
      Tells you wheter the Int instance is contained in the range

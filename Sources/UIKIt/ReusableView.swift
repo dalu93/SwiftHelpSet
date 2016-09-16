@@ -28,18 +28,18 @@ public protocol IdentifierConvertible {
  */
 public protocol ReusableView: NibConvertible, IdentifierConvertible {}
 
-extension NibConvertible {
+public extension NibConvertible {
     /// The nib name. It is the self class name stringified
     static var nibName: String { return String(describing: Self.self) }
 }
 
-extension IdentifierConvertible {
+public extension IdentifierConvertible {
     /// The identifier. It is the self class name stringified
     static var identifier: String { return String(describing: Self.self) }
 }
 
 // MARK: - Nib instantiation
-extension NibConvertible {
+public extension NibConvertible {
     
     /// The `UINib` instance initialized by using the property `nibName`
     static var nib: UINib { return UINib.nibFrom(string: Self.nibName) }
@@ -47,7 +47,7 @@ extension NibConvertible {
 
 // MARK: - UINib extension
 import UIKit
-extension UINib {
+public extension UINib {
     
     static func nibFrom(string: String, bundle: Bundle? = nil) -> UINib {
         return UINib(

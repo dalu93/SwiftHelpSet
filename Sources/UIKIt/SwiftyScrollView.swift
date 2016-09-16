@@ -11,55 +11,55 @@ import UIKit
 public class SwiftyScrollView: UIScrollView {
     
     fileprivate var _onScroll:                   VoidClosure?
-    public func onScroll(closure: VoidClosure) -> Self {
+    public func onScroll(closure: @escaping VoidClosure) -> Self {
         _onScroll = closure
         return self
     }
     
     fileprivate var _onZoom:                     VoidClosure?
-    public func onZoom(closure: VoidClosure) -> Self {
+    public func onZoom(closure: @escaping VoidClosure) -> Self {
         _onZoom = closure
         return self
     }
     
     fileprivate var _onScrollToTop:              VoidClosure?
-    public func _onScrollToTop(closure: VoidClosure) -> Self {
+    public func _onScrollToTop(closure: @escaping VoidClosure) -> Self {
         _onScrollToTop = closure
         return self
     }
     
     fileprivate var _onBeginDragging:            VoidClosure?
-    public func onBeginDragging(closure: VoidClosure) -> Self {
+    public func onBeginDragging(closure: @escaping VoidClosure) -> Self {
         _onBeginDragging = closure
         return self
     }
     
     fileprivate var _onEndDecelerating:          VoidClosure?
-    public func onEndDecelerating(closure: VoidClosure) -> Self {
+    public func onEndDecelerating(closure: @escaping VoidClosure) -> Self {
         _onEndDecelerating = closure
         return self
     }
     
     fileprivate var _onBeginDecelerating:        VoidClosure?
-    public func onBeginDecelerating(closure: VoidClosure) -> Self {
+    public func onBeginDecelerating(closure: @escaping VoidClosure) -> Self {
         _onBeginDecelerating = closure
         return self
     }
     
     fileprivate var _onEndScrollingAnimation:    VoidClosure?
-    public func onEndScrollingAnimation(closure: VoidClosure) -> Self {
+    public func onEndScrollingAnimation(closure: @escaping VoidClosure) -> Self {
         _onEndScrollingAnimation = closure
         return self
     }
     
     fileprivate var _onEndZooming: ((_ view: UIView?, _ scale: CGFloat) -> ())?
-    public func onEndZooming(closure: ((_ view: UIView?, _ scale: CGFloat) -> ())) -> Self {
+    public func onEndZooming(closure: @escaping ((_ view: UIView?, _ scale: CGFloat) -> ())) -> Self {
         _onEndZooming = closure
         return self
     }
     
     fileprivate var _onEndDragging: ((_ decelerate: Bool) -> ())?
-    public func onEndDragging(closure: ((_ decelerate: Bool) -> ())) -> Self {
+    public func onEndDragging(closure: @escaping ((_ decelerate: Bool) -> ())) -> Self {
         _onEndDragging = closure
         return self
     }

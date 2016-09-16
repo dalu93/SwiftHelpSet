@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     /**
      Shows on the `UIViewController` instance a newly created `UIAlertController` instance.
@@ -21,7 +21,7 @@ extension UIViewController {
      
      - returns: Returns the `UIAlertController` instance
      */
-    public func showAlertFor(error: NSError, cancelTitle: String = "Ok", animated: Bool = true, completion: (() -> ()) = {}) -> UIAlertController {
+    public func showAlertFor(error: NSError, cancelTitle: String = "Ok", animated: Bool = true, completion: @escaping (() -> ()) = {}) -> UIAlertController {
         
         let alertController = UIAlertController(
             title: "Error",

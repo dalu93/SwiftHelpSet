@@ -28,7 +28,7 @@ public class SwiftyWebView: UIWebView {
     
     fileprivate var _onStart: VoidClosure?
     /// Called at the start of the request
-    public func onStart(closure: VoidClosure) -> Self {
+    public func onStart(closure: @escaping VoidClosure) -> Self {
         _onStart = closure
         return self
     }
@@ -38,14 +38,14 @@ public class SwiftyWebView: UIWebView {
     /// - parameter request:        The request is going to handle or not
     /// - parameter navigationType: The navigation type
     /// - return: Return `true` if the request should be handled, `false` if not. Default value is `true`
-    public func filter(closure: ((_ request: URLRequest, _ navigationType: UIWebViewNavigationType) -> Bool)) -> Self {
+    public func filter(closure: @escaping ((_ request: URLRequest, _ navigationType: UIWebViewNavigationType) -> Bool)) -> Self {
         _filter = closure
         return self
     }
     
     fileprivate var _onFinish: VoidClosure?
     /// Called at the end of the request
-    public func onFinish(closure: VoidClosure) -> Self {
+    public func onFinish(closure: @escaping VoidClosure) -> Self {
         _onFinish = closure
         return self
     }
@@ -53,7 +53,7 @@ public class SwiftyWebView: UIWebView {
     fileprivate var _onError: ((_ error: Error) -> ())?
     /// Called in case of errors during loading
     /// - parameter: The error instance
-    public func onError(closure: ((_ error: Error) -> ())) -> Self {
+    public func onError(closure: @escaping ((_ error: Error) -> ())) -> Self {
         _onError = closure
         return self
     }

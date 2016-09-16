@@ -25,7 +25,7 @@ public enum Permission {
      
      - parameter completion: The completion handler
      */
-    public func ask(completion: PermissionCompletionHandler) {
+    public func ask(completion: @escaping PermissionCompletionHandler) {
         
         DispatchQueue.main.async {
             switch self {
@@ -41,7 +41,7 @@ public enum Permission {
 // MARK: - Helpers
 private extension Permission {
     
-    func _askCameraPermission(completion: PermissionCompletionHandler) {
+    func _askCameraPermission(completion: @escaping PermissionCompletionHandler) {
         
         switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
         case .authorized: completion(.success(true))
@@ -61,7 +61,7 @@ private extension Permission {
         }
     }
     
-    func _askLibraryPermission(completion: PermissionCompletionHandler) {
+    func _askLibraryPermission(completion: @escaping PermissionCompletionHandler) {
         
         let status = PHPhotoLibrary.authorizationStatus()
         

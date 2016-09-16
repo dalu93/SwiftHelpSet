@@ -12,49 +12,49 @@ public class SwiftyTextField: UITextField {
     
     fileprivate var _onEndEditing: VoidClosure?
     /// It is called on textFieldDidEndEditing(_: UITextField)
-    public func onEndEditing(closure: VoidClosure) -> Self {
+    public func onEndEditing(closure: @escaping VoidClosure) -> Self {
         _onEndEditing = closure
         return self
     }
     
     /// It is called on textFieldDidBeginEditing(_: UITextField)
     fileprivate var _onBeginEditing: VoidClosure?
-    public func onBeginEditing(closure: VoidClosure) -> Self {
+    public func onBeginEditing(closure: @escaping VoidClosure) -> Self {
         _onBeginEditing = closure
         return self
     }
     
     fileprivate var _beforeCleaning: VoidBoolClosure?
     /// It is called on textFieldShouldClear(_: UITextField)
-    public func beforeCleaning(closure: VoidBoolClosure) -> Self {
+    public func beforeCleaning(closure: @escaping VoidBoolClosure) -> Self {
         _beforeCleaning = closure
         return self
     }
     
     fileprivate var _beforeReturning: VoidBoolClosure?
     /// It is called on textFieldShouldReturn(_: UITextField)
-    public func beforeReturning(closure: VoidBoolClosure) -> Self {
+    public func beforeReturning(closure: @escaping VoidBoolClosure) -> Self {
         _beforeReturning = closure
         return self
     }
     
     fileprivate var _beforeEndingEditing: VoidBoolClosure?
     /// It is called on textFieldShouldEndEditing(_: UITextField)
-    public func beforeEndingEditing(closure: VoidBoolClosure) -> Self {
+    public func beforeEndingEditing(closure: @escaping VoidBoolClosure) -> Self {
         _beforeEndingEditing = closure
         return self
     }
     
     fileprivate var _beforeBeginningEditing: VoidBoolClosure?
     /// It is called on textFieldShouldBeginEditing(_: UITextField)
-    public func beforeBeginningEditing(closure: VoidBoolClosure) -> Self {
+    public func beforeBeginningEditing(closure: @escaping VoidBoolClosure) -> Self {
         _beforeBeginningEditing = closure
         return self
     }
     
     fileprivate var _changingCharacters: RangeTextBoolClosure?
     /// It is called on textField(_: UITextField, _: NSRange, _: String)
-    public func changingCharacters(closure: RangeTextBoolClosure) -> Self {
+    public func changingCharacters(closure: @escaping RangeTextBoolClosure) -> Self {
         _changingCharacters = closure
         return self
     }

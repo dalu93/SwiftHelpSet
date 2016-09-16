@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - UIView support
-extension UIView {
+public extension UIView {
     
     /**
      Pins the view to the superview edges (Top, Bottom, Trailing and Leading).
@@ -119,7 +119,7 @@ extension UIView {
      - parameter duration:      The duration
      - parameter completion:    The completion closure
      */
-    static func animate(with animations: @escaping () -> (), duration: TimeInterval, completion: ((Bool) -> ()) = { _ in }) {
+    static func animate(with animations: @escaping () -> (), duration: TimeInterval, completion: @escaping ((Bool) -> ()) = { _ in }) {
         UIView.animate(
             withDuration: duration,
             animations: animations,
@@ -129,7 +129,7 @@ extension UIView {
 }
 
 // MARK: - UIActivityIndicator shortcut
-extension UIView {
+public extension UIView {
     
     /**
      Creates and return a centered UIActivityIndicatorView with a specific style.

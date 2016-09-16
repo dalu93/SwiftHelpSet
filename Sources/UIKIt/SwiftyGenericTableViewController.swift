@@ -46,14 +46,14 @@ public class SwiftyGenericTableViewController<C, D>: UIViewController where C: R
     /// It is called everytime the user refresh the UITableView using a UIRefreshControl.
     ///
     /// It is recommended to update the dataSource here
-    public func onRefresh(closure: (() -> ())) -> Self {
+    public func onRefresh(closure: @escaping (() -> ())) -> Self {
         _onRefresh = closure
         return self
     }
     
     fileprivate var _cellForModel: ((C, D) -> UITableViewCell)?
     /// Closure responsible for the UITableViewCell creation
-    public func cellForModel(closure: ((C, D) -> UITableViewCell)) -> Self {
+    public func cellForModel(closure: @escaping ((C, D) -> UITableViewCell)) -> Self {
         _cellForModel = closure
         return self
     }
@@ -62,7 +62,7 @@ public class SwiftyGenericTableViewController<C, D>: UIViewController where C: R
     /// This closure is called every time the `dataSource` property is set.
     ///
     /// Override it to disable the default behavior: `tableView.reloadData()`
-    public func onDataSourceChange(closure: VoidClosure) -> Self {
+    public func onDataSourceChange(closure: @escaping VoidClosure) -> Self {
         _onDataSourceChange = closure
         return self
     }
@@ -72,7 +72,7 @@ public class SwiftyGenericTableViewController<C, D>: UIViewController where C: R
     
     fileprivate var _onSelection: TableViewCellSelectionClosure?
     /// This closure is called whenever a cell is selected.
-    public func onSelection(closure: TableViewCellSelectionClosure) -> Self {
+    public func onSelection(closure: @escaping TableViewCellSelectionClosure) -> Self {
         _onSelection = closure
         return self
     }

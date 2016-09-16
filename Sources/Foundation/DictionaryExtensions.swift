@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     /**
      Creates a new dictionary instance by adding a set of dictionaries

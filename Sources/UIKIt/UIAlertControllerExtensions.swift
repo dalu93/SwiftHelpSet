@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Utility methods
-extension UIAlertController {
+public extension UIAlertController {
     
     /**
      Creates and returns a `UIAlertController` instance with `.Alert` style
@@ -38,7 +38,7 @@ extension UIAlertController {
 }
 
 // MARK: - Utility methods
-extension UIAlertAction {
+public extension UIAlertAction {
     
     /**
      Quickly creates and returns a new `UIAlertAction` with `.Cancel` style.

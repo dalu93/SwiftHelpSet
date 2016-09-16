@@ -22,7 +22,7 @@ public protocol Form {
 }
 
 // MARK: - Generic implementation
-extension Form {
+public extension Form {
     public func isValid() -> NSError? {
         
         // Creates the enumerator

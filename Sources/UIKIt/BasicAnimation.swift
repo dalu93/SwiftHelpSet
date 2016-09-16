@@ -27,14 +27,14 @@ public class BasicAnimation: NSObject {
     
     fileprivate var _onStop: ((_ finished: Bool) -> ())?
     /// Called when the animation finishes
-    public func onStop(closure: ((_ finished: Bool) -> ())) -> Self {
+    public func onStop(closure: @escaping ((_ finished: Bool) -> ())) -> Self {
         _onStop = closure
         return self
     }
     
     fileprivate var _onStart: VoidClosure?
     /// Called when the animation starts
-    public func onStart(closure: VoidClosure) -> Self {
+    public func onStart(closure: @escaping VoidClosure) -> Self {
         _onStart = closure
         return self
     }
@@ -98,7 +98,7 @@ public func ==(lhs: BasicAnimation, rhs: BasicAnimation) -> Bool {
 }
 
 // MARK: - Static initializers
-extension BasicAnimation {
+public extension BasicAnimation {
     
     /**
      Creates a new instance of `BasicAnimation` that allows you to create a 

@@ -42,7 +42,7 @@ public enum ViewDimensionType {
 }
 
 // MARK: - NSLayoutConstraint support
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
     
     /**
      Pins the top edge of the `view` to the top edge of the `superview`.

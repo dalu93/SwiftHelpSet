@@ -20,7 +20,7 @@ class ClosureWrapper {
 private var UIControlObserver: StaticString = "UIControlObserver"
 
 // MARK: - Observer implementation
-extension UIControl {
+public extension UIControl {
     
     private var closureWrapper: ClosureWrapper? {
         get {

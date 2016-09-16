@@ -12,49 +12,49 @@ public class SwiftyTableView: UITableView {
     
     fileprivate var _configureNumberOfSections: (() -> Int)?
     /// It is called everytime `numberOfSectionsInTableView(tableView: UITableView)` is called
-    public func configureNumberOfSections(closure: (() -> Int)) -> Self {
+    public func configureNumberOfSections(closure: @escaping (() -> Int)) -> Self {
         _configureNumberOfSections = closure
         return self
     }
     
     fileprivate var _numberOfRowsPerSection: ((_ section: Int) -> Int)?
     /// It is called everytime `tableView(tableView: UITableView, numberOfRowsInSection section: Int)` is called
-    public func numberOfRowsPerSection(closure: ((_ section: Int) -> Int)) -> Self {
+    public func numberOfRowsPerSection(closure: @escaping ((_ section: Int) -> Int)) -> Self {
         _numberOfRowsPerSection = closure
         return self
     }
     
     fileprivate var _cellForIndexPath: ((_ indexPath: IndexPath) -> UITableViewCell)?
     /// It is called everytime `tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)` is called
-    public func cellForIndexPath(closure: ((_ indexPath: IndexPath) -> UITableViewCell)) -> Self {
+    public func cellForIndexPath(closure: @escaping ((_ indexPath: IndexPath) -> UITableViewCell)) -> Self {
         _cellForIndexPath = closure
         return self
     }
     
     fileprivate var _onCellSelection: ((_ indexPath: IndexPath) -> ())?
     /// It is called everytime `tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)` is called
-    public func onCellSelection(closure: ((_ indexPath: IndexPath) -> ())) -> Self {
+    public func onCellSelection(closure: @escaping ((_ indexPath: IndexPath) -> ())) -> Self {
         _onCellSelection = closure
         return self
     }
     
     fileprivate var _onScroll: ((_ scrollView: UIScrollView) -> ())?
     /// It is called everytime `scrollViewDidScroll(scrollView: UIScrollView)` is called
-    public func onScroll(closure: ((_ scrollView: UIScrollView) -> ())) -> Self {
+    public func onScroll(closure: @escaping ((_ scrollView: UIScrollView) -> ())) -> Self {
         _onScroll = closure
         return self
     }
     
     fileprivate var _footerInSection: ((_ section: Int) -> UIView?)?
     /// It is called everytime `tableView(tableView: UITableView, viewForFooterInSection section: Int)` is called
-    public func footerInSection(closure: ((_ section: Int) -> UIView?)) -> Self {
+    public func footerInSection(closure: @escaping ((_ section: Int) -> UIView?)) -> Self {
         _footerInSection = closure
         return self
     }
     
     fileprivate var _headerInSection: ((_ section: Int) -> UIView?)?
     /// It is called everytime `tableView(tableView: UITableView, viewForHeaderInSection section: Int)` is called
-    public func headerInSection(closure: ((_ section: Int) -> UIView?)) -> Self {
+    public func headerInSection(closure: @escaping ((_ section: Int) -> UIView?)) -> Self {
         _headerInSection = closure
         return self
     }

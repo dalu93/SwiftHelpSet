@@ -10,7 +10,7 @@ import UIKit
 
 private var _UIGestureRecognizerClosure: StaticString = "UIGestureRecognizerClosure"
 
-extension UIGestureRecognizer {
+public extension UIGestureRecognizer {
     
     fileprivate var closureWrapper: ClosureWrapper? {
         get {
@@ -32,7 +32,7 @@ extension UIGestureRecognizer {
     }
 }
 
-extension UITapGestureRecognizer {
+public extension UITapGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector
@@ -48,7 +48,7 @@ extension UITapGestureRecognizer {
     }
 }
 
-extension UIPinchGestureRecognizer {
+public extension UIPinchGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector
@@ -64,7 +64,7 @@ extension UIPinchGestureRecognizer {
     }
 }
 
-extension UIRotationGestureRecognizer {
+public extension UIRotationGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector
@@ -80,7 +80,7 @@ extension UIRotationGestureRecognizer {
     }
 }
 
-extension UISwipeGestureRecognizer {
+public extension UISwipeGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector
@@ -96,7 +96,7 @@ extension UISwipeGestureRecognizer {
     }
 }
 
-extension UIPanGestureRecognizer {
+public extension UIPanGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector
@@ -120,7 +120,7 @@ extension UIPanGestureRecognizer {
     }
 }
 
-extension UILongPressGestureRecognizer {
+public extension UILongPressGestureRecognizer {
     
     /**
      Creates and returns a gesture recognizer that performs a specific closure instead of a selector

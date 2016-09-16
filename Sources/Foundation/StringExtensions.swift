@@ -19,7 +19,7 @@ extension String: Localizable {
 
 
 // MARK: - String Validation
-extension String {
+public extension String {
     
     /// It tells if the `String` instance is a valid email or not
     public var isEmail: Bool {

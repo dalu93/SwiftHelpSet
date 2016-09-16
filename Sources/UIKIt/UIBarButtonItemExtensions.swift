@@ -10,7 +10,7 @@ import UIKit
 
 private var _UIBarButtonItemClosure: StaticString = "UIBarButtonItemClosure"
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     
     private var closureWrapper: ClosureWrapper? {
         get {

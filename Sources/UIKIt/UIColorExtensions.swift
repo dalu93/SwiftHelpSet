@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
     /**
      Initialize a `UIColor` instance by processing the hexadecimal value

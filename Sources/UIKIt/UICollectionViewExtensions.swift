@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UICollectionView {
+public extension UICollectionView {
     
     /**
      Asks a `ReusableView` instance dequeued from the `UICollectionView`.

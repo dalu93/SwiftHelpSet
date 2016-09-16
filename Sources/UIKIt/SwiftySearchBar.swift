@@ -17,67 +17,67 @@ public typealias RangeTextBoolClosure = (_ range: NSRange, _ text: String) -> Bo
 public class SwiftySearchBar: UISearchBar {
     
     fileprivate var _onEndEditing: VoidClosure?
-    public func onEndEditing(closure: VoidClosure) -> Self {
+    public func onEndEditing(closure: @escaping VoidClosure) -> Self {
         _onEndEditing = closure
         return self
     }
     
     fileprivate var _onCancelTap: VoidClosure?
-    public func onCancelTap(closure: VoidClosure) -> Self {
+    public func onCancelTap(closure: @escaping VoidClosure) -> Self {
         _onCancelTap = closure
         return self
     }
     
     fileprivate var _onSearchTap: VoidClosure?
-    public func onSearchTap(closure: VoidClosure) -> Self {
+    public func onSearchTap(closure: @escaping VoidClosure) -> Self {
         _onSearchTap = closure
         return self
     }
     
     fileprivate var _onBeginEditing: VoidClosure?
-    public func onBeginEditing(closure: VoidClosure) -> Self {
+    public func onBeginEditing(closure: @escaping VoidClosure) -> Self {
         _onBeginEditing = closure
         return self
     }
     
     fileprivate var _onBookmarkTap: VoidClosure?
-    public func onBookmarkTap(closure: VoidClosure) -> Self {
+    public func onBookmarkTap(closure: @escaping VoidClosure) -> Self {
         _onBookmarkTap = closure
         return self
     }
     
     fileprivate var _onResultListTap: VoidClosure?
-    public func onResultListTap(closure: VoidClosure) -> Self {
+    public func onResultListTap(closure: @escaping VoidClosure) -> Self {
         _onResultListTap = closure
         return self
     }
     
     fileprivate var _shouldEndEditing: VoidBoolClosure?
-    public func shouldEndEditing(closure: VoidBoolClosure) -> Self {
+    public func shouldEndEditing(closure: @escaping VoidBoolClosure) -> Self {
         _shouldEndEditing = closure
         return self
     }
     
     fileprivate var _shouldBeginEditing: VoidBoolClosure?
-    public func shouldBeginEditing(closure: VoidBoolClosure) -> Self {
+    public func shouldBeginEditing(closure: @escaping VoidBoolClosure) -> Self {
         _shouldBeginEditing = closure
         return self
     }
     
     fileprivate var _onTextChange: TextVoidClosure?
-    public func onTextChange(closure: TextVoidClosure) -> Self {
+    public func onTextChange(closure: @escaping TextVoidClosure) -> Self {
         _onTextChange = closure
         return self
     }
     
     fileprivate var _onSelectedScopeChange: IndexVoidClosure?
-    public func onSelectedScopeChange(closure: IndexVoidClosure) -> Self {
+    public func onSelectedScopeChange(closure: @escaping IndexVoidClosure) -> Self {
         _onSelectedScopeChange = closure
         return self
     }
     
     fileprivate var _shouldChangeCharacters: RangeTextBoolClosure?
-    public func shouldChangeCharacters(closure: RangeTextBoolClosure) -> Self {
+    public func shouldChangeCharacters(closure: @escaping RangeTextBoolClosure) -> Self {
         _shouldChangeCharacters = closure
         return self
     }

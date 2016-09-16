@@ -14,7 +14,7 @@ public protocol KeyboardObserver {
     func bindKeyboardSize(closure: (_ size: CGSize) -> ()) -> NSObjectProtocol
 }
 
-extension KeyboardObserver where Self: UIViewController {
+public extension KeyboardObserver where Self: UIViewController {
     /**
      Listens for every keyboard's frame changes.
      

@@ -45,7 +45,7 @@ public final class Purchase: NSObject {
      - parameter identifiers: The products identifiers list
      - parameter completion:  Completion handler
      */
-    static public func products(from identifiers: [String], completion: ((Completion<[SKProduct]>) -> ())) {
+    static public func products(from identifiers: [String], completion: @escaping ((Completion<[SKProduct]>) -> ())) {
         Purchase.default.onFetchedProducts = completion
         
         Purchase.default.productRequest?.cancel()
@@ -61,7 +61,7 @@ public final class Purchase: NSObject {
      - parameter product:    The product to buy
      - parameter completion: Completion handler
      */
-    static public func purchase(product: SKProduct, completion: ((Completion<Data>) -> ())) {
+    static public func purchase(product: SKProduct, completion: @escaping ((Completion<Data>) -> ())) {
         
         guard Purchase.default.purchasing else {
             completion(.failed(.purchaseInProgressError()))
@@ -82,7 +82,7 @@ public final class Purchase: NSObject {
      
      - parameter completion: Completion handler
      */
-    static public func restorePurchase(completion: ((Completion<Data>) -> ())) {
+    static public func restorePurchase(completion: @escaping ((Completion<Data>) -> ())) {
         Purchase.default.onPurchaseRestored = completion
         Purchase.default.restoreRequest = SKReceiptRefreshRequest()
     }

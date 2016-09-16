@@ -31,7 +31,7 @@ public class NotificationCenterManager {
      
      - returns: `NSObjectProtocol` observer
      */
-    public func addObserverFor(name: NSNotification.Name, object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> NSObjectProtocol {
+    public func addObserverFor(name: NSNotification.Name, object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: @escaping GeneralNotificationHandler) -> NSObjectProtocol {
         
         return NotificationCenter.default.addObserver(
             forName: name,
@@ -41,7 +41,7 @@ public class NotificationCenterManager {
         )
     }
     
-    public func addObserverFor(names: [NSNotification.Name], object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: GeneralNotificationHandler) -> [NSObjectProtocol] {
+    public func addObserverFor(names: [NSNotification.Name], object: AnyObject? = nil, queue: OperationQueue? = OperationQueue.main, handler: @escaping GeneralNotificationHandler) -> [NSObjectProtocol] {
         
         return names.map { NotificationManager.addObserverFor(name: $0, handler: handler) }
     }

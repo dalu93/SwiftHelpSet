@@ -96,7 +96,7 @@ public class Each {
      The closure should return a boolean that indicates to stop or not the timer after
      the trigger. Return `false` to continue, return `true` to stop it
      */
-    public func perform(closure: VoidBoolClosure) -> Each {
+    public func perform(closure: @escaping VoidBoolClosure) -> Each {
         guard _timer == nil else { return self }
         guard let interval = _timeInterval else { fatalError("Please, speficy the time unit by using `milliseconds`, `seconds`, `minutes` abd `hours` properties") }
         
