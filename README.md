@@ -2,7 +2,10 @@
 
 [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=57ab475fc5a84e0100f93dd2&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/57ab475fc5a84e0100f93dd2/build/latest)
 
-Set of Swift utilities for your iOS apps
+Set of Swift utilities for your iOS apps.
+
+## Swift 3 Compatibility
+The Swift 3 compatibility is available from the version **>= 1.4**, the previous versions are only supported by Swift **2.x** 
 
 # Installation
 
