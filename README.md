@@ -97,6 +97,23 @@ objectReference.currentUser.bind = { user in
 Use `Permission` and `Purchase` to avoid the use of delegates for purchasing and for asking permissions. Use closures instead.
 
 Use `NotificationCenter` to get a more powerful and smart wrapper around `NSNotificationCenter`
+Use `NotificationContainer` to get rid of `NSObjectProtocol` instances in your code.
+
+```swift
+final class MyViewController: UIViewController {
+    private let _observersContainer = NotificationContainer()
+    
+    func addObserver() {
+        _observersContainer.addObserverFor(name: NotificationName) { [weak self] notification in
+            // Do something here
+        }
+    }
+
+    _observersContainer.removeObserver(with: NotificationName)
+    // or, you can let the deinit make the magic if you decide to keep the observer
+    // for the whole object life
+}
+```
 
 Use `Each` for a nice and easy implementation of `NSTimer`
 

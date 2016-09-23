@@ -1,3 +1,7 @@
+## 1.5
+
+* `NotificationContainer` object
+
 ## 1.4
 
 * Compatibility with **Swift 3**

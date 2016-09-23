@@ -27,6 +27,9 @@
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
 		813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */; };
 		813846AB1D6C78F700F25769 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846AA1D6C78F700F25769 /* KeyboardObserver.swift */; };
+		813BE6D21D94FD26000A9587 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813BE6D11D94FD26000A9587 /* NotificationContainer.swift */; };
+		813BE6D51D950379000A9587 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 813BE6D31D950379000A9587 /* CHANGELOG.md */; };
+		813BE6D61D950379000A9587 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 813BE6D41D950379000A9587 /* README.md */; };
 		814261431D3E7027000CC5F7 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814261421D3E7027000CC5F7 /* JSONDecodable.swift */; };
 		814EBF681D635C1B00049563 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */; };
 		8164A97A1D74331000271848 /* ConnectionStatusTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */; };
@@ -97,6 +100,9 @@
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
 		813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIKIt/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		813846AA1D6C78F700F25769 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/UIKIt/KeyboardObserver.swift; sourceTree = "<group>"; };
+		813BE6D11D94FD26000A9587 /* NotificationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationContainer.swift; path = Sources/Utilities/NotificationContainer.swift; sourceTree = "<group>"; };
+		813BE6D31D950379000A9587 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		813BE6D41D950379000A9587 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		814261421D3E7027000CC5F7 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecodable.swift; path = Sources/Utilities/JSONDecodable.swift; sourceTree = "<group>"; };
 		814EBF671D635C1B00049563 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIKIt/UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		8164A9791D74331000271848 /* ConnectionStatusTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusTestCases.swift; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 		81081F511D37D866000F8DFE = {
 			isa = PBXGroup;
 			children = (
+				813BE6D31D950379000A9587 /* CHANGELOG.md */,
+				813BE6D41D950379000A9587 /* README.md */,
 				81081F7D1D37D870000F8DFE /* Sources */,
 				81081F5C1D37D866000F8DFE /* SwiftHelpSet */,
 				81081F711D37D867000F8DFE /* SwiftHelpSetTests */,
@@ -260,6 +268,7 @@
 				81F3778F1D3FA90D00267B30 /* Purchase.swift */,
 				81E4037A1D3E4AD200FECD20 /* Permission.swift */,
 				819BF5481D7D8BB900BE9EDD /* Each.swift */,
+				813BE6D11D94FD26000A9587 /* NotificationContainer.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -433,9 +442,11 @@
 				810DFB711D38C5DE003F1604 /* ErrorConvertible.swift in Sources */,
 				81F5059B1D391ED6008121F7 /* BasicAnimation.swift in Sources */,
 				81081F861D37E1F0000F8DFE /* ReusableView.swift in Sources */,
+				813BE6D21D94FD26000A9587 /* NotificationContainer.swift in Sources */,
 				816739B51D675650009C10AF /* UIGestureRecognizerExtensions.swift in Sources */,
 				81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */,
 				81081F601D37D866000F8DFE /* ViewController.swift in Sources */,
+				813BE6D51D950379000A9587 /* CHANGELOG.md in Sources */,
 				8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */,
 				819BF5491D7D8BB900BE9EDD /* Each.swift in Sources */,
 				81081F8E1D37E6C3000F8DFE /* ArrayExtensions.swift in Sources */,
@@ -447,6 +458,7 @@
 				81F86D3E1D381630007CFC76 /* Localizable.swift in Sources */,
 				81F505971D391CF9008121F7 /* DictionaryDecodable.swift in Sources */,
 				81081F5E1D37D866000F8DFE /* AppDelegate.swift in Sources */,
+				813BE6D61D950379000A9587 /* README.md in Sources */,
 				816C1B1B1D5A1C5300D219BC /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,12 +11,12 @@ import Foundation
 /// Shared `NotificationCenter` instance
 public let NotificationManager = NotificationCenterManager.default
 
+/// The common handler called when the notification is triggered
+public typealias GeneralNotificationHandler = (_ notification: Notification) -> ()
+
 /// Functional and easy wrap around `NSNotificationCenter` `Foundation` API
 public class NotificationCenterManager {
     fileprivate static let `default` = NotificationCenterManager()
-    
-    /// The common handler called when the notification is triggered
-    public typealias GeneralNotificationHandler = (_ notification: Notification) -> ()
     
     /**
      Adds a new observer for the specific notification name
