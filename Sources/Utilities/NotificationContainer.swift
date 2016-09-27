@@ -21,6 +21,7 @@ fileprivate struct ObserverDescriptor: ObserverDescriptorType {
 
 public protocol NotificationContainerType {
     func removeObserver(with name: NSNotification.Name)
+    func removeAllObservers()
     func addObserverFor(name: NSNotification.Name, object: AnyObject?, queue: OperationQueue?, handler: @escaping GeneralNotificationHandler)
     func addObserverFor(names: [NSNotification.Name], object: AnyObject?, queue: OperationQueue?, handler: @escaping GeneralNotificationHandler)
 }
@@ -39,6 +40,12 @@ public class NotificationContainer: NotificationContainerType {
     /// - parameter name: The notification's name
     public func removeObserver(with name: NSNotification.Name) {
         _removeObserver(name)
+    }
+    
+    
+    /// Asks to remove all the observers
+    public func removeAllObservers() {
+        _removeAllObservers()
     }
     
     
@@ -76,9 +83,7 @@ public class NotificationContainer: NotificationContainerType {
     }
     
     deinit {
-        activeObserversDescriptors.forEach {
-            _removeObserver($0.name)
-        }
+        _removeAllObservers()
         
         if activeObserversDescriptors.count > 0 { fatalError("There are still \(activeObserversDescriptors.count) active descriptors. They should be 0") }
     }
@@ -95,5 +100,11 @@ fileprivate extension NotificationContainer {
         }
         
         activeObserversDescriptors = activeObserversDescriptors.filter { $0.name != name }
+    }
+    
+    func _removeAllObservers() {
+        activeObserversDescriptors.forEach {
+            _removeObserver($0.name)
+        }
     }
 }
