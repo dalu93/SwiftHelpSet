@@ -128,6 +128,23 @@ Each(1).minutes.perfor {
 }
 ```
 
+Use the `UserDefaults` extension or the `Defaults` enum to make the communication with `UserDefaults` much simpler
+
+```swift
+// Configuring
+let theKey = DefaultKey.Name(rawValue: "key")!
+let defaults = UserDefaults.standard
+var stringDefaults = Defaults<String>.standard
+
+// Getting
+let storedValue = stringDefaults[theKey]
+let aStoredValue: String? = defaults.get(for: theKey)
+
+// Setting
+stringDefaults[theKey] = nil
+defaults.set(nil, for: theKey)
+```
+
 # Foundation extensions
 
 ## Array

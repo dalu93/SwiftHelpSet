@@ -25,6 +25,7 @@
 		810DFB751D38E45D003F1604 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB741D38E45D003F1604 /* Resource.swift */; };
 		810DFB781D38E49E003F1604 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DFB771D38E49E003F1604 /* API.swift */; };
 		8132BED01D38198200DCB357 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8132BECF1D38198200DCB357 /* NotificationCenter.swift */; };
+		813551171D9ABBAB0028E548 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813551161D9ABBAB0028E548 /* Defaults.swift */; };
 		813846A71D6C78D400F25769 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */; };
 		813846AB1D6C78F700F25769 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813846AA1D6C78F700F25769 /* KeyboardObserver.swift */; };
 		813BE6D21D94FD26000A9587 /* NotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813BE6D11D94FD26000A9587 /* NotificationContainer.swift */; };
@@ -98,6 +99,7 @@
 		810DFB741D38E45D003F1604 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Utilities/Resource.swift; sourceTree = "<group>"; };
 		810DFB771D38E49E003F1604 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/Utilities/API.swift; sourceTree = "<group>"; };
 		8132BECF1D38198200DCB357 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Sources/Foundation/NotificationCenter.swift; sourceTree = "<group>"; };
+		813551161D9ABBAB0028E548 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defaults.swift; path = Sources/Foundation/Defaults.swift; sourceTree = "<group>"; };
 		813846A61D6C78D400F25769 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIKIt/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		813846AA1D6C78F700F25769 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/UIKIt/KeyboardObserver.swift; sourceTree = "<group>"; };
 		813BE6D11D94FD26000A9587 /* NotificationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationContainer.swift; path = Sources/Utilities/NotificationContainer.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				81E6E8771D58ACCC00F09695 /* IntExtensions.swift */,
 				816C1B0D1D59FAF900D219BC /* DictionaryExtensions.swift */,
 				816739B21D674AF4009C10AF /* NSURLRequestExtensions.swift */,
+				813551161D9ABBAB0028E548 /* Defaults.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				81F5059B1D391ED6008121F7 /* BasicAnimation.swift in Sources */,
 				81081F861D37E1F0000F8DFE /* ReusableView.swift in Sources */,
 				813BE6D21D94FD26000A9587 /* NotificationContainer.swift in Sources */,
+				813551171D9ABBAB0028E548 /* Defaults.swift in Sources */,
 				816739B51D675650009C10AF /* UIGestureRecognizerExtensions.swift in Sources */,
 				81CE13111D4B48E300007BB6 /* UIViewExtensions.swift in Sources */,
 				81081F601D37D866000F8DFE /* ViewController.swift in Sources */,

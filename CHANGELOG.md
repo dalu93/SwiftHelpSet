@@ -1,6 +1,7 @@
 ## 1.5
 
 * `NotificationContainer` object
+* `UserDefaults` extension and `Defaults` helper enum
 
 ## 1.4
 
