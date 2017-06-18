@@ -43,11 +43,11 @@ private extension Permission {
     
     func _askCameraPermission(completion: @escaping PermissionCompletionHandler) {
         
-        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
         case .authorized: completion(.success(true))
         case .notDetermined:
             AVCaptureDevice.requestAccess(
-                forMediaType: AVMediaTypeVideo,
+                for: AVMediaType.video,
                 completionHandler: { granted in
                     
                     if granted {

@@ -27,7 +27,7 @@ public extension UIGestureRecognizer {
         }
     }
     
-    func trigger() {
+    @objc func trigger() {
         self.closureWrapper?.closure()
     }
 }

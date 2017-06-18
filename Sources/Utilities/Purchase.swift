@@ -148,7 +148,12 @@ extension Purchase: SKPaymentTransactionObserver {
                 
             case .failed:
                 purchasing = false
-                onPurchaseCompleted?(.failed($0.error as? NSError ?? NSError.purchaseGenericError()))
+                var error = NSError.purchaseGenericError()
+                if let transactionError = $0.error {
+                    error = transactionError as NSError
+                }
+                
+                onPurchaseCompleted?(.failed(error))
                 SKPaymentQueue.default().finishTransaction($0)
 
             default:
